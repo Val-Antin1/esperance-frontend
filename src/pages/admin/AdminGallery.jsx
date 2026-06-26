@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaImages, FaPlus, FaEdit, FaTrash, FaSearch, FaSignOutAlt, FaBars, FaTimes, FaTachometerAlt, FaCog, FaUserTie, FaNewspaper, FaTimesCircle, FaCalendarAlt, FaFolder, FaExpand, FaEye } from 'react-icons/fa';
+import { FaImages, FaPlus, FaEdit, FaTrash, FaSearch, FaSignOutAlt, FaBars, FaTimes, FaTachometerAlt, FaCog, FaUserTie, FaNewspaper, FaTimesCircle, FaCalendarAlt, FaFolder, FaExpand, FaEye, FaCheckSquare, FaSquare } from 'react-icons/fa';
 import api from '../../services/api';
 
 const navItems = [
@@ -32,6 +32,8 @@ const AdminGallery = () => {
   const [storageFull, setStorageFull] = useState(false);
   const [uploadError, setUploadError] = useState('');
   const [activeCategory, setActiveCategory] = useState('All');
+  const [selectedItems, setSelectedItems] = useState([]);
+  const [bulkDeleteConfirm, setBulkDeleteConfirm] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('adminToken');
@@ -104,6 +106,31 @@ const AdminGallery = () => {
   const handleDelete = async (id) => {
     try { await api.delete(`/gallery/${id}`); setDeleteConfirm(null); fetchItems(); }
     catch (e) { alert('Error deleting'); }
+  };
+
+  const handleBulkDelete = async () => {
+    try {
+      await api.delete('/gallery', { data: { ids: selectedItems } });
+      setBulkDeleteConfirm(false);
+      setSelectedItems([]);
+      fetchItems();
+    } catch (e) {
+      alert('Error deleting images');
+    }
+  };
+
+  const toggleItemSelection = (id) => {
+    setSelectedItems(prev => 
+      prev.includes(id) ? prev.filter(itemId => itemId !== id) : [...prev, id]
+    );
+  };
+
+  const toggleSelectAll = () => {
+    if (selectedItems.length === filtered.length) {
+      setSelectedItems([]);
+    } else {
+      setSelectedItems(filtered.map(item => item._id));
+    }
   };
 
   const logout = () => { localStorage.removeItem('adminToken'); localStorage.removeItem('adminUser'); navigate('/admin', { replace: true }); };
@@ -307,6 +334,29 @@ const AdminGallery = () => {
             )}
           </AnimatePresence>
 
+          {/* Bulk Delete Confirmation Modal */}
+          <AnimatePresence>
+            {bulkDeleteConfirm && (
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/30 backdrop-blur-sm" onClick={() => setBulkDeleteConfirm(false)}>
+                <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} className="bg-white rounded-2xl shadow-xl p-6 w-full max-w-sm" onClick={e => e.stopPropagation()}>
+                  <div className="text-center">
+                    <div className="w-14 h-14 rounded-full bg-red-50 flex items-center justify-center mx-auto mb-4">
+                      <FaTrash className="text-red-500 text-xl" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Delete Selected Images?</h3>
+                    <p className="text-sm text-gray-500 mb-6">
+                      Are you sure you want to delete {selectedItems.length} image{selectedItems.length !== 1 ? 's' : ''}? This action cannot be undone.
+                    </p>
+                    <div className="flex gap-3">
+                      <button onClick={() => setBulkDeleteConfirm(false)} className="flex-1 px-4 py-2.5 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-all text-sm font-medium">Cancel</button>
+                      <button onClick={handleBulkDelete} className="flex-1 px-4 py-2.5 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-all text-sm font-medium">Delete All</button>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
           {/* Image Preview Modal */}
           <AnimatePresence>
             {selectedImage && (
@@ -322,6 +372,46 @@ const AdminGallery = () => {
               </motion.div>
             )}
           </AnimatePresence>
+
+          {/* Bulk Actions Toolbar */}
+          {selectedItems.length > 0 && (
+            <div className="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm mb-6 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <span className="text-sm font-medium text-gray-700">
+                  {selectedItems.length} image{selectedItems.length !== 1 ? 's' : ''} selected
+                </span>
+                <button 
+                  onClick={() => setSelectedItems([])}
+                  className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
+                >
+                  Clear selection
+                </button>
+              </div>
+              <button 
+                onClick={() => setBulkDeleteConfirm(true)}
+                className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-all duration-200 text-sm font-medium shadow-sm"
+              >
+                <FaTrash className="text-xs" /> Delete Selected
+              </button>
+            </div>
+          )}
+
+          {/* Select All */}
+          {!loading && filtered.length > 0 && (
+            <div className="mb-4">
+              <button 
+                onClick={toggleSelectAll}
+                className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                {selectedItems.length === filtered.length ? (
+                  <FaCheckSquare className="text-gray-900" />
+                ) : (
+                  <FaSquare className="text-gray-400" />
+                )}
+                {selectedItems.length === filtered.length ? 'Deselect All' : 'Select All'}
+              </button>
+            </div>
+          )}
 
           {/* Gallery Grid */}
           {loading ? (
@@ -349,7 +439,23 @@ const AdminGallery = () => {
                     transition={{ delay: index * 0.03 }}
                     className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 overflow-hidden"
                   >
-                    <div className="relative h-48 bg-gray-100 overflow-hidden cursor-pointer" onClick={() => setSelectedImage({ ...item, imageUrl: imageSrc })}>
+                    <div className="relative h-48 bg-gray-100 overflow-hidden cursor-pointer" onClick={(e) => { e.stopPropagation(); setSelectedImage({ ...item, imageUrl: imageSrc }); }}>
+                      <div className="absolute top-3 right-3 z-10">
+                        <button
+                          onClick={(e) => { e.stopPropagation(); toggleItemSelection(item._id); }}
+                          className="w-6 h-6 rounded-md border-2 flex items-center justify-center transition-all duration-200 bg-white/90 backdrop-blur-sm"
+                          style={{
+                            borderColor: selectedItems.includes(item._id) ? '#111827' : '#d1d5db',
+                            backgroundColor: selectedItems.includes(item._id) ? '#111827' : 'rgba(255, 255, 255, 0.9)'
+                          }}
+                        >
+                          {selectedItems.includes(item._id) && (
+                            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                            </svg>
+                          )}
+                        </button>
+                      </div>
                       {imageSrc ? (
                         <img src={imageSrc} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                       ) : (
