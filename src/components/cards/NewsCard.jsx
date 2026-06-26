@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
 import { FaNewspaper } from 'react-icons/fa';
+import { normalizeImageUrl } from '../../utils/imageUrl';
 
 const NewsCard = ({ article, index = 0, featured = false }) => {
+  const imageUrl = normalizeImageUrl(article.imageUrl);
+
   if (featured) {
     return (
       <motion.div
@@ -11,9 +14,9 @@ const NewsCard = ({ article, index = 0, featured = false }) => {
         transition={{ duration: 0.6 }}
         className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 group"
       >
-        {article.imageUrl ? (
+        {imageUrl ? (
           <div className="h-72 overflow-hidden">
-            <img src={article.imageUrl} alt={article.title} className="w-full h-full object-cover" />
+            <img src={imageUrl} alt={article.title} className="w-full h-full object-cover" />
           </div>
         ) : (
           <div className="h-72 bg-gradient-to-br from-primary to-primary-light flex items-center justify-center">
@@ -41,9 +44,9 @@ const NewsCard = ({ article, index = 0, featured = false }) => {
       whileHover={{ y: -5 }}
       className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 group"
     >
-      {article.imageUrl ? (
+      {imageUrl ? (
         <div className="h-48 overflow-hidden">
-          <img src={article.imageUrl} alt={article.title} className="w-full h-full object-cover" />
+          <img src={imageUrl} alt={article.title} className="w-full h-full object-cover" />
         </div>
       ) : (
         <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">

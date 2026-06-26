@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion';
 import { FaImage } from 'react-icons/fa';
+import { useState } from 'react';
+import { normalizeImageUrl } from '../../utils/imageUrl';
 
 const GalleryCard = ({ image, index = 0 }) => {
-  const imageSrc = image.imageUrl?.startsWith('http') ? image.imageUrl : image.imageUrl;
+  const imageSrc = normalizeImageUrl(image.imageUrl || image.src);
+  const [imgError, setImgError] = useState(false);
 
   return (
     <motion.div
@@ -15,8 +18,13 @@ const GalleryCard = ({ image, index = 0 }) => {
       className="group relative overflow-hidden rounded-xl cursor-pointer shadow-md hover:shadow-xl transition-all duration-300 h-full"
     >
       <div className="w-full h-full bg-gray-100 flex items-center justify-center overflow-hidden">
-        {imageSrc ? (
-          <img src={imageSrc} alt={image.title} className="w-full h-full object-cover" />
+        {imageSrc && !imgError ? (
+          <img 
+            src={imageSrc} 
+            alt={image.title} 
+            className="w-full h-full object-cover"
+            onError={() => setImgError(true)}
+          />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
             <FaImage className="text-4xl text-gray-400" />

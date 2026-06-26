@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
 import { FaUserTie } from 'react-icons/fa';
+import { normalizeImageUrl } from '../../utils/imageUrl';
 
 const StaffCard = ({ member, index = 0 }) => {
+  const imageUrl = normalizeImageUrl(member.image);
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -11,9 +14,9 @@ const StaffCard = ({ member, index = 0 }) => {
       whileHover={{ y: -5 }}
       className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 group"
     >
-      {member.image ? (
+      {imageUrl ? (
         <div className="h-64 overflow-hidden">
-          <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+          <img src={imageUrl} alt={member.name} className="w-full h-full object-cover" />
         </div>
       ) : (
         <div className="h-64 bg-gradient-to-br from-primary to-primary-light flex items-center justify-center">

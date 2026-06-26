@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaNewspaper, FaPlus, FaEdit, FaTrash, FaSearch, FaSignOutAlt, FaBars, FaTimes, FaTachometerAlt, FaCog, FaUserTie, FaImages, FaCheck, FaTimesCircle, FaCalendarAlt, FaTag, FaEye } from 'react-icons/fa';
 import api from '../../services/api';
+import { normalizeImageUrl } from '../../utils/imageUrl';
 
 const navItems = [
   { label: 'Dashboard', path: '/admin/dashboard', icon: FaTachometerAlt },
@@ -232,9 +233,8 @@ const AdminNews = () => {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filtered.map((item, index) => {
-                const backendRoot = api.defaults.baseURL?.replace(/\/api$/, '') || '';
-                const imageSrc = item.imageUrl?.startsWith('http') ? item.imageUrl : `${backendRoot}${item.imageUrl}`;
+            {filtered.map((item, index) => {
+                const imageSrc = normalizeImageUrl(item.imageUrl);
                 return (
                   <motion.div
                     key={item._id}

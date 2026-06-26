@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaImages, FaPlus, FaEdit, FaTrash, FaSearch, FaSignOutAlt, FaBars, FaTimes, FaTachometerAlt, FaCog, FaUserTie, FaNewspaper, FaTimesCircle, FaCalendarAlt, FaFolder, FaExpand, FaEye, FaCheckSquare, FaSquare } from 'react-icons/fa';
 import api from '../../services/api';
+import { normalizeImageUrl } from '../../utils/imageUrl';
 
 const navItems = [
   { label: 'Dashboard', path: '/admin/dashboard', icon: FaTachometerAlt },
@@ -363,7 +364,7 @@ const AdminGallery = () => {
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md" onClick={() => setSelectedImage(null)}>
                 <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} className="relative max-w-4xl w-full max-h-[90vh]" onClick={e => e.stopPropagation()}>
                   <button onClick={() => setSelectedImage(null)} className="absolute -top-3 -right-3 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-600 hover:text-gray-900 z-10 transition-colors"><FaTimes /></button>
-                  <img src={selectedImage.imageUrl} alt={selectedImage.title} className="w-full max-h-[80vh] object-contain rounded-2xl shadow-2xl" />
+                  <img src={normalizeImageUrl(selectedImage.imageUrl)} alt={selectedImage.title} className="w-full max-h-[80vh] object-contain rounded-2xl shadow-2xl" />
                   <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent rounded-b-2xl">
                     <h3 className="text-white font-semibold">{selectedImage.title}</h3>
                     <p className="text-white/70 text-sm">{selectedImage.category}{selectedImage.description ? ` — ${selectedImage.description}` : ''}</p>
@@ -429,8 +430,7 @@ const AdminGallery = () => {
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
               {filtered.map((item, index) => {
-                const backendRoot = api.defaults.baseURL?.replace(/\/api$/, '') || '';
-                const imageSrc = item.imageUrl?.startsWith('http') ? item.imageUrl : `${backendRoot}${item.imageUrl}`;
+                const imageSrc = normalizeImageUrl(item.imageUrl);
                 return (
                   <motion.div
                     key={item._id}
