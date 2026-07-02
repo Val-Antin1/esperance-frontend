@@ -10,7 +10,7 @@ const slides = [
     ctaLink: '/football',
     secondaryCtaText: 'Learn More',
     secondaryCtaLink: '/about',
-    image: 'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=1920&q=80',
+    image: '/football.jpeg',
     accent: '#D4AF37',
   },
   {
@@ -20,7 +20,7 @@ const slides = [
     ctaLink: '/basketball',
     secondaryCtaText: 'View Programs',
     secondaryCtaLink: '/about',
-    image: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1920&q=80',
+    image: '/basketball.jpeg',
     accent: '#D4AF37',
   },
   {
@@ -30,7 +30,7 @@ const slides = [
     ctaLink: '/volleyball',
     secondaryCtaText: 'View Programs',
     secondaryCtaLink: '/about',
-    image: 'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=1920&q=80',
+    image: '/volleyball.jpeg',
     accent: '#D4AF37',
   },
   {
@@ -40,7 +40,7 @@ const slides = [
     ctaLink: '/table-tennis',
     secondaryCtaText: 'View Programs',
     secondaryCtaLink: '/about',
-    image: 'https://images.unsplash.com/photo-1611251135345-99c8e5e4c5c2?w=1920&q=80',
+    image: '/tennis.jfif',
     accent: '#D4AF37',
   },
   {

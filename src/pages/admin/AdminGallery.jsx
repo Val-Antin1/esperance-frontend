@@ -32,6 +32,7 @@ const AdminGallery = () => {
   const [storageMax, setStorageMax] = useState(100);
   const [storageFull, setStorageFull] = useState(false);
   const [uploadError, setUploadError] = useState('');
+  const [uploadSuccess, setUploadSuccess] = useState('');
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedItems, setSelectedItems] = useState([]);
   const [bulkDeleteConfirm, setBulkDeleteConfirm] = useState(false);
@@ -70,17 +71,29 @@ const AdminGallery = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setUploadError('');
+    setUploadSuccess('');
+    
+    // Validate file is selected
+    if (!file) {
+      setUploadError('Please select an image file to upload');
+      return;
+    }
+    
     try {
       const formData = new FormData();
       formData.append('title', form.title);
       formData.append('category', form.category);
       formData.append('description', form.description);
-      if (file) formData.append('image', file);
+      formData.append('image', file);
+
+      console.log('📤 Uploading file:', file.name, file.size, file.type);
 
       if (editing) {
         await api.put(`/gallery/${editing._id}`, formData);
+        setUploadSuccess('Image updated successfully!');
       } else {
         await api.post('/gallery', formData);
+        setUploadSuccess('Image uploaded successfully!');
       }
 
       setShowForm(false);
@@ -89,8 +102,23 @@ const AdminGallery = () => {
       setFile(null);
       setPreview(null);
       fetchItems();
+
+      // Clear success message after 3 seconds
+      setTimeout(() => setUploadSuccess(''), 3000);
     } catch (err) {
-      const errorMsg = err.response?.data?.message || 'Error saving';
+      const errorData = err.response?.data;
+      let errorMsg = 'Error saving';
+      
+      if (errorData) {
+        if (errorData.data && errorData.data.errors) {
+          // Validation errors
+          const validationErrors = errorData.data.errors.map(e => e.msg).join(', ');
+          errorMsg = validationErrors;
+        } else if (errorData.message) {
+          errorMsg = errorData.message;
+        }
+      }
+      
       setUploadError(errorMsg);
     }
   };
@@ -268,6 +296,11 @@ const AdminGallery = () => {
                     {uploadError && (
                       <div className="p-3 bg-red-50 border border-red-200 text-red-700 rounded-xl text-sm">
                         {uploadError}
+                      </div>
+                    )}
+                    {uploadSuccess && (
+                      <div className="p-3 bg-green-50 border border-green-200 text-green-700 rounded-xl text-sm">
+                        {uploadSuccess}
                       </div>
                     )}
                     <div>
