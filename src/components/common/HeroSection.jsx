@@ -61,7 +61,7 @@ const SlideContent = ({ slide, isActive }) => (
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
     transition={{ duration: 0.8 }}
-    className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+    className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col justify-center h-full"
   >
     <motion.div
       initial={{ opacity: 0, y: 40 }}
