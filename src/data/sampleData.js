@@ -251,9 +251,9 @@ export const germanLevels = [
 ];
 
 export const contactInfo = {
-  phone: '+27 12 345 6789',
+  phone: '+250 789 123 456',
   email: 'info@esperancefc.com',
-  address: '123 Sports Avenue, Johannesburg, South Africa',
+  address: 'GS kimisagara, Kigali, Rwanda',
   social: {
     facebook: '#',
     instagram: '#',
