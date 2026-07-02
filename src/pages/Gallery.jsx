@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Seo from '../components/common/Seo';
 import SectionTitle from '../components/common/SectionTitle';
 import GalleryCard from '../components/cards/GalleryCard';
 import api from '../services/api';

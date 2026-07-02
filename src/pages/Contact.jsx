@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Seo from '../components/common/Seo';
 import SectionTitle from '../components/common/SectionTitle';
 import { contactInfo } from '../data/sampleData';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaInstagram, FaYoutube, FaWhatsapp, FaClock, FaGlobeAfrica } from 'react-icons/fa';
