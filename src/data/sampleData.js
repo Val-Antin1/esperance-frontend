@@ -4,7 +4,7 @@ export const activities = [
     title: 'Football Academy',
     icon: 'football',
     description: 'Professional football training for boys aged 6-20 with structured age-group programs and competitive matches.',
-    link: '/football',
+    link: '/football-academy/football',
     color: 'bg-green-50',
   },
   {
@@ -12,7 +12,7 @@ export const activities = [
     title: "Women's Football",
     icon: 'football',
     description: 'Empowering young women through football with dedicated coaching, training facilities, and competitive opportunities.',
-    link: '/women-football',
+    link: '/football-academy/womens-football',
     color: 'bg-purple-50',
   },
   {
@@ -20,7 +20,7 @@ export const activities = [
     title: 'Basketball',
     icon: 'basketball',
     description: 'High-performance basketball program focusing on skill development, teamwork, and competitive play.',
-    link: '/basketball',
+    link: '/football-academy/basketball',
     color: 'bg-orange-50',
   },
   {
@@ -28,7 +28,7 @@ export const activities = [
     title: 'Volleyball',
     icon: 'volleyball',
     description: 'Comprehensive volleyball training with experienced coaches and opportunities to compete at various levels.',
-    link: '/volleyball',
+    link: '/football-academy/volleyball',
     color: 'bg-blue-50',
   },
   {
@@ -36,7 +36,7 @@ export const activities = [
     title: 'Table Tennis',
     icon: 'table-tennis',
     description: 'Precision and strategy meet in our table tennis program, suitable for beginners to advanced players.',
-    link: '/table-tennis',
+    link: '/football-academy/table-tennis',
     color: 'bg-red-50',
   },
   {
@@ -44,7 +44,7 @@ export const activities = [
     title: 'German Classes',
     icon: 'language',
     description: 'Learn German language from beginner to advanced levels with qualified instructors and modern teaching methods.',
-    link: '/german-classes',
+    link: '/football-academy/german-classes',
     color: 'bg-yellow-50',
   },
 ];

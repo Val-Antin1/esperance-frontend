@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaMedal, FaRocket, FaTrophy, FaUsers, FaGlobeAfrica, FaStar, FaHandshake, FaShieldAlt, FaLightbulb, FaHeart } from 'react-icons/fa';
 import Seo from '../components/common/Seo';
@@ -418,18 +419,18 @@ const About = () => {
             Join Esperance FC Academy and embark on a journey of sporting excellence, character development, and lifelong achievement.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="px-8 py-4 bg-accent text-primary font-semibold rounded-lg hover:bg-accent-light transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
               Contact Us Today
-            </a>
-            <a
-              href="/football"
+            </Link>
+            <Link
+              to="/football-academy/football"
               className="px-8 py-4 bg-white/10 text-white font-semibold rounded-lg hover:bg-white/20 transition-all duration-300 border border-white/30 backdrop-blur-sm transform hover:-translate-y-1"
             >
               Explore Programs
-            </a>
+            </Link>
           </div>
         </motion.div>
       </section>

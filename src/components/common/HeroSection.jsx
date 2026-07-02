@@ -7,7 +7,7 @@ const slides = [
     title: 'Football Academy',
     subtitle: 'Develop your skills with professional coaching and world-class training facilities',
     ctaText: 'Join Football Program',
-    ctaLink: '/football',
+    ctaLink: '/football-academy/football',
     secondaryCtaText: 'Learn More',
     secondaryCtaLink: '/about',
     image: '/football.jpeg',
@@ -17,7 +17,7 @@ const slides = [
     title: 'Basketball Excellence',
     subtitle: 'Elevate your game with elite training programs and competitive tournaments',
     ctaText: 'Join Basketball Program',
-    ctaLink: '/basketball',
+    ctaLink: '/football-academy/basketball',
     secondaryCtaText: 'View Programs',
     secondaryCtaLink: '/about',
     image: '/basketball.jpeg',
@@ -27,7 +27,7 @@ const slides = [
     title: 'Volleyball Academy',
     subtitle: 'Spike your potential — professional volleyball training for all skill levels',
     ctaText: 'Join Volleyball Program',
-    ctaLink: '/volleyball',
+    ctaLink: '/football-academy/volleyball',
     secondaryCtaText: 'View Programs',
     secondaryCtaLink: '/about',
     image: '/volleyball.jpeg',
@@ -37,7 +37,7 @@ const slides = [
     title: 'Table Tennis',
     subtitle: 'Master the art of speed and precision with expert coaching',
     ctaText: 'Join Table Tennis',
-    ctaLink: '/table-tennis',
+    ctaLink: '/football-academy/table-tennis',
     secondaryCtaText: 'View Programs',
     secondaryCtaLink: '/about',
     image: '/tennis.jfif',
@@ -47,7 +47,7 @@ const slides = [
     title: 'German Language Classes',
     subtitle: 'Learn German with native-speaking instructors and immersive programs',
     ctaText: 'Join German Classes',
-    ctaLink: '/german-classes',
+    ctaLink: '/football-academy/german-classes',
     secondaryCtaText: 'Learn More',
     secondaryCtaLink: '/about',
     image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1920&q=80',
@@ -105,6 +105,7 @@ const SlideContent = ({ slide, isActive }) => (
 
 const Dot = ({ active, onClick }) => (
   <button
+    type="button"
     onClick={onClick}
     className={`transition-all duration-500 rounded-full ${active ? 'w-10 h-2.5' : 'w-2.5 h-2.5'}`}
     style={{ backgroundColor: active ? '#D4AF37' : 'rgba(255,255,255,0.35)' }}
@@ -114,6 +115,7 @@ const Dot = ({ active, onClick }) => (
 
 const Arrow = ({ direction, onClick }) => (
   <button
+    type="button"
     onClick={onClick}
     className="absolute top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 border border-white/20 transition-all duration-300 group"
     style={{ [direction === 'left' ? 'left' : 'right']: '1rem' }}

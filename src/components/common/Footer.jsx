@@ -12,12 +12,12 @@ const quickLinks = [
 ];
 
 const sportLinks = [
-  { label: 'Football Academy', path: '/football' },
-  { label: "Women's Football", path: '/women-football' },
-  { label: 'Basketball', path: '/basketball' },
-  { label: 'Volleyball', path: '/volleyball' },
-  { label: 'Table Tennis', path: '/table-tennis' },
-  { label: 'German Classes', path: '/german-classes' },
+  { label: 'Football Academy', path: '/football-academy/football' },
+  { label: "Women's Football", path: '/football-academy/womens-football' },
+  { label: 'Basketball', path: '/football-academy/basketball' },
+  { label: 'Volleyball', path: '/football-academy/volleyball' },
+  { label: 'Table Tennis', path: '/football-academy/table-tennis' },
+  { label: 'German Classes', path: '/football-academy/german-classes' },
 ];
 
 const Footer = () => {

@@ -13,12 +13,12 @@ const navLinks = [
 ];
 
 const programLinks = [
-  { path: '/football', label: 'Football Academy' },
-  { path: '/women-football', label: "Women's Football" },
-  { path: '/basketball', label: 'Basketball' },
-  { path: '/volleyball', label: 'Volleyball' },
-  { path: '/table-tennis', label: 'Table Tennis' },
-  { path: '/german-classes', label: 'German Classes' },
+  { path: '/football-academy/football', label: 'Football Academy' },
+  { path: '/football-academy/womens-football', label: "Women's Football" },
+  { path: '/football-academy/basketball', label: 'Basketball' },
+  { path: '/football-academy/volleyball', label: 'Volleyball' },
+  { path: '/football-academy/table-tennis', label: 'Table Tennis' },
+  { path: '/football-academy/german-classes', label: 'German Classes' },
 ];
 
 const Navbar = () => {
@@ -79,6 +79,8 @@ const Navbar = () => {
             >
               <button
                 type="button"
+                aria-haspopup="menu"
+                aria-expanded={programsOpen}
                 className="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-primary transition duration-200"
               >
                 Programs
