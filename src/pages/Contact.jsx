@@ -50,6 +50,7 @@ const Contact = () => {
 
   return (
     <div>
+      <Seo path="/contact" />
       {/* Hero Section */}
       <div className="relative min-h-[45vh] sm:min-h-[50vh] flex items-center justify-center bg-gradient-to-br from-primary via-primary/95 to-primary/80 overflow-hidden">
         <div className="absolute inset-0">

@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import MainLayout from '../layouts/MainLayout';
 import Home from '../pages/Home';
 import About from '../pages/About';
+import FootballAcademy from '../pages/FootballAcademy';
 import Football from '../pages/Football';
 import WomenFootball from '../pages/WomenFootball';
 import Basketball from '../pages/Basketball';
@@ -35,12 +36,13 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: 'about', element: <About /> },
-      { path: 'football', element: <Football /> },
-      { path: 'women-football', element: <WomenFootball /> },
-      { path: 'basketball', element: <Basketball /> },
-      { path: 'volleyball', element: <Volleyball /> },
-      { path: 'table-tennis', element: <TableTennis /> },
-      { path: 'german-classes', element: <GermanClasses /> },
+      { path: 'football-academy', element: <FootballAcademy /> },
+      { path: 'football-academy/football', element: <Football /> },
+      { path: 'football-academy/womens-football', element: <WomenFootball /> },
+      { path: 'football-academy/basketball', element: <Basketball /> },
+      { path: 'football-academy/volleyball', element: <Volleyball /> },
+      { path: 'football-academy/table-tennis', element: <TableTennis /> },
+      { path: 'football-academy/german-classes', element: <GermanClasses /> },
       { path: 'gallery', element: <Gallery /> },
       { path: 'news', element: <News /> },
       { path: 'contact', element: <Contact /> },

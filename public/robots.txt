@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://esperancee.vercel.app/sitemap.xml

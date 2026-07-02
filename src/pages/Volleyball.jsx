@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import Seo from '../components/common/Seo';
 import SectionTitle from '../components/common/SectionTitle';
 import StudentCard from '../components/cards/StudentCard';
 import GalleryCard from '../components/cards/GalleryCard';
@@ -24,6 +25,7 @@ const Volleyball = () => {
   const gallery = galleryImages.filter(img => img.category === 'Volleyball');
   return (
     <div>
+      <Seo path="/football-academy/volleyball" />
       <div className="relative min-h-[45vh] sm:min-h-[50vh] flex items-center justify-center bg-gradient-to-br from-primary via-primary/95 to-primary/80">
         <div className="absolute top-10 left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl" />
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />

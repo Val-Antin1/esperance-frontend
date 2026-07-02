@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaMedal, FaRocket, FaTrophy, FaUsers, FaGlobeAfrica, FaStar, FaHandshake, FaShieldAlt, FaLightbulb, FaHeart } from 'react-icons/fa';
+import Seo from '../components/common/Seo';
 import SectionTitle from '../components/common/SectionTitle';
 import StaffCard from '../components/cards/StaffCard';
 import api from '../services/api';
@@ -124,6 +125,7 @@ const About = () => {
 
   return (
     <div className="overflow-hidden">
+      <Seo path="/about" />
       {/* Hero Banner */}
       <section className="relative min-h-[45vh] flex items-center justify-center bg-primary overflow-hidden">
         <div className="absolute inset-0">

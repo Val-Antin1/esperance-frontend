@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 import HeroCarousel from '../components/common/HeroSection';
 import SectionTitle from '../components/common/SectionTitle';
+import Seo from '../components/common/Seo';
 import ActivityCard from '../components/cards/ActivityCard';
 import GalleryCard from '../components/cards/GalleryCard';
 import NewsCard from '../components/cards/NewsCard';
@@ -77,6 +78,7 @@ const Home = () => {
 
   return (
     <div>
+      <Seo path="/" />
       {/* Hero Carousel */}
       <HeroCarousel />
 
