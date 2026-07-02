@@ -50,8 +50,8 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between gap-8">
           <Link to="/" className="flex items-center gap-4 flex-shrink-0">
-            <div className="w-24 h-24 bg-white/90 flex items-center justify-center">
-              <img src="/logo.PNG" alt="Esperance FC Academy" className="h-20 w-auto object-contain" />
+            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/90 flex items-center justify-center rounded-2xl overflow-hidden">
+              <img src="/logo.PNG" alt="Esperance FC Academy" className="h-14 sm:h-16 w-auto object-contain" />
             </div>
           </Link>
 

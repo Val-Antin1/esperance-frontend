@@ -49,7 +49,7 @@ const Gallery = () => {
 
   return (
     <div>
-      <div className="relative h-[50vh] min-h-[400px] flex items-center justify-center bg-gradient-to-br from-primary via-primary/95 to-primary/80">
+      <div className="relative min-h-[45vh] sm:min-h-[50vh] flex items-center justify-center bg-gradient-to-br from-primary via-primary/95 to-primary/80">
         <div className="absolute top-10 left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl" />
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="relative z-10 text-center px-4">
@@ -81,7 +81,7 @@ const Gallery = () => {
 
           {/* Gallery Masonry Grid */}
           <AnimatePresence mode="popLayout">
-            <motion.div layout className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 auto-rows-[250px]">
+            <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[250px]">
               {filteredImages.map((image, index) => (
                 <motion.div
                   key={image._id || image.id}

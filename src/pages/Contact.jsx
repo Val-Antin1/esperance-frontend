@@ -51,7 +51,7 @@ const Contact = () => {
   return (
     <div>
       {/* Hero Section */}
-      <div className="relative h-[50vh] min-h-[400px] flex items-center justify-center bg-gradient-to-br from-primary via-primary/95 to-primary/80 overflow-hidden">
+      <div className="relative min-h-[45vh] sm:min-h-[50vh] flex items-center justify-center bg-gradient-to-br from-primary via-primary/95 to-primary/80 overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-10 left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl animate-pulse" />
           <div className="absolute bottom-10 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
@@ -178,7 +178,7 @@ const Contact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="h-[450px] rounded-3xl overflow-hidden border border-gray-200 shadow-[0_30px_80px_rgba(15,23,42,0.08)] group"
+              className="h-[320px] sm:h-[420px] rounded-3xl overflow-hidden border border-gray-200 shadow-[0_30px_80px_rgba(15,23,42,0.08)] group"
             >
               <iframe
                 title="GS Kimisagara Directions"

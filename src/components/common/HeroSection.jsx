@@ -82,10 +82,10 @@ const SlideContent = ({ slide, isActive }) => (
       <p className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto leading-relaxed">
         {slide.subtitle}
       </p>
-      <div className="flex flex-wrap justify-center gap-4">
+      <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4">
         <Link
           to={slide.ctaLink}
-          className="group relative px-8 py-4 font-semibold rounded-lg overflow-hidden transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+          className="group relative w-full sm:w-auto px-6 py-4 font-semibold rounded-lg overflow-hidden transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           style={{ color: '#111111', backgroundColor: slide.accent }}
         >
           <span className="relative z-10">{slide.ctaText}</span>
@@ -93,7 +93,7 @@ const SlideContent = ({ slide, isActive }) => (
         </Link>
         <Link
           to={slide.secondaryCtaLink}
-          className="px-8 py-4 text-white font-semibold rounded-lg transition-all duration-300 border-2 hover:bg-white/10 backdrop-blur-sm transform hover:-translate-y-1"
+          className="w-full sm:w-auto px-6 py-4 text-white font-semibold rounded-lg transition-all duration-300 border-2 hover:bg-white/10 backdrop-blur-sm transform hover:-translate-y-1"
           style={{ borderColor: `${slide.accent}60` }}
         >
           {slide.secondaryCtaText}
@@ -164,7 +164,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-dvh min-h-[600px] max-h-screen overflow-hidden bg-primary">
+    <div className="relative w-full min-h-[75vh] sm:min-h-[80vh] md:min-h-[85vh] lg:min-h-[100vh] max-h-screen overflow-hidden bg-primary">
       {/* Background Images with Fade */}
       <AnimatePresence mode="wait">
         <motion.div

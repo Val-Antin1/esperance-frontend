@@ -135,7 +135,7 @@ const Home = () => {
       <section className="py-20 bg-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle title="Esperance FC by the Numbers" subtitle="Our impact in the community" light />
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-12">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -169,7 +169,7 @@ const Home = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle title="Our Gallery" subtitle="Moments captured at Esperance FC Academy" />
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[220px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[220px]">
             {loadingGallery ? (
               Array.from({ length: 8 }).map((_, index) => (
                 <div key={index} className={`${['md:col-span-2 md:row-span-2','col-span-1','col-span-1','md:col-span-2','col-span-1','col-span-1','col-span-1','md:col-span-2'][index % 8]}`}>

@@ -33,7 +33,7 @@ const GermanClasses = () => {
 
   return (
     <div>
-      <div className="relative h-[60vh] min-h-[450px] flex items-center justify-center bg-gradient-to-br from-primary via-primary/95 to-primary/80">
+      <div className="relative min-h-[50vh] sm:min-h-[55vh] flex items-center justify-center bg-gradient-to-br from-primary via-primary/95 to-primary/80">
         <div className="absolute top-10 left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl" /><div className="absolute bottom-10 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="relative z-10 text-center px-4">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">German Classes</h1>
@@ -92,7 +92,7 @@ const GermanClasses = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle title="Gallery" subtitle="German language learning in action" />
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {gallery.map((image, index) => (<GalleryCard key={image.id} image={image} index={index} />))}
           </div>
         </div>
