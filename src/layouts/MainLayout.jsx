@@ -1,9 +1,16 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import Navbar from '../components/navigation/Navbar';
 import Footer from '../components/common/Footer';
 import WhatsAppButton from '../components/common/WhatsAppButton';
 
 const MainLayout = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [location.pathname]);
+
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
