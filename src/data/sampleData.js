@@ -90,21 +90,21 @@ export const leadership = [
 export const testimonials = [
   {
     id: 1,
-    name: 'James K.',
+    name: 'jules.',
     role: 'Parent of U15 Player',
     content: 'Esperance FC has transformed my son\'s life. The discipline, training quality, and values they instill are remarkable.',
     rating: 5,
   },
   {
     id: 2,
-    name: 'Amara O.',
+    name: 'Beker.',
     role: 'Basketball Athlete',
     content: 'The coaching staff truly cares about each athlete\'s development. I\'ve improved more here than anywhere else.',
     rating: 5,
   },
   {
     id: 3,
-    name: 'Lena W.',
+    name: 'Lennard.',
     role: 'German Class Student',
     content: 'The German language program is excellent. Small class sizes and passionate teachers make learning enjoyable.',
     rating: 5,
