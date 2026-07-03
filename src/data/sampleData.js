@@ -51,7 +51,7 @@ export const activities = [
 
 export const stats = [
   { label: 'Students', value: 500, suffix: '+' },
-  { label: 'Coaches', value: 25, suffix: '+' },
+  { label: 'Coaches', value: 2, suffix: '' },
   { label: 'Sports', value: 6, suffix: '' },
   { label: 'Years of Experience', value: 15, suffix: '+' },
 ];
