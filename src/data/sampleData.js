@@ -56,7 +56,36 @@ export const stats = [
   { label: 'Years of Experience', value: 15, suffix: '+' },
 ];
 
-
+export const leadership = [
+  {
+    id: 1,
+    name: 'Dr. Ahmed Benali',
+    position: 'President',
+    description: 'Visionary leader with over 20 years of experience in sports management and youth development. Founded Esperance FC Academy to provide world-class training opportunities.',
+    image: null,
+  },
+  {
+    id: 2,
+    name: 'Sarah Mthembu',
+    position: 'General Manager',
+    description: 'Experienced sports administrator dedicated to operational excellence and creating an environment where young athletes can thrive.',
+    image: null,
+  },
+  {
+    id: 3,
+    name: 'Coach Pierre Dubois',
+    position: 'Head Coach - Football',
+    description: 'UEFA-licensed coach with extensive experience training youth academies across Europe and Africa. Specializes in technical development.',
+    image: null,
+  },
+  {
+    id: 4,
+    name: 'Coach Maria Santos',
+    position: 'Head of Women\'s Football',
+    description: 'Former professional player turned coach, passionate about developing women\'s football and creating equal opportunities in sports.',
+    image: null,
+  },
+];
 
 export const testimonials = [
   {
