@@ -56,36 +56,7 @@ export const stats = [
   { label: 'Years of Experience', value: 15, suffix: '+' },
 ];
 
-export const leadership = [
-  {
-    id: 1,
-    name: 'Dr. Ahmed Benali',
-    position: 'President',
-    description: 'Visionary leader with over 20 years of experience in sports management and youth development. Founded Esperance FC Academy to provide world-class training opportunities.',
-    image: null,
-  },
-  {
-    id: 2,
-    name: 'Sarah Mthembu',
-    position: 'General Manager',
-    description: 'Experienced sports administrator dedicated to operational excellence and creating an environment where young athletes can thrive.',
-    image: null,
-  },
-  {
-    id: 3,
-    name: 'Coach Pierre Dubois',
-    position: 'Head Coach - Football',
-    description: 'UEFA-licensed coach with extensive experience training youth academies across Europe and Africa. Specializes in technical development.',
-    image: null,
-  },
-  {
-    id: 4,
-    name: 'Coach Maria Santos',
-    position: 'Head of Women\'s Football',
-    description: 'Former professional player turned coach, passionate about developing women\'s football and creating equal opportunities in sports.',
-    image: null,
-  },
-];
+
 
 export const testimonials = [
   {
@@ -191,34 +162,34 @@ export const galleryCategories = [
 
 export const students = {
   football: [
-    { id: 1, name: 'David Ochieng', age: 14, position: 'Forward', image: null },
-    { id: 2, name: 'Michael van der Merwe', age: 16, position: 'Midfielder', image: null },
-    { id: 3, name: 'Thabo Nkosi', age: 12, position: 'Goalkeeper', image: null },
-    { id: 4, name: 'Kevin Schmidt', age: 15, position: 'Defender', image: null },
+    { id: 1, name: 'Kenny', age: 14, position: 'Forward', image: null },
+    { id: 2, name: 'Bruno', age: 16, position: 'Midfielder', image: null },
+    { id: 3, name: 'Gad', age: 12, position: 'Goalkeeper', image: null },
+    { id: 4, name: 'Kevin', age: 15, position: 'Defender', image: null },
   ],
   womenFootball: [
-    { id: 1, name: 'Grace Akinyi', age: 16, position: 'Striker', image: null },
-    { id: 2, name: 'Fatima Hassan', age: 15, position: 'Midfielder', image: null },
-    { id: 3, name: 'Lisa van Wyk', age: 17, position: 'Defender', image: null },
-    { id: 4, name: 'Naledi Molefe', age: 14, position: 'Goalkeeper', image: null },
+    { id: 1, name: 'Deborah', age: 16, position: 'Striker', image: null },
+    { id: 2, name: 'queen', age: 15, position: 'Midfielder', image: null },
+    { id: 3, name: 'Raissa', age: 17, position: 'Defender', image: null },
+    { id: 4, name: 'honnete', age: 14, position: 'Goalkeeper', image: null },
   ],
   basketball: [
-    { id: 1, name: 'Samuel Johnson', age: 16, position: 'Point Guard', image: null },
-    { id: 2, name: 'Emmanuel Mensah', age: 17, position: 'Power Forward', image: null },
-    { id: 3, name: 'Kofi Annan', age: 15, position: 'Shooting Guard', image: null },
-    { id: 4, name: 'Daniel Kruger', age: 14, position: 'Center', image: null },
+    { id: 1, name: 'Paul', age: 16, position: 'Point Guard', image: null },
+    { id: 2, name: 'Beker', age: 17, position: 'Power Forward', image: null },
+    { id: 3, name: 'Ntwari', age: 15, position: 'Shooting Guard', image: null },
+    { id: 4, name: 'Nele', age: 14, position: 'Center', image: null },
   ],
   volleyball: [
-    { id: 1, name: 'Chioma Obi', age: 16, position: 'Outside Hitter', image: null },
-    { id: 2, name: 'Zanele Dlamini', age: 15, position: 'Setter', image: null },
-    { id: 3, name: 'Amina Sadiq', age: 17, position: 'Middle Blocker', image: null },
-    { id: 4, name: 'Hannah Botha', age: 14, position: 'Libero', image: null },
+    { id: 1, name: 'fabrice', age: 16, position: 'Outside Hitter', image: null },
+    { id: 2, name: 'domy', age: 15, position: 'Setter', image: null },
+    { id: 3, name: 'thierry', age: 17, position: 'Middle Blocker', image: null },
+    { id: 4, name: 'fab', age: 14, position: 'Libero', image: null },
   ],
   tableTennis: [
-    { id: 1, name: 'Wei Chen', age: 15, position: 'Right Hand Shake', image: null },
-    { id: 2, name: 'James Omondi', age: 16, position: 'Left Hand Penhold', image: null },
-    { id: 3, name: 'Priya Singh', age: 14, position: 'Right Hand Shake', image: null },
-    { id: 4, name: 'Lucas Müller', age: 17, position: 'Right Hand Shake', image: null },
+    { id: 1, name: 'Bruno', age: 15, position: 'Right Hand Shake', image: null },
+    { id: 2, name: 'James', age: 16, position: 'Left Hand Penhold', image: null },
+    { id: 3, name: 'eric', age: 14, position: 'Right Hand Shake', image: null },
+    { id: 4, name: 'answaru', age: 17, position: 'Right Hand Shake', image: null },
   ],
 };
 
