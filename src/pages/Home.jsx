@@ -118,15 +118,12 @@ const Home = () => {
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              <div className="aspect-[4/3] bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl overflow-hidden">
-                <div className="w-full h-full flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-24 h-24 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <FaPlay className="text-4xl text-accent ml-1" />
-                    </div>
-                    <p className="text-primary font-semibold">Esperance FC — Where Champions Are Made</p>
-                  </div>
-                </div>
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-gray-100">
+                <img
+                  src="/espe.jpeg"
+                  alt="Esperance FC Academy"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </motion.div>
           </div>
