@@ -107,7 +107,7 @@ const Home = () => {
                 to="/about"
                 className="inline-flex items-center px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-light transition-colors"
               >
-                Learn More About Us
+                Learn More About Us man
                 <FaPlay className="ml-2 text-sm" />
               </Link>
             </motion.div>
