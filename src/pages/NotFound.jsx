@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaHome } from 'react-icons/fa';
+import Seo from '../components/common/Seo';
 
 const NotFound = () => {
   return (
     <div className="min-h-[80vh] flex items-center justify-center bg-gray-50 py-20">
+      <Seo path="/404" noindex />
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}

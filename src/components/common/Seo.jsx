@@ -35,6 +35,10 @@ const Seo = ({
     <Helmet>
       <title>{metaTitle}</title>
       <meta name="description" content={metaDescription} />
+      <meta name="application-name" content={SITE_NAME} />
+      <meta name="apple-mobile-web-app-title" content={SITE_NAME} />
+      <meta name="author" content={SITE_NAME} />
+      <meta property="og:site_name" content={SITE_NAME} />
       <link rel="canonical" href={metaUrl} />
 
       <meta property="og:title" content={metaTitle} />

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaUserLock, FaSpinner, FaExclamationCircle, FaEye, FaEyeSlash, FaArrowRight } from 'react-icons/fa';
+import Seo from '../components/common/Seo';
 import api from '../services/api';
 
 const AdminLogin = () => {
@@ -64,6 +65,7 @@ const AdminLogin = () => {
 
   return (
     <div className="min-h-screen flex bg-white overflow-hidden">
+      <Seo path="/admin" noindex />
       {/* Left Side - Hero Section 60% */}
       <motion.div
         initial={{ opacity: 0, x: -100 }}

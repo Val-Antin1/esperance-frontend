@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaImages, FaPlus, FaEdit, FaTrash, FaSearch, FaSignOutAlt, FaBars, FaTimes, FaTachometerAlt, FaCog, FaUserTie, FaNewspaper, FaTimesCircle, FaCalendarAlt, FaFolder, FaExpand, FaEye, FaCheckSquare, FaSquare } from 'react-icons/fa';
+import Seo from '../../components/common/Seo';
 import api from '../../services/api';
 import { normalizeImageUrl } from '../../utils/imageUrl';
 
@@ -179,6 +180,8 @@ const AdminGallery = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50 flex">
+      <Seo path="/admin/gallery" noindex />
+      <Seo path="/admin/gallery" noindex />
       {sidebarOpen && <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 lg:hidden" onClick={() => setSidebarOpen(false)} />}
       <aside className={`fixed lg:fixed inset-y-0 left-0 z-50 w-64 bg-white/95 backdrop-blur-xl border-r border-gray-100 shadow-lg flex flex-col transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 transition-all duration-300`}>
         <div className="p-6 border-b border-gray-100 flex-shrink-0">

@@ -1,6 +1,6 @@
-# Esperance FC Frontend
+# Esperance FC Academy Frontend
 
-A modern, responsive React frontend application for Esperance FC Academy - a premier sports training institution dedicated to nurturing young talent across multiple sports programs.
+A modern, responsive React frontend for Esperance FC Academy, a premier sports training institution empowering young athletes through football, basketball, volleyball, table tennis, and German language classes.
 
 ## 🏆 Features
 
@@ -10,12 +10,12 @@ A modern, responsive React frontend application for Esperance FC Academy - a pre
 - **Modern UI/UX**: Built with Tailwind CSS v4 for a polished, professional appearance
 - **Admin Dashboard**: Complete CMS for managing content (News, Gallery, Staff)
 - **Contact Integration**: WhatsApp button, contact forms, and location mapping
-- **Performance Optimized**: Built with Vite for fast development and production builds
+- **Performance Optimized**: Built for fast development and production builds with Vite
 
 ## 🛠️ Tech Stack
 
 - **React 19** - UI library
-- **Vite 8** - Build tool and dev server
+- **Vite 8** - Build tool and local development server
 - **Tailwind CSS 4** - Utility-first CSS framework
 - **Framer Motion** - Animation library
 - **React Router 7** - Client-side routing
@@ -169,7 +169,7 @@ The app connects to a backend API for dynamic content:
 npm run build
 ```
 
-The build output will be in the `dist/` directory, ready for deployment to any static hosting service.
+The build output will be in the `dist/` directory, ready for deployment to Vercel or any other static hosting service.
 
 ### Recommended Hosting
 - Vercel
