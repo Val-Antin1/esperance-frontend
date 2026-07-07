@@ -7,6 +7,12 @@ import api from '../services/api';
 
 const sportCategories = ['All', 'Football', "Women's Football", 'Basketball', 'Volleyball', 'Table Tennis'];
 
+const heroCollageImages = Object.entries(
+  import.meta.glob('/gallery/*.{jpg,jpeg,png,webp,avif}', { eager: true, import: 'default' })
+)
+  .map(([, src]) => src)
+  .sort((a, b) => a.localeCompare(b));
+
 const getMasonryClass = (index) => {
   const pattern = [
     'md:col-span-2 md:row-span-2',
@@ -51,12 +57,55 @@ const Gallery = () => {
   return (
     <div>
       <Seo path="/gallery" />
-      <div className="relative min-h-[45vh] sm:min-h-[50vh] flex items-center justify-center bg-gradient-to-br from-primary via-primary/95 to-primary/80">
-        <div className="absolute top-10 left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="relative z-10 text-center px-4">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">Gallery</h1>
-          <p className="text-xl text-gray-200 max-w-2xl mx-auto">Explore moments from Esperance FC Academy</p>
+      <div className="relative min-h-[520px] sm:min-h-[560px] md:min-h-[600px] flex items-center justify-center overflow-hidden bg-primary">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/90 to-black/80" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(212,175,55,0.18),_transparent_35%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(255,255,255,0.06),_transparent_30%)]" />
+
+        <div className="absolute inset-0 overflow-hidden">
+          <div
+            className="absolute inset-[-8%] rounded-[2rem] border border-white/10 shadow-[0_25px_80px_rgba(0,0,0,0.35)]"
+            style={{
+              transform: 'rotate(-6deg) scale(1.08)',
+              filter: 'blur(0.5px)',
+            }}
+          >
+            <div className="grid h-full w-full grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 p-2 sm:p-3 md:p-4">
+              {heroCollageImages.slice(0, 24).map((src, index) => {
+                const spans = [
+                  'col-span-1 row-span-1',
+                  'col-span-2 row-span-2',
+                  'col-span-1 row-span-2',
+                  'col-span-2 row-span-1',
+                  'col-span-1 row-span-1',
+                  'col-span-2 row-span-2',
+                ];
+
+                return (
+                  <div
+                    key={`${src}-${index}`}
+                    className={`overflow-hidden rounded-xl ${spans[index % spans.length]} min-h-[90px] sm:min-h-[110px]`}
+                  >
+                    <img
+                      src={src}
+                      alt=""
+                      className="h-full w-full object-cover"
+                      loading="eager"
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        <div className="absolute inset-0 bg-black/45" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle,_transparent_0%,_transparent_55%,_rgba(0,0,0,0.65)_100%)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="relative z-10 text-center px-4 max-w-3xl">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 drop-shadow-[0_4px_20px_rgba(0,0,0,0.45)]">Gallery</h1>
+          <p className="text-lg sm:text-xl text-gray-200 max-w-2xl mx-auto drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]">Explore moments from Esperance FC Academy</p>
         </motion.div>
       </div>
 
