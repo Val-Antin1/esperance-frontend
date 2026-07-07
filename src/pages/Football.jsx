@@ -34,14 +34,22 @@ const Football = () => {
           className="absolute inset-0 -z-10 bg-center bg-cover"
           style={{
             backgroundImage: "url('/foot.jpeg')",
-            transform: 'scale(1.04)',
-            filter: 'brightness(0.56) contrast(1.02) blur(0.4px)',
+            backgroundPosition: 'center right',
+            transform: 'scale(1.03)',
+            filter: 'brightness(0.9) contrast(1.03) blur(0.4px)',
           }}
         />
 
-        {/* subtle vignette + dark overlay to ensure legibility */}
-        <div className="absolute inset-0 z-0" style={{ background: 'radial-gradient(circle at 20% 20%, rgba(0,0,0,0.04) 0%, transparent 25%), radial-gradient(circle at 80% 80%, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.85) 70%)' }} />
-        <div className="absolute inset-0 z-10 bg-black/36" />
+        {/* subtle vignette + lighter dark overlay to reveal image */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            background:
+              'radial-gradient(circle at 15% 30%, rgba(0,0,0,0.02) 0%, transparent 25%), radial-gradient(circle at 85% 70%, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.65) 70%)',
+            mixBlendMode: 'multiply',
+          }}
+        />
+        <div className="absolute inset-0 z-10 bg-black/24" />
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
