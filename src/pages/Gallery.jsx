@@ -7,11 +7,7 @@ import api from '../services/api';
 
 const sportCategories = ['All', 'Football', "Women's Football", 'Basketball', 'Volleyball', 'Table Tennis'];
 
-const heroCollageImages = Object.entries(
-  import.meta.glob('/gallery/*.{jpg,jpeg,png,webp,avif}', { eager: true, import: 'default' })
-)
-  .map(([, src]) => src)
-  .sort((a, b) => a.localeCompare(b));
+const heroCollageImages = Array.from({ length: 40 }, (_, i) => `/gallery/${i + 1}.jpeg`);
 
 const getMasonryClass = (index) => {
   const pattern = [
@@ -64,14 +60,14 @@ const Gallery = () => {
 
         <div className="absolute inset-0 overflow-hidden">
           <div
-            className="absolute inset-[-8%] rounded-[2rem] border border-white/10 shadow-[0_25px_80px_rgba(0,0,0,0.35)]"
+            className="absolute inset-[-10%] rounded-[2rem] border border-white/10 shadow-[0_25px_80px_rgba(0,0,0,0.35)]"
             style={{
               transform: 'rotate(-6deg) scale(1.08)',
               filter: 'blur(0.5px)',
             }}
           >
-            <div className="grid h-full w-full grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 p-2 sm:p-3 md:p-4">
-              {heroCollageImages.slice(0, 24).map((src, index) => {
+            <div className="grid h-full w-full grid-cols-3 sm:grid-cols-4 md:grid-cols-7 lg:grid-cols-8 gap-2 p-2 sm:p-3 md:p-4">
+              {heroCollageImages.map((src, index) => {
                 const spans = [
                   'col-span-1 row-span-1',
                   'col-span-2 row-span-2',
@@ -79,16 +75,18 @@ const Gallery = () => {
                   'col-span-2 row-span-1',
                   'col-span-1 row-span-1',
                   'col-span-2 row-span-2',
+                  'col-span-1 row-span-1',
+                  'col-span-1 row-span-2',
                 ];
 
                 return (
                   <div
                     key={`${src}-${index}`}
-                    className={`overflow-hidden rounded-xl ${spans[index % spans.length]} min-h-[90px] sm:min-h-[110px]`}
+                    className={`overflow-hidden rounded-xl ${spans[index % spans.length]} min-h-[90px] sm:min-h-[100px]`}
                   >
                     <img
                       src={src}
-                      alt=""
+                      alt="Esperance FC Academy gallery image"
                       className="h-full w-full object-cover"
                       loading="eager"
                     />
