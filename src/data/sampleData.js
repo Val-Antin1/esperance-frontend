@@ -56,37 +56,6 @@ export const stats = [
   { label: 'Years of Experience', value: 15, suffix: '+' },
 ];
 
-export const leadership = [
-  {
-    id: 1,
-    name: 'Dr. Ahmed Benali',
-    position: 'President',
-    description: 'Visionary leader with over 20 years of experience in sports management and youth development. Founded Esperance FC Academy to provide world-class training opportunities.',
-    image: null,
-  },
-  {
-    id: 2,
-    name: 'Sarah Mthembu',
-    position: 'General Manager',
-    description: 'Experienced sports administrator dedicated to operational excellence and creating an environment where young athletes can thrive.',
-    image: null,
-  },
-  {
-    id: 3,
-    name: 'Coach Pierre Dubois',
-    position: 'Head Coach - Football',
-    description: 'UEFA-licensed coach with extensive experience training youth academies across Europe and Africa. Specializes in technical development.',
-    image: null,
-  },
-  {
-    id: 4,
-    name: 'Coach Maria Santos',
-    position: 'Head of Women\'s Football',
-    description: 'Former professional player turned coach, passionate about developing women\'s football and creating equal opportunities in sports.',
-    image: null,
-  },
-];
-
 export const testimonials = [
   {
     id: 1,
@@ -108,58 +77,6 @@ export const testimonials = [
     role: 'German Class Student',
     content: 'The German language program is excellent. Small class sizes and passionate teachers make learning enjoyable.',
     rating: 5,
-  },
-];
-
-export const newsArticles = [
-  {
-    id: 1,
-    title: 'Esperance FC U15 Team Wins Regional Championship',
-    excerpt: 'Our U15 football team clinched the regional championship with a dramatic 3-2 victory in the final match.',
-    date: '2026-05-20',
-    category: 'Football',
-    image: null,
-    featured: true,
-  },
-  {
-    id: 2,
-    title: 'New Basketball Court Inauguration Ceremony',
-    excerpt: 'Esperance FC unveiled its state-of-the-art indoor basketball facility in a ceremony attended by sports officials.',
-    date: '2026-05-15',
-    category: 'Basketball',
-    image: null,
-  },
-  {
-    id: 3,
-    title: 'Women\'s Football Team Qualifies for National Tournament',
-    excerpt: 'Our women\'s football team secured their spot in the upcoming national tournament after an impressive season.',
-    date: '2026-05-10',
-    category: 'Women\'s Football',
-    image: null,
-  },
-  {
-    id: 4,
-    title: 'Table Tennis Club Holds Annual Championship',
-    excerpt: 'The annual table tennis tournament saw record participation with exciting matches across all age categories.',
-    date: '2026-05-05',
-    category: 'Table Tennis',
-    image: null,
-  },
-  {
-    id: 5,
-    title: 'German Language Proficiency Results Announced',
-    excerpt: 'Congratulations to our students who achieved outstanding results in the latest German language proficiency examinations.',
-    date: '2026-04-28',
-    category: 'German Classes',
-    image: null,
-  },
-  {
-    id: 6,
-    title: 'Summer Training Camps Registration Now Open',
-    excerpt: 'Registration is now open for our summer training camps across all sports. Early bird discounts available.',
-    date: '2026-04-20',
-    category: 'General',
-    image: null,
   },
 ];
 
