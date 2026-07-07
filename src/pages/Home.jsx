@@ -10,7 +10,7 @@ import NewsCard from '../components/cards/NewsCard';
 import TestimonialCard from '../components/cards/TestimonialCard';
 import api from '../services/api';
 import { activities, stats, testimonials, contactInfo } from '../data/sampleData';
-import { FaPlay } from 'react-icons/fa';
+import { FaPlay, FaSpinner } from 'react-icons/fa';
 
 const Counter = ({ end, suffix = '', duration = 2000 }) => {
   const [count, setCount] = useState(0);
@@ -50,6 +50,7 @@ const Home = () => {
   const [galleryImages, setGalleryImages] = useState([]);
   const [loadingGallery, setLoadingGallery] = useState(true);
   const [newsData, setNewsData] = useState([]);
+  const [loadingNews, setLoadingNews] = useState(true);
 
   useEffect(() => {
     const fetchGallery = async () => {
@@ -69,6 +70,8 @@ const Home = () => {
         if (data.success) setNewsData(data.data.news);
       } catch (error) {
         console.error('Failed to load latest news:', error);
+      } finally {
+        setLoadingNews(false);
       }
     };
 
@@ -200,7 +203,12 @@ const Home = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle title="Latest News" subtitle="Stay updated with the latest from Esperance FC" />
-          {newsData.length > 0 ? (
+          {loadingNews ? (
+            <div className="flex flex-col items-center justify-center py-12 text-gray-500">
+              <FaSpinner className="text-3xl animate-spin text-accent mb-3" />
+              <p>Loading latest news...</p>
+            </div>
+          ) : newsData.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {newsData.slice(0, 3).map((article, index) => (
                 <NewsCard key={article._id || article.id} article={article} index={index} />
