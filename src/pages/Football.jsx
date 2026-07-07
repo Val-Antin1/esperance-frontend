@@ -28,9 +28,29 @@ const Football = () => {
   return (
     <div>
       <Seo path="/football-academy/football" />
-      <div className="relative min-h-[50vh] sm:min-h-[55vh] flex items-center justify-center bg-gradient-to-br from-primary via-primary/95 to-primary/80">
-        <div className="absolute top-10 left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+      <div className="relative min-h-[50vh] sm:min-h-[55vh] flex items-center justify-center overflow-hidden">
+        {/* Background image */}
+        <div className="absolute inset-0 -z-10">
+          <img
+            src="/foot.jpeg"
+            alt="Football training"
+            className="w-full h-full object-cover"
+            style={{ transform: 'scale(1.06)', filter: 'brightness(0.52) contrast(1.05)', willChange: 'transform' }}
+          />
+          {/* subtle vignette */}
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                'radial-gradient(circle at 20% 20%, rgba(0,0,0,0.08) 0%, transparent 25%), radial-gradient(circle at 80% 80%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.85) 70%)',
+              mixBlendMode: 'multiply',
+            }}
+          />
+        </div>
+
+        {/* dark overlay to ensure legibility */}
+        <div className="absolute inset-0 bg-black/45 -z-0" />
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
