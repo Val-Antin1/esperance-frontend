@@ -6,7 +6,6 @@ import Seo from '../components/common/Seo';
 import SectionTitle from '../components/common/SectionTitle';
 import StaffCard from '../components/cards/StaffCard';
 import api from '../services/api';
-import { leadership } from '../data/sampleData';
 
 const milestones = [
   {
@@ -122,7 +121,7 @@ const About = () => {
     fetchStaff();
   }, []);
 
-  const leadershipTeam = staffMembers.length ? staffMembers : leadership;
+  const leadershipTeam = staffMembers;
 
   return (
     <div className="overflow-hidden">
@@ -389,19 +388,21 @@ const About = () => {
       </section>
 
       {/* Leadership Team */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle
-            title="Leadership Team"
-            subtitle="Experienced professionals committed to your success"
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
-            {leadershipTeam.map((member, index) => (
-              <StaffCard key={member.id || index} member={member} index={index} />
-            ))}
+      {leadershipTeam.length > 0 && (
+        <section className="py-24 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <SectionTitle
+              title="Leadership Team"
+              subtitle="Experienced professionals committed to your success"
+            />
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
+              {leadershipTeam.map((member, index) => (
+                <StaffCard key={member.id || index} member={member} index={index} />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* CTA Strip */}
       <section className="py-16 bg-primary relative overflow-hidden">

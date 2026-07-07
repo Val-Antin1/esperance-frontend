@@ -9,7 +9,7 @@ import GalleryCard from '../components/cards/GalleryCard';
 import NewsCard from '../components/cards/NewsCard';
 import TestimonialCard from '../components/cards/TestimonialCard';
 import api from '../services/api';
-import { activities, stats, newsArticles, testimonials, contactInfo } from '../data/sampleData';
+import { activities, stats, testimonials, contactInfo } from '../data/sampleData';
 import { FaPlay } from 'react-icons/fa';
 
 const Counter = ({ end, suffix = '', duration = 2000 }) => {
@@ -200,11 +200,15 @@ const Home = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle title="Latest News" subtitle="Stay updated with the latest from Esperance FC" />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {(newsData.length ? newsData : newsArticles.slice(0, 3)).slice(0, 3).map((article, index) => (
-              <NewsCard key={article._id || article.id} article={article} index={index} />
-            ))}
-          </div>
+          {newsData.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {newsData.slice(0, 3).map((article, index) => (
+                <NewsCard key={article._id || article.id} article={article} index={index} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12 text-gray-500">No news updates are available at the moment.</div>
+          )}
           <div className="text-center mt-8">
             <Link
               to="/news"

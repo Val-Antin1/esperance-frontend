@@ -5,7 +5,6 @@ import SectionTitle from '../components/common/SectionTitle';
 import SearchBar from '../components/common/SearchBar';
 import NewsCard from '../components/cards/NewsCard';
 import api from '../services/api';
-import { newsArticles } from '../data/sampleData';
 
 const ITEMS_PER_PAGE = 4;
 
@@ -24,13 +23,13 @@ const News = () => {
         }
       } catch (err) {
         console.error('Unable to load news', err);
-        setNewsData(newsArticles);
+        setNewsData([]);
       }
     };
     fetchNews();
   }, []);
 
-  const displayNews = newsData.length ? newsData : newsArticles;
+  const displayNews = newsData;
   const CATEGORIES = ['All', ...new Set(displayNews.map((a) => a.category))];
 
   const filteredArticles = useMemo(() => {
