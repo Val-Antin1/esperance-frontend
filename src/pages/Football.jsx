@@ -29,33 +29,25 @@ const Football = () => {
     <div>
       <Seo path="/football-academy/football" />
       <div className="relative min-h-[50vh] sm:min-h-[55vh] flex items-center justify-center overflow-hidden">
-        {/* Background image */}
-        <div className="absolute inset-0 -z-10">
-          <img
-            src="/foot.jpeg"
-            alt="Football training"
-            className="w-full h-full object-cover"
-            style={{ transform: 'scale(1.06)', filter: 'brightness(0.52) contrast(1.05)', willChange: 'transform' }}
-          />
-          {/* subtle vignette */}
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                'radial-gradient(circle at 20% 20%, rgba(0,0,0,0.08) 0%, transparent 25%), radial-gradient(circle at 80% 80%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.85) 70%)',
-              mixBlendMode: 'multiply',
-            }}
-          />
-        </div>
+        {/* Background layer using CSS background-image for reliable public asset loading */}
+        <div
+          className="absolute inset-0 -z-10 bg-center bg-cover"
+          style={{
+            backgroundImage: "url('/foot.jpeg')",
+            transform: 'scale(1.04)',
+            filter: 'brightness(0.56) contrast(1.02) blur(0.4px)',
+          }}
+        />
 
-        {/* dark overlay to ensure legibility */}
-        <div className="absolute inset-0 bg-black/45 -z-0" />
+        {/* subtle vignette + dark overlay to ensure legibility */}
+        <div className="absolute inset-0 z-0" style={{ background: 'radial-gradient(circle at 20% 20%, rgba(0,0,0,0.04) 0%, transparent 25%), radial-gradient(circle at 80% 80%, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.85) 70%)' }} />
+        <div className="absolute inset-0 z-10 bg-black/36" />
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative z-10 text-center px-4"
+          className="relative z-20 text-center px-4"
         >
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">Football Academy</h1>
           <p className="text-xl text-gray-200 max-w-2xl mx-auto">Professional football training for boys aged 6-20</p>
