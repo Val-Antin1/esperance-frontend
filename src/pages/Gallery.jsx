@@ -7,7 +7,16 @@ import api from '../services/api';
 
 const sportCategories = ['All', 'Football', "Women's Football", 'Basketball', 'Volleyball', 'Table Tennis'];
 
-const heroCollageImages = Array.from({ length: 40 }, (_, i) => `/gallery/${i + 1}.jpeg`);
+const heroCollageImagesBase = Array.from({ length: 40 }, (_, i) => `/gallery/${i + 1}.jpeg`);
+
+const shuffleArray = (items) => {
+  const shuffled = [...items];
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
 
 const getMasonryClass = (index) => {
   const pattern = [
@@ -31,8 +40,11 @@ const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [galleryImages, setGalleryImages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [heroCollageImages, setHeroCollageImages] = useState([]);
 
   useEffect(() => {
+    setHeroCollageImages(shuffleArray(heroCollageImagesBase));
+
     const fetchGallery = async () => {
       try {
         const { data } = await api.get('/gallery');
