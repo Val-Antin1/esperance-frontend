@@ -41,9 +41,18 @@ const Gallery = () => {
   const [galleryImages, setGalleryImages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [heroCollageImages, setHeroCollageImages] = useState([]);
+  const [showCollage, setShowCollage] = useState(true);
 
   useEffect(() => {
     setHeroCollageImages(shuffleArray(heroCollageImagesBase));
+
+    const interval = window.setInterval(() => {
+      setShowCollage(false);
+      window.setTimeout(() => {
+        setHeroCollageImages((current) => shuffleArray(current.length ? current : heroCollageImagesBase));
+        setShowCollage(true);
+      }, 900);
+    }, 16000);
 
     const fetchGallery = async () => {
       try {
@@ -56,6 +65,8 @@ const Gallery = () => {
       }
     };
     fetchGallery();
+
+    return () => window.clearInterval(interval);
   }, []);
 
   const filteredImages = galleryImages.filter((img) => {
@@ -71,7 +82,11 @@ const Gallery = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(255,255,255,0.06),_transparent_30%)]" />
 
         <div className="absolute inset-0 overflow-hidden">
-          <div
+          <motion.div
+            key={heroCollageImages.join('-')}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: showCollage ? 1 : 0 }}
+            transition={{ duration: 0.9, ease: 'easeInOut' }}
             className="absolute inset-[-10%] rounded-[2rem] border border-white/10 shadow-[0_25px_80px_rgba(0,0,0,0.35)]"
             style={{
               transform: 'rotate(-6deg) scale(1.08)',
@@ -106,7 +121,7 @@ const Gallery = () => {
                 );
               })}
             </div>
-          </div>
+          </motion.div>
         </div>
 
         <div className="absolute inset-0 bg-black/45" />
