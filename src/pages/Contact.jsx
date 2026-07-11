@@ -11,8 +11,8 @@ const Contact = () => {
       label: 'Phone',
       value: contactInfo.phone,
       href: `tel:${contactInfo.phone}`,
-      bg: 'from-blue-500 to-blue-600',
-      shadow: 'shadow-blue-500/20',
+      bg: 'bg-gray-100',
+      shadow: 'shadow-slate-200/50',
       delay: 0,
     },
     {
@@ -20,24 +20,24 @@ const Contact = () => {
       label: 'Email',
       value: contactInfo.email,
       href: `mailto:${contactInfo.email}`,
-      bg: 'from-amber-500 to-amber-600',
-      shadow: 'shadow-amber-500/20',
+      bg: 'bg-gray-100',
+      shadow: 'shadow-slate-200/50',
       delay: 0.1,
     },
     {
       icon: FaMapMarkerAlt,
       label: 'Address',
       value: contactInfo.address,
-      bg: 'from-emerald-500 to-emerald-600',
-      shadow: 'shadow-emerald-500/20',
+      bg: 'bg-gray-100',
+      shadow: 'shadow-slate-200/50',
       delay: 0.2,
     },
     {
       icon: FaClock,
       label: 'Working Hours',
       value: 'Mon - Sat: 6:00 AM - 7:00 PM',
-      bg: 'from-purple-500 to-purple-600',
-      shadow: 'shadow-purple-500/20',
+      bg: 'bg-gray-100',
+      shadow: 'shadow-slate-200/50',
       delay: 0.3,
     },
   ];
@@ -108,16 +108,16 @@ const Contact = () => {
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${item.bg} rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 ${item.shadow} blur-xl`} />
                 <div className="relative bg-white border border-gray-100 rounded-2xl p-8 text-center group-hover:border-transparent transition-all duration-500 shadow-[0_10px_40px_rgba(15,23,42,0.06)] group-hover:shadow-2xl">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${item.bg} rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg ${item.shadow} group-hover:scale-110 transition-transform duration-500`}>
-                    <item.icon className="text-2xl text-white" />
+                  <div className={`${item.bg} w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg ${item.shadow} group-hover:scale-110 transition-transform duration-500`}>
+                    <item.icon className="text-2xl text-gray-700" />
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">{item.label}</h3>
                   {item.href ? (
-                    <a href={item.href} className="text-gray-500 group-hover:text-gray-700 transition-colors text-sm leading-relaxed hover:text-accent">
+                    <a href={item.href} className="text-gray-600 group-hover:text-gray-800 transition-colors text-sm leading-relaxed">
                       {item.value}
                     </a>
                   ) : (
-                    <p className="text-gray-500 text-sm leading-relaxed">{item.value}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{item.value}</p>
                   )}
                 </div>
               </motion.div>
