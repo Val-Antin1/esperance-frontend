@@ -3,12 +3,28 @@ import { useEffect } from 'react';
 import Navbar from '../components/navigation/Navbar';
 import Footer from '../components/common/Footer';
 import WhatsAppButton from '../components/common/WhatsAppButton';
+import api from '../services/api';
 
 const MainLayout = () => {
   const location = useLocation();
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const publishVisit = async () => {
+      if (location.pathname.startsWith('/admin')) {
+        return;
+      }
+      try {
+        await api.post('/visitors/hit');
+      } catch (error) {
+        console.warn('Unable to record visitor count:', error);
+      }
+    };
+
+    publishVisit();
   }, [location.pathname]);
 
   return (

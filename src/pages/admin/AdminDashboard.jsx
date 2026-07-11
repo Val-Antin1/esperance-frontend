@@ -51,6 +51,7 @@ const AdminDashboard = () => {
     { label: 'Staff Members', value: stats?.totalStaff ?? '—', icon: FaUserTie, iconBg: 'bg-stone-700' },
     { label: 'Gallery Images', value: stats?.totalGalleryImages ?? '—', icon: FaImages, iconBg: 'bg-gray-700' },
     { label: 'News Articles', value: stats?.totalNews ?? '—', icon: FaNewspaper, iconBg: 'bg-zinc-700' },
+    { label: 'Website Visits', value: stats?.visitorCount ?? '—', icon: FaEye, iconBg: 'bg-amber-700' },
   ];
 
   const recentActivity = [
