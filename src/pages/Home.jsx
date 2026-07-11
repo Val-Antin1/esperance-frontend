@@ -10,7 +10,7 @@ import NewsCard from '../components/cards/NewsCard';
 import TestimonialCard from '../components/cards/TestimonialCard';
 import api from '../services/api';
 import { activities, stats, testimonials, contactInfo } from '../data/sampleData';
-import { FaPlay, FaSpinner } from 'react-icons/fa';
+import { FaPlay, FaSpinner, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 const Counter = ({ end, suffix = '', duration = 2000 }) => {
   const [count, setCount] = useState(0);
@@ -250,33 +250,39 @@ const Home = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-center p-6 bg-white/5 rounded-xl backdrop-blur-sm"
+              className="text-center p-6 bg-white rounded-xl border border-gray-100"
             >
-              <div className="text-4xl mb-4">📞</div>
-              <h3 className="text-white font-semibold mb-2">Phone</h3>
-              <a href={`tel:${contactInfo.phone}`} className="text-accent hover:text-accent-light">{contactInfo.phone}</a>
+              <div className="w-14 h-14 rounded-lg bg-gray-100 flex items-center justify-center mx-auto mb-4">
+                <FaPhone className="text-xl text-gray-700" />
+              </div>
+              <h3 className="text-gray-900 font-semibold mb-2">Phone</h3>
+              <a href={`tel:${contactInfo.phone}`} className="text-gray-600">{contactInfo.phone}</a>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-center p-6 bg-white/5 rounded-xl backdrop-blur-sm"
+              className="text-center p-6 bg-white rounded-xl border border-gray-100"
             >
-              <div className="text-4xl mb-4">✉️</div>
-              <h3 className="text-white font-semibold mb-2">Email</h3>
-              <a href={`mailto:${contactInfo.email}`} className="text-accent hover:text-accent-light">{contactInfo.email}</a>
+              <div className="w-14 h-14 rounded-lg bg-gray-100 flex items-center justify-center mx-auto mb-4">
+                <FaEnvelope className="text-xl text-gray-700" />
+              </div>
+              <h3 className="text-gray-900 font-semibold mb-2">Email</h3>
+              <a href={`mailto:${contactInfo.email}`} className="text-gray-600">{contactInfo.email}</a>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-center p-6 bg-white/5 rounded-xl backdrop-blur-sm"
+              className="text-center p-6 bg-white rounded-xl border border-gray-100"
             >
-              <div className="text-4xl mb-4">📍</div>
-              <h3 className="text-white font-semibold mb-2">Address</h3>
-              <p className="text-gray-300">{contactInfo.address}</p>
+              <div className="w-14 h-14 rounded-lg bg-gray-100 flex items-center justify-center mx-auto mb-4">
+                <FaMapMarkerAlt className="text-xl text-gray-700" />
+              </div>
+              <h3 className="text-gray-900 font-semibold mb-2">Address</h3>
+              <p className="text-gray-600">{contactInfo.address}</p>
             </motion.div>
           </div>
         </div>
