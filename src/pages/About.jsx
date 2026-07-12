@@ -191,6 +191,7 @@ const About = () => {
         </div>
 
         <div className="absolute inset-0 bg-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
 
         <div className="absolute top-8 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-accent/10 blur-3xl" />
         <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-accent/5 blur-3xl" />
