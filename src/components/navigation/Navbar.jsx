@@ -51,92 +51,95 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative flex items-center justify-between gap-8">
+        <div className="flex items-center justify-between gap-4">
           <Link to="/" className="flex items-center gap-4 flex-shrink-0">
             <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/90 flex items-center justify-center rounded-2xl overflow-hidden">
               <img src="/logo.PNG" alt="Esperance FC Academy" className="h-14 sm:h-16 w-auto object-contain" />
             </div>
           </Link>
 
-          <div className="hidden lg:flex items-center gap-8 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            {navLinks.slice(0, 3).map((link) => (
-              <NavLink
-                key={link.path}
-                to={link.path}
-                className={({ isActive }) =>
-                  `text-sm font-medium transition duration-200 ${
-                    isActive
-                      ? 'text-accent border-b-2 border-accent'
-                      : 'text-gray-700 hover:text-primary'
-                  }`
-                }
-              >
-                {t(link.labelKey)}
-              </NavLink>
-            ))}
+          <div className="hidden lg:flex flex-1 items-center justify-center">
+            <div className="flex items-center gap-6 xl:gap-8">
+              {navLinks.slice(0, 3).map((link) => (
+                <NavLink
+                  key={link.path}
+                  to={link.path}
+                  className={({ isActive }) =>
+                    `text-sm font-medium transition duration-200 ${
+                      isActive
+                        ? 'text-accent border-b-2 border-accent'
+                        : 'text-gray-700 hover:text-primary'
+                    }`
+                  }
+                >
+                  {t(link.labelKey)}
+                </NavLink>
+              ))}
 
-            <div
-              onMouseEnter={() => setProgramsOpen(true)}
-              onMouseLeave={() => setProgramsOpen(false)}
-              className="relative"
-            >
-              <button
-                type="button"
-                aria-haspopup="menu"
-                aria-expanded={programsOpen}
-                className="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-primary transition duration-200"
+              <div
+                onMouseEnter={() => setProgramsOpen(true)}
+                onMouseLeave={() => setProgramsOpen(false)}
+                className="relative"
               >
-                {t('nav.programs')}
-                <HiChevronDown className={`transition-transform duration-200 ${programsOpen ? 'rotate-180' : ''}`} />
-              </button>
+                <button
+                  type="button"
+                  aria-haspopup="menu"
+                  aria-expanded={programsOpen}
+                  className="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-primary transition duration-200"
+                >
+                  {t('nav.programs')}
+                  <HiChevronDown className={`transition-transform duration-200 ${programsOpen ? 'rotate-180' : ''}`} />
+                </button>
 
-              <AnimatePresence>
-                {programsOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -12 }}
-                    className="absolute right-0 top-full mt-3 w-56 rounded-3xl border border-gray-200 bg-white p-3 shadow-2xl shadow-black/5 backdrop-blur-sm"
-                  >
-                    <div className="space-y-1">
-                      {programLinks.map((link) => (
-                        <NavLink
-                          key={link.path}
-                          to={link.path}
-                          className={({ isActive }) =>
-                            `block rounded-2xl px-4 py-3 text-sm font-medium transition duration-200 ${
-                              isActive
-                                ? 'bg-primary text-white'
-                                : 'text-gray-700 hover:bg-gray-100 hover:text-primary'
-                            }`
-                          }
-                        >
-                          {t(link.labelKey)}
-                        </NavLink>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                <AnimatePresence>
+                  {programsOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -12 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -12 }}
+                      className="absolute right-0 top-full mt-3 w-56 rounded-3xl border border-gray-200 bg-white p-3 shadow-2xl shadow-black/5 backdrop-blur-sm"
+                    >
+                      <div className="space-y-1">
+                        {programLinks.map((link) => (
+                          <NavLink
+                            key={link.path}
+                            to={link.path}
+                            className={({ isActive }) =>
+                              `block rounded-2xl px-4 py-3 text-sm font-medium transition duration-200 ${
+                                isActive
+                                  ? 'bg-primary text-white'
+                                  : 'text-gray-700 hover:bg-gray-100 hover:text-primary'
+                              }`
+                            }
+                          >
+                            {t(link.labelKey)}
+                          </NavLink>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {navLinks.slice(3).map((link) => (
+                <NavLink
+                  key={link.path}
+                  to={link.path}
+                  className={({ isActive }) =>
+                    `text-sm font-medium transition duration-200 ${
+                      isActive
+                        ? 'text-accent border-b-2 border-accent'
+                        : 'text-gray-700 hover:text-primary'
+                    }`
+                  }
+                >
+                  {t(link.labelKey)}
+                </NavLink>
+              ))}
             </div>
+          </div>
 
-            {navLinks.slice(3).map((link) => (
-              <NavLink
-                key={link.path}
-                to={link.path}
-                className={({ isActive }) =>
-                  `text-sm font-medium transition duration-200 ${
-                    isActive
-                      ? 'text-accent border-b-2 border-accent'
-                      : 'text-gray-700 hover:text-primary'
-                  }`
-                }
-              >
-                {t(link.labelKey)}
-              </NavLink>
-            ))}
-
-            {/* Language Switcher on the right */}
+          <div className="hidden lg:flex items-center flex-shrink-0 pl-8 xl:pl-10">
             <LanguageSwitcher />
           </div>
 
