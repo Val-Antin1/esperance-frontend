@@ -70,7 +70,7 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
           className="relative z-10 flex w-full max-w-3xl items-center justify-center px-4 py-16 text-center sm:px-6 lg:px-8"
         >
-          <div className="w-full max-w-4xl rounded-[2rem] border border-white/10 bg-white/10 px-6 py-8 shadow-2xl shadow-black/20 backdrop-blur-sm sm:px-10 sm:py-10">
+          <div className="w-full max-w-4xl px-6 py-8 sm:px-10 sm:py-10">
             <h1 className="mb-4 text-4xl font-bold text-white drop-shadow-lg md:text-6xl">
               Get in Touch
             </h1>
