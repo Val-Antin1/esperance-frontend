@@ -26,21 +26,17 @@ const Basketball = () => {
   return (
     <div>
       <Seo path="/football-academy/basketball" />
-      <div className="relative min-h-[58vh] sm:min-h-[64vh] flex items-center justify-center overflow-hidden bg-primary">
-        <div className="absolute inset-0 overflow-hidden">
+      <div className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
           <img
             src="/bask.jpeg"
             alt="Basketball training"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ filter: 'blur(0.5px)' }}
+            className="w-full h-full object-cover"
             loading="eager"
           />
         </div>
 
-        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-black/80" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(212,175,55,0.18),_transparent_35%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(255,255,255,0.06),_transparent_30%)]" />
-        <div className="absolute inset-0 bg-black/35" />
+        <div className="absolute inset-0 bg-black/25" />
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -48,13 +44,13 @@ const Basketball = () => {
           transition={{ duration: 0.8 }}
           className="relative z-20 max-w-4xl px-4 text-center sm:px-6"
         >
-          <span className="mb-5 inline-block rounded-full border border-accent/40 bg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.3em] text-accent backdrop-blur-sm">
+          <span className="mb-5 inline-block rounded-full border border-accent/50 bg-black/40 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.3em] text-accent backdrop-blur-sm">
             High-Performance Basketball
           </span>
-          <h1 className="mb-4 text-4xl font-bold text-white sm:text-5xl md:text-6xl lg:text-7xl">
+          <h1 className="mb-4 text-4xl font-bold text-white sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-lg">
             Basketball
           </h1>
-          <p className="mx-auto max-w-2xl text-lg text-gray-200 sm:text-xl md:text-2xl">
+          <p className="mx-auto max-w-2xl text-lg text-gray-100 sm:text-xl md:text-2xl drop-shadow-md">
             High-performance basketball training program combining skill, strategy, and athletic excellence.
           </p>
         </motion.div>

@@ -26,12 +26,33 @@ const Volleyball = () => {
   return (
     <div>
       <Seo path="/football-academy/volleyball" />
-      <div className="relative min-h-[45vh] sm:min-h-[50vh] flex items-center justify-center bg-gradient-to-br from-primary via-primary/95 to-primary/80">
-        <div className="absolute top-10 left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="relative z-10 text-center px-4">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">Volleyball</h1>
-          <p className="text-xl text-gray-200 max-w-2xl mx-auto">Comprehensive volleyball training program</p>
+      <div className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/volleyball.jpeg"
+            alt="Volleyball training"
+            className="w-full h-full object-cover"
+            loading="eager"
+          />
+        </div>
+
+        <div className="absolute inset-0 bg-black/25" />
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="relative z-20 max-w-4xl px-4 text-center sm:px-6"
+        >
+          <span className="mb-5 inline-block rounded-full border border-accent/50 bg-black/40 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.3em] text-accent backdrop-blur-sm">
+            Comprehensive Volleyball
+          </span>
+          <h1 className="mb-4 text-4xl font-bold text-white sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-lg">
+            Volleyball
+          </h1>
+          <p className="mx-auto max-w-2xl text-lg text-gray-100 sm:text-xl md:text-2xl drop-shadow-md">
+            Comprehensive volleyball training program building complete athletes through skill and teamwork.
+          </p>
         </motion.div>
       </div>
       <section className="py-20 bg-white">
