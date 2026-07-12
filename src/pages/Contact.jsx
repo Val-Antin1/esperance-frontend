@@ -55,12 +55,14 @@ const Contact = () => {
     <div>
       <Seo path="/contact" />
       {/* Hero Section */}
-      <div className="relative min-h-[45vh] sm:min-h-[50vh] flex items-center justify-center bg-gradient-to-br from-primary via-primary/95 to-primary/80 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-10 left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl" />
-        </div>
+      <div className="relative min-h-[45vh] sm:min-h-[50vh] flex items-center justify-center overflow-hidden">
+        <img
+          src="/contact.png"
+          alt="Contact Esperance FC"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/45 to-black/25" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(212,175,55,0.18),_transparent_35%)]" />
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -75,8 +77,8 @@ const Contact = () => {
           >
             <FaGlobeAfrica className="text-4xl text-white" />
           </motion.div>
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">{t('contact.hero.title')}</h1>
-          <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">{t('contact.hero.subtitle')}</p>
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">{t('contact.hero.title')}</h1>
+          <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto drop-shadow-md">{t('contact.hero.subtitle')}</p>
         </motion.div>
       </div>
 
