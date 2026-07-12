@@ -28,37 +28,41 @@ const Football = () => {
   return (
     <div>
       <Seo path="/football-academy/football" />
-      <div className="relative min-h-[50vh] sm:min-h-[55vh] flex items-center justify-center overflow-hidden">
-        {/* Background layer using CSS background-image for reliable public asset loading */}
+      <div className="relative min-h-[58vh] sm:min-h-[64vh] flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 -z-10 bg-center bg-cover"
           style={{
             backgroundImage: "url('/foot.jpeg')",
-            backgroundPosition: 'center right',
-            transform: 'scale(1.03)',
-            filter: 'brightness(0.9) contrast(1.03) blur(0.4px)',
+            backgroundPosition: 'center center',
+            transform: 'scale(1.05)',
+            filter: 'brightness(0.72) contrast(1.08) saturate(1.05)',
           }}
         />
 
-        {/* subtle vignette + lighter dark overlay to reveal image */}
         <div
           className="absolute inset-0 z-0"
           style={{
             background:
-              'radial-gradient(circle at 15% 30%, rgba(0,0,0,0.02) 0%, transparent 25%), radial-gradient(circle at 85% 70%, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.65) 70%)',
-            mixBlendMode: 'multiply',
+              'linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.45) 45%, rgba(0,0,0,0.72) 100%), radial-gradient(circle at 20% 20%, rgba(212,175,55,0.18) 0%, transparent 28%), radial-gradient(circle at 80% 70%, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.75) 70%)',
           }}
         />
-        <div className="absolute inset-0 z-10 bg-black/24" />
+        <div className="absolute inset-0 z-10 bg-black/10" />
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative z-20 text-center px-4"
+          className="relative z-20 max-w-4xl px-4 text-center sm:px-6"
         >
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">Football Academy</h1>
-          <p className="text-xl text-gray-200 max-w-2xl mx-auto">Professional football training for boys aged 6-20</p>
+          <span className="mb-5 inline-block rounded-full border border-accent/40 bg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.3em] text-accent backdrop-blur-sm">
+            Elite Football Training
+          </span>
+          <h1 className="mb-4 text-4xl font-bold text-white sm:text-5xl md:text-6xl lg:text-7xl">
+            Football Academy
+          </h1>
+          <p className="mx-auto max-w-2xl text-lg text-gray-200 sm:text-xl md:text-2xl">
+            Professional football training for boys aged 6-20, built around skill, discipline, and confidence.
+          </p>
         </motion.div>
       </div>
 
