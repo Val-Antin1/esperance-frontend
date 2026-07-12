@@ -7,6 +7,17 @@ import SectionTitle from '../components/common/SectionTitle';
 import StaffCard from '../components/cards/StaffCard';
 import api from '../services/api';
 
+const heroCollageImagesBase = Array.from({ length: 40 }, (_, i) => `/gallery/${i + 1}.jpeg`);
+
+const shuffleArray = (items) => {
+  const shuffled = [...items];
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
+
 const milestones = [
   {
     year: '2011',
@@ -100,6 +111,17 @@ const fadeInUp = {
 
 const About = () => {
   const [staffMembers, setStaffMembers] = useState([]);
+  const [heroCollageImages, setHeroCollageImages] = useState([]);
+
+  useEffect(() => {
+    setHeroCollageImages(shuffleArray(heroCollageImagesBase));
+
+    const interval = window.setInterval(() => {
+      setHeroCollageImages((current) => shuffleArray(current.length ? current : heroCollageImagesBase));
+    }, 14000);
+
+    return () => window.clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const fetchStaff = async () => {
@@ -127,14 +149,55 @@ const About = () => {
     <div className="overflow-hidden">
       <Seo path="/about" />
       {/* Hero Banner */}
-      <section className="relative overflow-hidden bg-primary">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(212,175,55,0.16),_transparent_28%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(255,255,255,0.05),_transparent_30%)]" />
-        <div className="absolute top-8 left-1/2 w-80 h-80 bg-accent/10 rounded-full blur-3xl -translate-x-1/2" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+      <section className="relative min-h-[560px] overflow-hidden bg-primary sm:min-h-[640px]">
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            key={heroCollageImages.join('-')}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, ease: 'easeInOut' }}
+            className="absolute inset-[-6%] rounded-[2rem] border border-white/10 shadow-[0_25px_90px_rgba(0,0,0,0.35)] sm:inset-[-8%]"
+            style={{ transform: 'rotate(-4deg) scale(1.06)' }}
+          >
+            <div className="grid h-full w-full grid-cols-3 gap-2 p-2 sm:grid-cols-4 sm:p-3 md:grid-cols-6 md:p-4">
+              {heroCollageImages.slice(0, 12).map((src, index) => {
+                const spans = [
+                  'col-span-1 row-span-1',
+                  'col-span-2 row-span-2',
+                  'col-span-1 row-span-2',
+                  'col-span-2 row-span-1',
+                  'col-span-1 row-span-1',
+                  'col-span-2 row-span-2',
+                  'col-span-1 row-span-1',
+                  'col-span-1 row-span-2',
+                ];
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 py-24 sm:px-6 lg:px-8">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.2fr_0.95fr]">
+                return (
+                  <div
+                    key={`${src}-${index}`}
+                    className={`overflow-hidden rounded-2xl ${spans[index % spans.length]} min-h-[90px] sm:min-h-[110px]`}
+                  >
+                    <img
+                      src={src}
+                      alt="Esperance FC Academy gallery image"
+                      className="h-full w-full object-cover"
+                      loading="eager"
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-black/70" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(212,175,55,0.16),_transparent_28%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(255,255,255,0.06),_transparent_30%)]" />
+        <div className="absolute top-8 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-accent/10 blur-3xl" />
+        <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-accent/5 blur-3xl" />
+
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -142,14 +205,14 @@ const About = () => {
               transition={{ duration: 0.8 }}
               className="max-w-2xl"
             >
-              <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest text-accent border border-accent/30 bg-accent/10 mb-6">
+              <span className="mb-6 inline-block rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent">
                 About Esperance FC
               </span>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+              <h1 className="mb-6 text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">
                 Building Champions Through Character
                 <span className="block text-accent">and Community Impact</span>
               </h1>
-              <p className="text-lg sm:text-xl text-gray-300 max-w-xl leading-relaxed">
+              <p className="max-w-xl text-lg leading-relaxed text-gray-300 sm:text-xl">
                 Esperance FC Academy blends elite coaching, academic support, and life skills training so young athletes thrive on and off the field.
               </p>
               <div className="mt-10 flex flex-wrap gap-4">
@@ -180,21 +243,21 @@ const About = () => {
                 <div className="grid gap-4 p-6 sm:p-8">
                   <div className="grid grid-cols-2 gap-4">
                     <div className="rounded-3xl border border-white/10 bg-white/10 p-5 backdrop-blur-sm">
-                      <span className="text-xs uppercase tracking-[0.25em] text-accent font-semibold">Established</span>
+                      <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">Established</span>
                       <p className="mt-4 text-3xl font-bold text-white">2011</p>
                     </div>
                     <div className="rounded-3xl border border-white/10 bg-white/10 p-5 backdrop-blur-sm">
-                      <span className="text-xs uppercase tracking-[0.25em] text-accent font-semibold">Programs</span>
+                      <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">Programs</span>
                       <p className="mt-4 text-3xl font-bold text-white">6+</p>
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="rounded-3xl border border-white/10 bg-white/10 p-5 backdrop-blur-sm">
-                      <span className="text-xs uppercase tracking-[0.25em] text-accent font-semibold">Students</span>
+                      <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">Students</span>
                       <p className="mt-4 text-3xl font-bold text-white">1,000+</p>
                     </div>
                     <div className="rounded-3xl border border-white/10 bg-white/10 p-5 backdrop-blur-sm">
-                      <span className="text-xs uppercase tracking-[0.25em] text-accent font-semibold">Awards</span>
+                      <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">Awards</span>
                       <p className="mt-4 text-3xl font-bold text-white">Regional</p>
                     </div>
                   </div>
@@ -202,13 +265,13 @@ const About = () => {
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="rounded-3xl border border-white/10 bg-white/10 p-6 backdrop-blur-sm">
                       <h3 className="text-base font-semibold text-white">Athlete Development</h3>
-                      <p className="mt-3 text-sm text-gray-200 leading-relaxed">
+                      <p className="mt-3 text-sm leading-relaxed text-gray-200">
                         Technical training, mental resilience, and leadership are built into every academy pathway.
                       </p>
                     </div>
                     <div className="rounded-3xl border border-white/10 bg-white/10 p-6 backdrop-blur-sm">
                       <h3 className="text-base font-semibold text-white">Academic Support</h3>
-                      <p className="mt-3 text-sm text-gray-200 leading-relaxed">
+                      <p className="mt-3 text-sm leading-relaxed text-gray-200">
                         Focused mentoring and classroom support help students balance sport and study.
                       </p>
                     </div>
