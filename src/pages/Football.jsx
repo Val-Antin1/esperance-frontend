@@ -28,25 +28,21 @@ const Football = () => {
   return (
     <div>
       <Seo path="/football-academy/football" />
-      <div className="relative min-h-[58vh] sm:min-h-[64vh] flex items-center justify-center overflow-hidden">
+      <div className="relative min-h-[58vh] sm:min-h-[64vh] flex items-center justify-center overflow-hidden bg-primary">
         <div
           className="absolute inset-0 -z-10 bg-center bg-cover"
           style={{
-            backgroundImage: "url('/foot.jpeg')",
-            backgroundPosition: 'center center',
-            transform: 'scale(1.05)',
-            filter: 'brightness(0.72) contrast(1.08) saturate(1.05)',
+            backgroundImage: "url('/gallery/1.jpeg')",
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            backgroundAttachment: 'fixed',
           }}
         />
 
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            background:
-              'linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.45) 45%, rgba(0,0,0,0.72) 100%), radial-gradient(circle at 20% 20%, rgba(212,175,55,0.18) 0%, transparent 28%), radial-gradient(circle at 80% 70%, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.75) 70%)',
-          }}
-        />
-        <div className="absolute inset-0 z-10 bg-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-black/80 z-0" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(212,175,55,0.18),_transparent_35%)] z-0" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(255,255,255,0.06),_transparent_30%)] z-0" />
+        <div className="absolute inset-0 bg-black/35 z-0" />
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
