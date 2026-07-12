@@ -127,29 +127,97 @@ const About = () => {
     <div className="overflow-hidden">
       <Seo path="/about" />
       {/* Hero Banner */}
-      <section className="relative min-h-[45vh] flex items-center justify-center bg-primary overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
-          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-3xl -translate-x-1/3 translate-y-1/3" />
-          <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 25% 50%, rgba(212,175,55,0.08) 0%, transparent 50%)' }} />
+      <section className="relative overflow-hidden bg-primary">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(212,175,55,0.16),_transparent_28%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(255,255,255,0.05),_transparent_30%)]" />
+        <div className="absolute top-8 left-1/2 w-80 h-80 bg-accent/10 rounded-full blur-3xl -translate-x-1/2" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 py-24 sm:px-6 lg:px-8">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.2fr_0.95fr]">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="max-w-2xl"
+            >
+              <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest text-accent border border-accent/30 bg-accent/10 mb-6">
+                About Esperance FC
+              </span>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                Building Champions Through Character
+                <span className="block text-accent">and Community Impact</span>
+              </h1>
+              <p className="text-lg sm:text-xl text-gray-300 max-w-xl leading-relaxed">
+                Esperance FC Academy blends elite coaching, academic support, and life skills training so young athletes thrive on and off the field.
+              </p>
+              <div className="mt-10 flex flex-wrap gap-4">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center rounded-full bg-accent px-8 py-3 text-sm font-semibold text-primary shadow-lg shadow-accent/20 transition-all duration-300 hover:-translate-y-1"
+                >
+                  Contact Us
+                </Link>
+                <Link
+                  to="/football-academy/football"
+                  className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-8 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-white/20"
+                >
+                  Explore Programs
+                </Link>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              <div className="absolute inset-0 rounded-[2rem] border border-white/10 bg-white/5 blur-2xl" />
+              <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-black/10 shadow-[0_30px_90px_rgba(0,0,0,0.3)] backdrop-blur-sm">
+                <div className="grid gap-4 p-6 sm:p-8">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="rounded-3xl border border-white/10 bg-white/10 p-5 backdrop-blur-sm">
+                      <span className="text-xs uppercase tracking-[0.25em] text-accent font-semibold">Established</span>
+                      <p className="mt-4 text-3xl font-bold text-white">2011</p>
+                    </div>
+                    <div className="rounded-3xl border border-white/10 bg-white/10 p-5 backdrop-blur-sm">
+                      <span className="text-xs uppercase tracking-[0.25em] text-accent font-semibold">Programs</span>
+                      <p className="mt-4 text-3xl font-bold text-white">6+</p>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="rounded-3xl border border-white/10 bg-white/10 p-5 backdrop-blur-sm">
+                      <span className="text-xs uppercase tracking-[0.25em] text-accent font-semibold">Students</span>
+                      <p className="mt-4 text-3xl font-bold text-white">1,000+</p>
+                    </div>
+                    <div className="rounded-3xl border border-white/10 bg-white/10 p-5 backdrop-blur-sm">
+                      <span className="text-xs uppercase tracking-[0.25em] text-accent font-semibold">Awards</span>
+                      <p className="mt-4 text-3xl font-bold text-white">Regional</p>
+                    </div>
+                  </div>
+
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div className="rounded-3xl border border-white/10 bg-white/10 p-6 backdrop-blur-sm">
+                      <h3 className="text-base font-semibold text-white">Athlete Development</h3>
+                      <p className="mt-3 text-sm text-gray-200 leading-relaxed">
+                        Technical training, mental resilience, and leadership are built into every academy pathway.
+                      </p>
+                    </div>
+                    <div className="rounded-3xl border border-white/10 bg-white/10 p-6 backdrop-blur-sm">
+                      <h3 className="text-base font-semibold text-white">Academic Support</h3>
+                      <p className="mt-3 text-sm text-gray-200 leading-relaxed">
+                        Focused mentoring and classroom support help students balance sport and study.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="relative z-10 text-center px-4 max-w-4xl mx-auto"
-        >
-          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest text-accent border border-accent/30 bg-accent/10 mb-6">
-            About Esperance FC
-          </span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Building Champions
-            <span className="block text-accent">Since 2011</span>
-          </h1>
-          <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            From humble beginnings to a premier African sports institution — our journey is defined by passion, perseverance, and an unwavering commitment to developing the next generation of athletic excellence.
-          </p>
-        </motion.div>
       </section>
 
       {/* Academy Story */}
