@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaUserLock, FaSpinner, FaExclamationCircle, FaEye, FaEyeSlash, FaArrowRight } from 'react-icons/fa';
@@ -13,6 +13,9 @@ const AdminLogin = () => {
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
+  // Track if welcome voice has been played to prevent multiple plays on re-renders
+  const voicePlayedRef = useRef(false);
+
   // If already logged in, redirect to dashboard
   useEffect(() => {
     const token = localStorage.getItem('adminToken');
@@ -20,6 +23,73 @@ const AdminLogin = () => {
       navigate('/admin/dashboard', { replace: true });
     }
   }, [navigate]);
+
+  /**
+   * Play a professional welcome voice greeting using the Web Speech API
+   * - Waits 500ms after successful login before speaking
+   * - Prevents multiple plays during re-renders using ref
+   * - Gracefully handles browsers without speechSynthesis support
+   * - Returns a promise that resolves when speech finishes
+   */
+  const playWelcomeVoice = () => {
+    // Check if browser supports Web Speech API
+    if (!window.speechSynthesis) {
+      console.log('Speech Synthesis not supported in this browser');
+      return Promise.resolve();
+    }
+
+    // Prevent voice from playing multiple times on re-renders
+    if (voicePlayedRef.current) {
+      return Promise.resolve();
+    }
+
+    voicePlayedRef.current = true;
+
+    return new Promise((resolve) => {
+      // Wait 500ms after successful login before playing welcome voice
+      setTimeout(() => {
+        try {
+          // Cancel any ongoing speech to start fresh
+          window.speechSynthesis.cancel();
+
+          // Create speech utterance with welcome message
+          const utterance = new SpeechSynthesisUtterance('Welcome domy.');
+
+          // Set natural voice properties for professional sound
+          utterance.rate = 1;
+          utterance.pitch = 1;
+          utterance.volume = 1;
+
+          // Try to select a natural English voice from available voices
+          const voices = window.speechSynthesis.getVoices();
+          const englishVoice = voices.find(voice => 
+            voice.lang.startsWith('en-') && voice.name.includes('Google')
+          ) || voices.find(voice => voice.lang.startsWith('en-')) || voices[0];
+
+          if (englishVoice) {
+            utterance.voice = englishVoice;
+          }
+
+          // Resolve promise when speech finishes
+          utterance.onend = () => {
+            resolve();
+          };
+
+          // Handle speech errors gracefully without breaking login flow
+          utterance.onerror = (error) => {
+            console.log('Speech synthesis error:', error.error);
+            resolve();
+          };
+
+          // Speak the welcome message
+          window.speechSynthesis.speak(utterance);
+        } catch (error) {
+          console.log('Error initializing speech synthesis:', error);
+          resolve();
+        }
+      }, 500);
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,6 +108,10 @@ const AdminLogin = () => {
         if (rememberMe) {
           localStorage.setItem('rememberEmail', credentials.email);
         }
+
+        // Play professional welcome voice after successful login
+        // Voice will play and then redirect to dashboard
+        await playWelcomeVoice();
         navigate('/admin/dashboard', { replace: true });
       } else {
         setError(data.message || 'Login failed');
