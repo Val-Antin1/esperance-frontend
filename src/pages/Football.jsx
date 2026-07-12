@@ -31,7 +31,7 @@ const Football = () => {
       <div className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/gallery/1.jpeg"
+            src="/foot.jpeg"
             alt="Football training"
             className="w-full h-full object-cover"
             loading="eager"

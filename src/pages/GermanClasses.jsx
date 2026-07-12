@@ -38,7 +38,7 @@ const GermanClasses = () => {
       <div className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/germany.jpeg"
+            src="/german.jpeg"
             alt="German Classes"
             className="w-full h-full object-cover"
             loading="eager"
