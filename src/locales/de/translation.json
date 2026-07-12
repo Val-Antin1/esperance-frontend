@@ -1,0 +1,287 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "about": "Über Uns",
+    "gallery": "Galerie",
+    "programs": "Programme",
+    "news": "Nachrichten & Veranstaltungen",
+    "contact": "Kontakt"
+  },
+  "home": {
+    "hero": {
+      "title": "Premier Sportakademie",
+      "subtitle": "Champions für das Leben"
+    },
+    "stats": {
+      "title": "Esperance FC nach den Zahlen",
+      "subtitle": "Unsere Auswirkungen in der Gemeinde"
+    },
+    "programs": {
+      "title": "Unsere Programme",
+      "subtitle": "Entdecken Sie unsere umfassenden Sportprogramme und akademischen Programme"
+    },
+    "gallery": {
+      "title": "Unsere Galerie",
+      "subtitle": "Momente aus der Esperance FC Akademie"
+    }
+  },
+  "about": {
+    "hero": {
+      "badge": "Über Esperance FC",
+      "title": "Champions durch Charakter",
+      "titleHighlight": "und gesellschaftlichen Einfluss",
+      "description": "Die Esperance FC Akademie verbindet Elitetraining, akademische Unterstützung und Lebenskompetenzen, damit junge Athleten auf und neben dem Platz gedeihen.",
+      "cta1": "Kontaktieren Sie uns",
+      "cta2": "Programme erkunden",
+      "established": "Gegründet",
+      "programs": "Programme",
+      "students": "Schüler",
+      "awards": "Auszeichnungen",
+      "athleteDev": "Athletenentwicklung",
+      "athleteDevDesc": "Technisches Training, mentale Widerstandsfähigkeit und Führungskompetenz sind in jeden Akademie-Weg integriert.",
+      "academicSupport": "Akademische Unterstützung",
+      "academicSupportDesc": "Gezielte Mentorschaft und Unterrichtsunterstützung helfen Schülern, Sport und Studium auszugleichen."
+    },
+    "story": {
+      "title": "Akademiegeschichte",
+      "subtitle": "Von bescheidenen Anfängen zur Premier-Sportakademie – unsere Geschichte ist geprägt von Leidenschaft, Fortschritt und Zweck.",
+      "beginning": "Bescheidene Anfänge",
+      "beginningDesc": "Die Esperance FC Akademie wurde 2011 von einer kleinen Gruppe engagierter Athleten mit einer kühnen Vision gegründet, eine Weltklasse-Sportheimat in Afrika zu schaffen.",
+      "growth": "Gemeinschaftliches Wachstum",
+      "growthDesc": "Wir wuchsen durch starke Gemeinschaftspartnerschaften, erweiterten unsere Programme und schafften eine unterstützende Umgebung, in der Athleten akademisch und sportlich gedeihen.",
+      "future": "Zukunftsfokus",
+      "futureDesc": "Heute verbinden wir Elitetraining mit Charakterentwicklung und bereiten junge Athleten auf Erfolg in Sport, Bildung und Leben vor."
+    },
+    "mission": {
+      "title": "Unsere Mission",
+      "description": "Junge Athleten zu pflegen und zu entwickeln, indem wir außergewöhnliches Sporttraining, Charakterwachstum und Chancen für Erfolg bieten. Wir sind verpflichtet, nicht nur geschickte Athleten, sondern auch vielseitige Personen zu entwickeln, die positiv zur Gesellschaft beitragen."
+    },
+    "vision": {
+      "title": "Unsere Vision",
+      "description": "Die führende Sportakademie in Afrika sein, die für die Entwicklung von Champions bekannt ist, die in Sport, Akademie und Leben hervorragen. Wir stellen uns eine Zukunft vor, in der jeder junge Athlet Zugang zu Weltklasse-Training hat und sein volles Potenzial erreichen kann."
+    },
+    "values": {
+      "title": "Unsere Werte",
+      "subtitle": "Sechs Kernprinzipien, die unsere Kultur definieren und jede Entscheidung leiten.",
+      "excellence": "Exzellenz",
+      "excellenceDesc": "Wir streben die höchsten Standards in jedem Aspekt unserer Akademie an – von Trainingsmethoden bis Einrichtungsqualität. Unser unerschütterliches Engagement für Exzellenz treibt kontinuierliche Verbesserungen voran.",
+      "discipline": "Disziplin",
+      "disciplineDesc": "Disziplin ist die Grundlage aller Leistungen. Wir vermitteln unseren Athleten Selbstkontrolle, Fokus und Arbeitsmoral, die für Erfolg in Sport und Leben notwendig sind.",
+      "teamwork": "Teamfähigkeit",
+      "teamworkDesc": "Wir glauben, dass kollektiver Einsatz außergewöhnliche Ergebnisse bringt. Unsere Akademie fördert eine Kultur der Zusammenarbeit, gegenseitigen Unterstützung und gemeinsamer Ziele.",
+      "leadership": "Führungskompetenz",
+      "leadershipDesc": "Wir entwickeln Führungskräfte, die andere durch Handlung und Charakter inspirieren. Unsere Athleten lernen Initiative, Entscheidungsfindung unter Druck und Vorbildfunktion.",
+      "integrity": "Integrität",
+      "integrityDesc": "Ehrlichkeit, Transparenz und moralischer Mut leiten alles, was wir tun. Wir bauen Charakter durch ethisches Verhalten auf, indem wir lehren, dass echter Erfolg durch den Respekt gemessen wird.",
+      "respect": "Respekt",
+      "respectDesc": "Wir fördern eine Umgebung gegenseitigen Respekts – für Teamkollegen, Gegner, Trainer und das Spiel selbst. Unsere Akademie feiert Vielfalt, fördert Inklusion und lehrt Würde."
+    }
+  },
+  "gallery": {
+    "hero": {
+      "title": "Galerie",
+      "subtitle": "Erkunden Sie Momente aus der Esperance FC Akademie"
+    },
+    "section": {
+      "title": "Unsere Galerie",
+      "subtitle": "Erfassung des Geistes von Esperance FC"
+    },
+    "noImages": "Keine Bilder in dieser Kategorie gefunden.",
+    "loading": "Galerie wird geladen..."
+  },
+  "football": {
+    "hero": {
+      "badge": "Elite Fußballtraining",
+      "title": "Fußballakademie",
+      "subtitle": "Professionelles Fußballtraining für Jungen im Alter von 6-20 Jahren, basierend auf Geschicklichkeit, Disziplin und Selbstvertrauen."
+    },
+    "overview": {
+      "title": "Programmübersicht",
+      "subtitle": "Entwicklung der nächsten Generation von Fußballtalenten",
+      "description": "Unsere Fußballakademie bietet umfassende Trainingsprogramme zur Entwicklung geschicklicher, intelligenter und selbstbewusster Fußballspieler. Mit altersgerechtem Lehrplan, qualifizierten Trainern und modernen Einrichtungen."
+    },
+    "ageGroups": {
+      "title": "Altersgruppen",
+      "subtitle": "Strukturierte Programme für jedes Alter und Niveau"
+    },
+    "students": {
+      "title": "Unsere Fußballschüler",
+      "subtitle": "Treffen Sie unsere talentierten Athleten"
+    },
+    "gallery": {
+      "title": "Fußballgalerie",
+      "subtitle": "Momente aus unserem Fußballprogramm"
+    }
+  },
+  "basketball": {
+    "hero": {
+      "badge": "Hochleistungs-Basketball",
+      "title": "Basketball",
+      "subtitle": "Hochleistungs-Basketballtrainingsprogramm, das Geschicklichkeit, Strategie und sportliche Exzellenz verbindet."
+    },
+    "overview": {
+      "title": "Programmübersicht",
+      "subtitle": "Entwicklung geschicklicher und selbstbewusster Basketballspieler",
+      "description": "Unser Basketballprogramm verbindet technische Fähigkeitsentwicklung mit taktischem Verständnis und körperlichen Konditionierung. Unter Leitung erfahrener Trainer bieten wir eine umfassende Trainingsumgebung."
+    },
+    "students": {
+      "title": "Unsere Athleten",
+      "subtitle": "Talentierte Basketballspieler in unserem Programm"
+    },
+    "gallery": {
+      "title": "Galerie",
+      "subtitle": "Basketball in Aktion"
+    }
+  },
+  "volleyball": {
+    "hero": {
+      "badge": "Umfassendes Volleyball",
+      "title": "Volleyball",
+      "subtitle": "Umfassendes Volleyballtrainingsprogramm, das komplette Athleten durch Geschicklichkeit und Teamfähigkeit entwickelt."
+    },
+    "overview": {
+      "title": "Programmübersicht",
+      "subtitle": "Aufbau kompletter Volleyballspieler",
+      "description": "Unser Volleyballprogramm konzentriert sich auf die Entwicklung grundlegender Fertigkeiten, Spielintelligenz und Teamfähigkeit. Vom Anfänger bis zum fortgeschrittenen Niveau bieten wir strukturiertes Training."
+    },
+    "students": {
+      "title": "Unsere Athleten",
+      "subtitle": "Engagierte Volleyballspieler"
+    },
+    "gallery": {
+      "title": "Galerie",
+      "subtitle": "Volleyball in Aktion"
+    }
+  },
+  "tableTennis": {
+    "hero": {
+      "badge": "Präzision & Strategie",
+      "title": "Tischtennis",
+      "subtitle": "Beherrschen Sie die Kunst des Tischtennisspiels durch Expertencoachmg und Präzisionstraining."
+    },
+    "overview": {
+      "title": "Programmübersicht",
+      "subtitle": "Beherrschen Sie die Kunst des Tischtennisspiels",
+      "description": "Unser Tischtennis-Programm bietet Expertencoaching in allen Aspekten des Spiels. Von grundlegenden Schlägen bis zu fortgeschrittenen Strategien helfen unsere erfahrenen Trainer Spielern."
+    },
+    "students": {
+      "title": "Unsere Athleten",
+      "subtitle": "Talentierte Tischtennisspieler"
+    },
+    "gallery": {
+      "title": "Galerie",
+      "subtitle": "Tischtennis in Aktion"
+    }
+  },
+  "womenFootball": {
+    "hero": {
+      "badge": "Frauen im Sport",
+      "title": "Frauenfußball",
+      "subtitle": "Ermächtigung junger Frauen durch Weltklasse-Fußballtraining und Charakterentwicklung."
+    },
+    "overview": {
+      "title": "Programmübersicht",
+      "subtitle": "Champions auf und neben dem Platz",
+      "description": "Unser Frauenfußball-Programm bietet junger Frauen außergewöhnliches Fußballtraining in einer unterstützenden und ermutigenden Umgebung. Wir konzentrieren uns auf technische Exzellenz, taktisches Verständnis und persönliche Entwicklung."
+    },
+    "students": {
+      "title": "Unsere Athleten",
+      "subtitle": "Bemerkenswerte junge Frauen in unserem Programm"
+    },
+    "gallery": {
+      "title": "Galerie",
+      "subtitle": "Highlights aus dem Frauenfußball"
+    }
+  },
+  "germanClasses": {
+    "hero": {
+      "badge": "Sprache & Kultur",
+      "title": "Deutschkurse",
+      "subtitle": "Lernen Sie Deutsch mit Experten in einer immersiven und ansprechenden Umgebung."
+    },
+    "overview": {
+      "title": "Programmübersicht",
+      "subtitle": "Hochwertige deutsche Sprachenausbildung",
+      "description": "Unser Deutschprogramm bietet umfassende Kurse von Anfänger- bis Fortgeschrittenenstufe. Ob aus akademischen Gründen, beruflichen Fortschritten oder persönlichem Wachstum – unsere Instruktoren bieten effektiven Unterricht."
+    },
+    "benefits": {
+      "title": "Vorteile des Deutschlernens",
+      "b1": "Qualifizierte und erfahrene Instruktoren",
+      "b2": "Kleine Klassen für persönliche Aufmerksamkeit",
+      "b3": "Flexible Zeitplanoptionen",
+      "b4": "Deutsches Sprach- und Kulturimmersion",
+      "b5": "Vorbereitung auf Goethe-Institut Prüfungen",
+      "b6": "Zertifikat nach Abschluss"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Kontaktieren Sie uns",
+      "subtitle": "Wir freuen uns, von Ihnen zu hören"
+    },
+    "form": {
+      "name": "Vollständiger Name",
+      "email": "E-Mail-Adresse",
+      "phone": "Telefonnummer",
+      "subject": "Betreff",
+      "message": "Nachricht",
+      "submit": "Nachricht senden",
+      "sending": "Wird gesendet...",
+      "success": "Nachricht erfolgreich gesendet!",
+      "error": "Fehler beim Senden der Nachricht. Bitte versuchen Sie es erneut.",
+      "required": "Dieses Feld ist erforderlich",
+      "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein"
+    }
+  },
+  "admin": {
+    "login": {
+      "title": "Admin-Zugriff",
+      "subtitle": "Melden Sie sich bei Ihrem Verwaltungsportal an",
+      "email": "E-Mail-Adresse",
+      "emailPlaceholder": "admin@esperancefc.com",
+      "password": "Passwort",
+      "passwordPlaceholder": "••••••••",
+      "rememberMe": "Passwort speichern",
+      "forgotPassword": "Passwort vergessen?",
+      "signIn": "Im Dashboard anmelden",
+      "signingIn": "Wird angemeldet...",
+      "footer": "Sicheres Admin-Portal • Nur geschützter Zugriff",
+      "error": "Anmeldung fehlgeschlagen. Bitte überprüfen Sie Ihre Anmeldedaten.",
+      "welcome": "Willkommen domy."
+    },
+    "dashboard": {
+      "title": "Armaturenbrett",
+      "subtitle": "Willkommen zurück in Ihrem Admin-Panel"
+    }
+  },
+  "buttons": {
+    "submit": "Absenden",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "close": "Schließen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "previous": "Zurück",
+    "explore": "Programme erkunden",
+    "learnMore": "Mehr erfahren",
+    "contactUs": "Kontaktieren Sie uns"
+  },
+  "common": {
+    "loading": "Wird geladen...",
+    "error": "Ein Fehler ist aufgetreten",
+    "success": "Erfolg",
+    "noData": "Keine Daten verfügbar",
+    "language": "Deutsch"
+  },
+  "footer": {
+    "tagline": "Premium Sporttraining für Elite-Talent",
+    "description": "Champions durch Weltklasse-Sporttraining, Charakterentwicklung und akademische Exzellenz seit 2011.",
+    "quickLinks": "Schnelllinks",
+    "sports": "Unsere Sportarten",
+    "allRightsReserved": "Alle Rechte vorbehalten.",
+    "privacy": "Datenschutzrichtlinie",
+    "terms": "Nutzungsbedingungen"
+  }
+}

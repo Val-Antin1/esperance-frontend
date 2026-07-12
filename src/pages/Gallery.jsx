@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import Seo from '../components/common/Seo';
 import SectionTitle from '../components/common/SectionTitle';
 import GalleryCard from '../components/cards/GalleryCard';
@@ -37,6 +38,7 @@ const getMasonryClass = (index) => {
 };
 
 const Gallery = () => {
+  const { t } = useTranslation();
   const [activeCategory, setActiveCategory] = useState('All');
   const [galleryImages, setGalleryImages] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -175,13 +177,13 @@ const Gallery = () => {
 
           {loading && (
             <div className="text-center py-12">
-              <p className="text-gray-500 text-lg">Loading gallery...</p>
+              <p className="text-gray-500 text-lg">{t('common.loading')}</p>
             </div>
           )}
 
           {!loading && filteredImages.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-gray-500 text-lg">No images found in this category.</p>
+              <p className="text-gray-500 text-lg">{t('common.noData')}</p>
             </div>
           )}
         </div>

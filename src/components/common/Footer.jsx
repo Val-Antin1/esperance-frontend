@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { FaFacebook, FaInstagram, FaYoutube, FaWhatsapp } from 'react-icons/fa';
 import { contactInfo } from '../../data/sampleData';
 
 const quickLinks = [
-  { label: 'Home', path: '/' },
-  { label: 'About Us', path: '/about' },
-  { label: 'Gallery', path: '/gallery' },
-  { label: 'News & Events', path: '/news' },
-  { label: 'Contact', path: '/contact' },
+  { labelKey: 'nav.home', path: '/' },
+  { labelKey: 'nav.about', path: '/about' },
+  { labelKey: 'nav.gallery', path: '/gallery' },
+  { labelKey: 'nav.news', path: '/news' },
+  { labelKey: 'nav.contact', path: '/contact' },
 ];
 
 const sportLinks = [
@@ -21,6 +22,7 @@ const sportLinks = [
 ];
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <footer className="bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -38,11 +40,11 @@ const Footer = () => {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-gray-800">Esperance FC Academy</h3>
-                <p className="text-gray-500 text-sm">Premium sports training for elite talent</p>
+                <p className="text-gray-500 text-sm">{t('footer.tagline')}</p>
               </div>
             </div>
             <p className="text-gray-600 text-sm leading-relaxed">
-              Developing champions through world-class sports training, character building, and academic excellence since 2011.
+              {t('footer.description')}
             </p>
             {/* Social Icons */}
             <div className="flex space-x-3 mt-6">
@@ -69,13 +71,13 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <h4 className="text-lg font-semibold text-gray-800 mb-6 relative after:absolute after:-bottom-2 after:left-0 after:w-10 after:h-0.5 after:bg-accent">
-              Quick Links
+              {t('footer.quickLinks')}
             </h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.path}>
                   <Link to={link.path} className="text-gray-600 hover:text-accent transition-colors text-sm">
-                    {link.label}
+                    {t(link.labelKey)}
                   </Link>
                 </li>
               ))}
@@ -90,7 +92,7 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h4 className="text-lg font-semibold text-gray-800 mb-6 relative after:absolute after:-bottom-2 after:left-0 after:w-10 after:h-0.5 after:bg-accent">
-              Our Sports
+              {t('footer.sports')}
             </h4>
             <ul className="space-y-3">
               {sportLinks.map((link) => (
@@ -111,7 +113,7 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             <h4 className="text-lg font-semibold text-gray-800 mb-6 relative after:absolute after:-bottom-2 after:left-0 after:w-10 after:h-0.5 after:bg-accent">
-              Contact
+              {t('contact.form.name')}
             </h4>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start space-x-2">
@@ -135,12 +137,12 @@ const Footer = () => {
       <div className="border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 text-sm">
-            &copy; {new Date().getFullYear()} Esperance FC Academy. All rights reserved.
+            &copy; {new Date().getFullYear()} Esperance FC Academy. {t('footer.allRightsReserved')}
           </p>
           <div className="flex space-x-4 text-sm text-gray-500 items-center">
-            <Link to="/admin" className="hover:text-accent transition-colors">Admin Login</Link>
-            <span>Privacy Policy</span>
-            <span>Terms of Service</span>
+            <Link to="/admin" className="hover:text-accent transition-colors">{t('admin.login.title')}</Link>
+            <span>{t('footer.privacy')}</span>
+            <span>{t('footer.terms')}</span>
           </div>
         </div>
       </div>

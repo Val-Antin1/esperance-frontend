@@ -1,0 +1,295 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "gallery": "Gallery",
+    "programs": "Programs",
+    "news": "News & Events",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero": {
+      "title": "Premier Sports Academy",
+      "subtitle": "Building Champions for Life"
+    },
+    "stats": {
+      "title": "Esperance FC by the Numbers",
+      "subtitle": "Our impact in the community"
+    },
+    "programs": {
+      "title": "Our Programs",
+      "subtitle": "Discover our comprehensive sports and academic programs"
+    },
+    "gallery": {
+      "title": "Our Gallery",
+      "subtitle": "Moments captured at Esperance FC Academy"
+    }
+  },
+  "about": {
+    "hero": {
+      "badge": "About Esperance FC",
+      "title": "Building Champions Through Character",
+      "titleHighlight": "and Community Impact",
+      "description": "Esperance FC Academy blends elite coaching, academic support, and life skills training so young athletes thrive on and off the field.",
+      "cta1": "Contact Us",
+      "cta2": "Explore Programs",
+      "established": "Established",
+      "programs": "Programs",
+      "students": "Students",
+      "awards": "Awards",
+      "athleteDev": "Athlete Development",
+      "athleteDevDesc": "Technical training, mental resilience, and leadership are built into every academy pathway.",
+      "academicSupport": "Academic Support",
+      "academicSupportDesc": "Focused mentoring and classroom support help students balance sport and study."
+    },
+    "preview": {
+      "title": "Shaping the",
+      "titleHighlight": "Future of Sports",
+      "paragraph1": "Esperance FC Academy is a premier sports training institution dedicated to nurturing young talent and developing well-rounded athletes. We believe in the power of sports to transform lives and build character.",
+      "paragraph2": "With state-of-the-art facilities, experienced coaches, and a comprehensive approach to athlete development, we provide an environment where every student can reach their full potential."
+    },
+    "story": {
+      "title": "Academy Story",
+      "subtitle": "From humble beginnings to a premier sports academy, our story is built on passion, progress, and purpose.",
+      "beginning": "Humble Beginnings",
+      "beginningDesc": "Esperance FC Academy started in 2011 with a small group of committed athletes and a bold vision to create a world-class sports home in Africa.",
+      "growth": "Community Growth",
+      "growthDesc": "We grew through strong community partnerships, expanded our programs, and built a supportive environment where athletes thrive academically and athletically.",
+      "future": "Future Focus",
+      "futureDesc": "Today we combine elite coaching with character development, preparing young athletes for success in sport, education, and life."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "To nurture and develop young athletes by providing exceptional sports training, fostering character growth, and creating opportunities for success both on and off the field. We are committed to building not just skilled athletes, but well-rounded individuals who contribute positively to society."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "description": "To be the leading sports academy in Africa, recognized for producing champions who excel in sports, academics, and life. We envision a future where every young athlete has access to world-class training and the opportunity to reach their full potential."
+    },
+    "values": {
+      "title": "Our Values",
+      "subtitle": "Six core principles that define our culture and guide every decision we make.",
+      "excellence": "Excellence",
+      "excellenceDesc": "We pursue the highest standards in every aspect of our academy — from coaching methodology to facility quality. Our relentless commitment to excellence drives continuous improvement and pushes every athlete to reach their full potential.",
+      "discipline": "Discipline",
+      "disciplineDesc": "Discipline is the foundation of all achievement. We instill in our athletes the self-control, focus, and work ethic required to excel in sports and life. Structure, consistency, and accountability are non-negotiable pillars of our program.",
+      "teamwork": "Teamwork",
+      "teamworkDesc": "We believe that collective effort produces extraordinary results. Our academy fosters a culture where collaboration, mutual support, and shared goals drive success. Every individual contributes to something greater than themselves.",
+      "leadership": "Leadership",
+      "leadershipDesc": "We develop leaders who inspire others through action and character. Our athletes learn to take initiative, make decisions under pressure, and lead by example — skills that serve them long after their sporting careers.",
+      "integrity": "Integrity",
+      "integrityDesc": "Honesty, transparency, and moral courage guide everything we do. We build character through ethical conduct, teaching our athletes that true success is measured not just by victories, but by the respect they earn from others.",
+      "respect": "Respect",
+      "respectDesc": "We foster an environment of mutual respect — for teammates, opponents, coaches, and the game itself. Our academy celebrates diversity, promotes inclusion, and teaches athletes to treat everyone with dignity."
+    }
+  },
+  "gallery": {
+    "hero": {
+      "title": "Gallery",
+      "subtitle": "Explore moments from Esperance FC Academy"
+    },
+    "section": {
+      "title": "Our Gallery",
+      "subtitle": "Capturing the spirit of Esperance FC"
+    },
+    "noImages": "No images found in this category.",
+    "loading": "Loading gallery..."
+  },
+  "football": {
+    "hero": {
+      "badge": "Elite Football Training",
+      "title": "Football Academy",
+      "subtitle": "Professional football training for boys aged 6-20, built around skill, discipline, and confidence."
+    },
+    "overview": {
+      "title": "Program Overview",
+      "subtitle": "Developing the next generation of football talent",
+      "description": "Our Football Academy offers comprehensive training programs designed to develop skilled, intelligent, and confident football players. With age-appropriate curriculum, qualified coaches, and modern facilities, we provide the ideal environment for young athletes to grow and excel in football."
+    },
+    "ageGroups": {
+      "title": "Age Groups",
+      "subtitle": "Structured programs for every age and skill level"
+    },
+    "students": {
+      "title": "Our Football Students",
+      "subtitle": "Meet some of our talented athletes"
+    },
+    "gallery": {
+      "title": "Football Gallery",
+      "subtitle": "Moments from our football program"
+    }
+  },
+  "basketball": {
+    "hero": {
+      "badge": "High-Performance Basketball",
+      "title": "Basketball",
+      "subtitle": "High-performance basketball training program combining skill, strategy, and athletic excellence."
+    },
+    "overview": {
+      "title": "Program Overview",
+      "subtitle": "Developing skilled and confident basketball players",
+      "description": "Our Basketball program combines technical skill development with tactical understanding and physical conditioning. Led by experienced coaches, we provide a comprehensive training environment for players of all levels."
+    },
+    "students": {
+      "title": "Our Athletes",
+      "subtitle": "Talented basketball players in our program"
+    },
+    "gallery": {
+      "title": "Gallery",
+      "subtitle": "Basketball in action"
+    }
+  },
+  "volleyball": {
+    "hero": {
+      "badge": "Comprehensive Volleyball",
+      "title": "Volleyball",
+      "subtitle": "Comprehensive volleyball training program building complete athletes through skill and teamwork."
+    },
+    "overview": {
+      "title": "Program Overview",
+      "subtitle": "Building complete volleyball players",
+      "description": "Our Volleyball program focuses on developing fundamental skills, game intelligence, and teamwork. From beginner to advanced levels, we provide structured training that helps each player reach their potential."
+    },
+    "students": {
+      "title": "Our Athletes",
+      "subtitle": "Dedicated volleyball players"
+    },
+    "gallery": {
+      "title": "Gallery",
+      "subtitle": "Volleyball in action"
+    }
+  },
+  "tableTennis": {
+    "hero": {
+      "badge": "Precision & Strategy",
+      "title": "Table Tennis",
+      "subtitle": "Master the art of table tennis through expert coaching and precision training."
+    },
+    "overview": {
+      "title": "Program Overview",
+      "subtitle": "Master the art of table tennis",
+      "description": "Our Table Tennis program offers expert coaching in all aspects of the game. From basic strokes to advanced strategies, our experienced coaches help players develop precision, speed, and tactical thinking."
+    },
+    "students": {
+      "title": "Our Athletes",
+      "subtitle": "Talented table tennis players"
+    },
+    "gallery": {
+      "title": "Gallery",
+      "subtitle": "Table tennis action"
+    }
+  },
+  "womenFootball": {
+    "hero": {
+      "badge": "Women in Sports",
+      "title": "Women's Football",
+      "subtitle": "Empowering young women through world-class football training and character development."
+    },
+    "overview": {
+      "title": "Program Overview",
+      "subtitle": "Building champions on and off the field",
+      "description": "Our Women's Football program is dedicated to providing young women with exceptional football training in a supportive and empowering environment. We focus on technical excellence, tactical understanding, and personal development, preparing our athletes for success at every level."
+    },
+    "students": {
+      "title": "Our Athletes",
+      "subtitle": "Remarkable young women in our program"
+    },
+    "gallery": {
+      "title": "Gallery",
+      "subtitle": "Highlights from women's football"
+    }
+  },
+  "germanClasses": {
+    "hero": {
+      "badge": "Language & Culture",
+      "title": "German Classes",
+      "subtitle": "Learn German with expert instructors in an immersive and engaging environment."
+    },
+    "overview": {
+      "title": "Program Overview",
+      "subtitle": "Quality German language education",
+      "description": "Our German language program offers comprehensive courses from beginner to advanced levels. Whether you're learning for academic purposes, career advancement, or personal growth, our qualified instructors provide effective and engaging language instruction."
+    },
+    "benefits": {
+      "title": "Benefits of Learning German",
+      "b1": "Qualified and experienced instructors",
+      "b2": "Small class sizes for personalized attention",
+      "b3": "Flexible scheduling options",
+      "b4": "German culture and language immersion",
+      "b5": "Preparation for Goethe Institute exams",
+      "b6": "Certificate upon completion"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Get in Touch",
+      "subtitle": "We'd love to hear from you"
+    },
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully!",
+      "error": "Failed to send message. Please try again.",
+      "required": "This field is required",
+      "invalidEmail": "Please enter a valid email"
+    }
+  },
+  "admin": {
+    "login": {
+      "title": "Admin Access",
+      "subtitle": "Sign in to your management portal",
+      "email": "Email Address",
+      "emailPlaceholder": "admin@esperancefc.com",
+      "password": "Password",
+      "passwordPlaceholder": "••••••••",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot password?",
+      "signIn": "Sign In to Dashboard",
+      "signingIn": "Signing in...",
+      "footer": "Secure admin portal • Protected access only",
+      "error": "Login failed. Please check your credentials.",
+      "welcome": "Welcome domy."
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "subtitle": "Welcome back to your admin panel"
+    }
+  },
+  "buttons": {
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "explore": "Explore Programs",
+    "learnMore": "Learn More",
+    "contactUs": "Contact Us",
+    "explorePrograms": "Explore Programs",
+    "viewGallery": "View Full Gallery"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success",
+    "noData": "No data available",
+    "language": "English"
+  },
+  "footer": {
+    "tagline": "Premium sports training for elite talent",
+    "description": "Developing champions through world-class sports training, character building, and academic excellence since 2011.",
+    "quickLinks": "Quick Links",
+    "sports": "Our Sports",
+    "allRightsReserved": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  }
+}

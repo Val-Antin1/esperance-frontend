@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Seo from '../components/common/Seo';
 import SectionTitle from '../components/common/SectionTitle';
 import GalleryCard from '../components/cards/GalleryCard';
@@ -8,6 +9,7 @@ import api from '../services/api';
 import { FaCheckCircle, FaLanguage } from 'react-icons/fa';
 
 const GermanClasses = () => {
+  const { t } = useTranslation();
   const [galleryImages, setGalleryImages] = useState([]);
 
   useEffect(() => {
@@ -54,10 +56,10 @@ const GermanClasses = () => {
           className="relative z-20 max-w-4xl px-4 text-center sm:px-6"
         >
           <span className="mb-5 inline-block rounded-full border border-accent/50 bg-black/40 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.3em] text-accent backdrop-blur-sm">
-            Language & Culture
+            {t('germanClasses.hero.badge')}
           </span>
           <h1 className="mb-4 text-4xl font-bold text-white sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-lg">
-            German Classes
+            {t('germanClasses.hero.title')}
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-gray-100 sm:text-xl md:text-2xl drop-shadow-md">
             Learn German with expert instructors in an immersive and engaging environment.

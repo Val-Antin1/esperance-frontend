@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Seo from '../components/common/Seo';
 import SectionTitle from '../components/common/SectionTitle';
 import StudentCard from '../components/cards/StudentCard';
@@ -9,6 +10,7 @@ import { ageGroups, students } from '../data/sampleData';
 import { FaCheckCircle } from 'react-icons/fa';
 
 const Football = () => {
+  const { t } = useTranslation();
   const [galleryImages, setGalleryImages] = useState([]);
 
   useEffect(() => {
@@ -47,13 +49,13 @@ const Football = () => {
           className="relative z-20 max-w-4xl px-4 text-center sm:px-6"
         >
           <span className="mb-5 inline-block rounded-full border border-accent/50 bg-black/40 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.3em] text-accent backdrop-blur-sm">
-            Elite Football Training
+            {t('football.hero.badge')}
           </span>
           <h1 className="mb-4 text-4xl font-bold text-white sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-lg">
-            Football Academy
+            {t('football.hero.title')}
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-gray-100 sm:text-xl md:text-2xl drop-shadow-md">
-            Professional football training for boys aged 6-20, built around skill, discipline, and confidence.
+            {t('football.hero.subtitle')}
           </p>
         </motion.div>
       </div>
@@ -61,7 +63,7 @@ const Football = () => {
       {/* Description */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle title="Program Overview" subtitle="Developing the next generation of football talent" />
+          <SectionTitle title={t('football.overview.title')} subtitle={t('football.overview.subtitle')} />
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -81,7 +83,7 @@ const Football = () => {
       {/* Age Groups */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle title="Age Groups" subtitle="Structured programs for every age and skill level" />
+          <SectionTitle title={t('football.ageGroups.title')} subtitle={t('football.ageGroups.subtitle')} />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {ageGroups.map((group, index) => (
               <motion.div

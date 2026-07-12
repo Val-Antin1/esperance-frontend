@@ -1,11 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { FaUserLock, FaSpinner, FaExclamationCircle, FaEye, FaEyeSlash, FaArrowRight } from 'react-icons/fa';
 import Seo from '../components/common/Seo';
 import api from '../services/api';
 
 const AdminLogin = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState({ email: '', password: '' });
   const [rememberMe, setRememberMe] = useState(false);
@@ -256,7 +258,7 @@ const AdminLogin = () => {
             className="flex items-center gap-2 text-gray-600 hover:text-primary transition-colors text-sm font-medium group"
           >
             <span className="transform group-hover:-translate-x-1 transition-transform">←</span>
-            Back to Website
+            {t('buttons.back')}
           </Link>
         </motion.div>
 
@@ -275,7 +277,7 @@ const AdminLogin = () => {
               transition={{ delay: 0.3 }}
               className="text-3xl md:text-4xl font-bold text-gray-900 mb-2"
             >
-              Admin Access
+              {t('admin.login.title')}
             </motion.h2>
             <motion.p
               initial={{ opacity: 0 }}
@@ -283,7 +285,7 @@ const AdminLogin = () => {
               transition={{ delay: 0.4 }}
               className="text-gray-600 text-sm md:text-base"
             >
-              Sign in to your management portal
+              {t('admin.login.subtitle')}
             </motion.p>
           </div>
 
@@ -308,12 +310,12 @@ const AdminLogin = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
-              <label className="block text-sm font-semibold text-gray-800 mb-2.5">Email Address</label>
+              <label className="block text-sm font-semibold text-gray-800 mb-2.5">{t('admin.login.email')}</label>
               <input
                 type="email"
                 value={credentials.email}
                 onChange={(e) => setCredentials({ ...credentials, email: e.target.value })}
-                placeholder="admin@esperancefc.com"
+                placeholder={t('admin.login.emailPlaceholder')}
                 required
                 disabled={loading}
                 className="w-full px-5 py-3.5 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-0 focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 text-gray-900 placeholder-gray-400"
@@ -326,13 +328,13 @@ const AdminLogin = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
             >
-              <label className="block text-sm font-semibold text-gray-800 mb-2.5">Password</label>
+              <label className="block text-sm font-semibold text-gray-800 mb-2.5">{t('admin.login.password')}</label>
               <div className="relative">
                 <input
                   type={showPassword ? 'text' : 'password'}
                   value={credentials.password}
                   onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
-                  placeholder="••••••••"
+                  placeholder={t('admin.login.passwordPlaceholder')}
                   required
                   disabled={loading}
                   className="w-full px-5 py-3.5 pr-12 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-0 focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 text-gray-900 placeholder-gray-400"
@@ -364,13 +366,13 @@ const AdminLogin = () => {
                   disabled={loading}
                   className="w-4 h-4 rounded border border-gray-300 text-primary focus:ring-accent disabled:opacity-50 disabled:cursor-not-allowed"
                 />
-                <span className="text-sm text-gray-700 font-medium group-hover:text-gray-900 transition-colors">Remember me</span>
+                <span className="text-sm text-gray-700 font-medium group-hover:text-gray-900 transition-colors">{t('admin.login.rememberMe')}</span>
               </label>
               <Link
                 to="#"
                 className="text-sm text-primary hover:text-primary-light font-medium transition-colors"
               >
-                Forgot password?
+                {t('admin.login.forgotPassword')}
               </Link>
             </motion.div>
 
@@ -388,11 +390,11 @@ const AdminLogin = () => {
               {loading ? (
                 <>
                   <FaSpinner className="animate-spin" size={18} />
-                  <span>Signing in...</span>
+                  <span>{t('admin.login.signingIn')}</span>
                 </>
               ) : (
                 <>
-                  <span>Sign In to Dashboard</span>
+                  <span>{t('admin.login.signIn')}</span>
                   <FaArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </>
               )}

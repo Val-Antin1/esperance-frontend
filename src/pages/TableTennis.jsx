@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Seo from '../components/common/Seo';
 import SectionTitle from '../components/common/SectionTitle';
 import StudentCard from '../components/cards/StudentCard';
@@ -8,6 +9,7 @@ import api from '../services/api';
 import { students } from '../data/sampleData';
 
 const TableTennis = () => {
+  const { t } = useTranslation();
   const [galleryImages, setGalleryImages] = useState([]);
 
   useEffect(() => {
@@ -45,19 +47,19 @@ const TableTennis = () => {
           className="relative z-20 max-w-4xl px-4 text-center sm:px-6"
         >
           <span className="mb-5 inline-block rounded-full border border-accent/50 bg-black/40 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.3em] text-accent backdrop-blur-sm">
-            Precision & Strategy
+            {t('tableTennis.hero.badge')}
           </span>
           <h1 className="mb-4 text-4xl font-bold text-white sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-lg">
-            Table Tennis
+            {t('tableTennis.hero.title')}
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-gray-100 sm:text-xl md:text-2xl drop-shadow-md">
-            Master the art of table tennis through expert coaching and precision training.
+            {t('tableTennis.hero.subtitle')}
           </p>
         </motion.div>
       </div>
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle title="Program Overview" subtitle="Master the art of table tennis" />
+          <SectionTitle title={t('tableTennis.overview.title')} subtitle={t('tableTennis.overview.subtitle')} />
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="max-w-4xl mx-auto text-center">
             <p className="text-gray-600 text-lg leading-relaxed">Our Table Tennis program offers expert coaching in all aspects of the game. From basic strokes to advanced strategies, our experienced coaches help players develop precision, speed, and tactical thinking.</p>
           </motion.div>

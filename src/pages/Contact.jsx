@@ -1,14 +1,16 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import Seo from '../components/common/Seo';
 import SectionTitle from '../components/common/SectionTitle';
 import { contactInfo } from '../data/sampleData';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaInstagram, FaYoutube, FaWhatsapp, FaClock, FaGlobeAfrica } from 'react-icons/fa';
 
 const Contact = () => {
+  const { t } = useTranslation();
   const contactDetails = [
     {
       icon: FaPhone,
-      label: 'Phone',
+      label: t('buttons.contactUs'),
       value: contactInfo.phone,
       href: `tel:${contactInfo.phone}`,
       bg: 'bg-gray-100',
@@ -17,7 +19,7 @@ const Contact = () => {
     },
     {
       icon: FaEnvelope,
-      label: 'Email',
+      label: t('contact.form.email'),
       value: contactInfo.email,
       href: `mailto:${contactInfo.email}`,
       bg: 'bg-gray-100',
@@ -26,7 +28,7 @@ const Contact = () => {
     },
     {
       icon: FaMapMarkerAlt,
-      label: 'Address',
+      label: t('common.noData'),
       value: contactInfo.address,
       bg: 'bg-gray-100',
       shadow: 'shadow-slate-200/50',
@@ -34,7 +36,7 @@ const Contact = () => {
     },
     {
       icon: FaClock,
-      label: 'Working Hours',
+      label: t('common.loading'),
       value: 'Mon - Sat: 6:00 AM - 7:00 PM',
       bg: 'bg-gray-100',
       shadow: 'shadow-slate-200/50',
@@ -73,8 +75,8 @@ const Contact = () => {
           >
             <FaGlobeAfrica className="text-4xl text-white" />
           </motion.div>
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">Get in Touch</h1>
-          <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">We'd love to hear from you. Reach out and let's start a conversation.</p>
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">{t('contact.hero.title')}</h1>
+          <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">{t('contact.hero.subtitle')}</p>
         </motion.div>
       </div>
 

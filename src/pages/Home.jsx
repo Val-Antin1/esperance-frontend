@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import HeroCarousel from '../components/common/HeroSection';
 import SectionTitle from '../components/common/SectionTitle';
 import Seo from '../components/common/Seo';
@@ -47,6 +48,7 @@ const Counter = ({ end, suffix = '', duration = 2000 }) => {
 };
 
 const Home = () => {
+  const { t } = useTranslation();
   const [galleryImages, setGalleryImages] = useState([]);
   const [loadingGallery, setLoadingGallery] = useState(true);
   const [newsData, setNewsData] = useState([]);
@@ -96,21 +98,19 @@ const Home = () => {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
-                Shaping the <span className="text-accent">Future</span> of Sports
+                {t('about.preview.title')} <span className="text-accent">{t('about.preview.titleHighlight')}</span>
               </h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Esperance FC Academy is a premier sports training institution dedicated to nurturing young talent 
-                and developing well-rounded athletes. We believe in the power of sports to transform lives and build character.
+                {t('about.preview.paragraph1')}
               </p>
               <p className="text-gray-600 leading-relaxed mb-8">
-                With state-of-the-art facilities, experienced coaches, and a comprehensive approach to athlete development, 
-                we provide an environment where every student can reach their full potential.
+                {t('about.preview.paragraph2')}
               </p>
               <Link
                 to="/about"
                 className="inline-flex items-center px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-light transition-colors"
               >
-                Learn More About Us 
+                {t('buttons.learnMore')}
                 <FaPlay className="ml-2 text-sm" />
               </Link>
             </motion.div>
@@ -136,7 +136,7 @@ const Home = () => {
       {/* Stats Section */}
       <section className="py-20 bg-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle title="Esperance FC by the Numbers" subtitle="Our impact in the community" light />
+          <SectionTitle title={t('home.stats.title')} subtitle={t('home.stats.subtitle')} light />
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-12">
             {stats.map((stat, index) => (
               <motion.div
@@ -158,7 +158,7 @@ const Home = () => {
       {/* Activities Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle title="Our Programs" subtitle="Discover our comprehensive sports and academic programs" />
+          <SectionTitle title={t('home.programs.title')} subtitle={t('home.programs.subtitle')} />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {activities.map((activity, index) => (
               <ActivityCard key={activity.id} activity={activity} index={index} />
@@ -170,7 +170,7 @@ const Home = () => {
       {/* Gallery Preview */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle title="Our Gallery" subtitle="Moments captured at Esperance FC Academy" />
+          <SectionTitle title={t('home.gallery.title')} subtitle={t('home.gallery.subtitle')} />
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[220px]">
             {loadingGallery ? (
               Array.from({ length: 8 }).map((_, index) => (
@@ -185,7 +185,7 @@ const Home = () => {
                 </div>
               ))
             ) : (
-              <div className="col-span-full text-center py-12 text-gray-500">No gallery items available yet.</div>
+              <div className="col-span-full text-center py-12 text-gray-500">{t('common.noData')}</div>
             )}
           </div>
           <div className="text-center mt-8">
@@ -193,7 +193,7 @@ const Home = () => {
               to="/gallery"
               className="inline-flex items-center px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-light transition-colors"
             >
-              View Full Gallery
+              {t('buttons.viewGallery')}
             </Link>
           </div>
         </div>

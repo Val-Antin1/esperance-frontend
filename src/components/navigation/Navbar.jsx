@@ -1,27 +1,30 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { HiMenu, HiX, HiChevronDown } from 'react-icons/hi';
 import { FaFutbol } from 'react-icons/fa';
+import LanguageSwitcher from '../common/LanguageSwitcher';
 
 const navLinks = [
-  { path: '/', label: 'Home' },
-  { path: '/about', label: 'About Us' },
-  { path: '/gallery', label: 'Gallery' },
-  { path: '/news', label: 'News & Events' },
-  { path: '/contact', label: 'Contact' },
+  { path: '/', labelKey: 'nav.home' },
+  { path: '/about', labelKey: 'nav.about' },
+  { path: '/gallery', labelKey: 'nav.gallery' },
+  { path: '/news', labelKey: 'nav.news' },
+  { path: '/contact', labelKey: 'nav.contact' },
 ];
 
 const programLinks = [
-  { path: '/football-academy/football', label: 'Football Academy' },
-  { path: '/football-academy/womens-football', label: "Women's Football" },
-  { path: '/football-academy/basketball', label: 'Basketball' },
-  { path: '/football-academy/volleyball', label: 'Volleyball' },
-  { path: '/football-academy/table-tennis', label: 'Table Tennis' },
-  { path: '/football-academy/german-classes', label: 'German Classes' },
+  { path: '/football-academy/football', labelKey: 'football.hero.title' },
+  { path: '/football-academy/womens-football', labelKey: 'womenFootball.hero.title' },
+  { path: '/football-academy/basketball', labelKey: 'basketball.hero.title' },
+  { path: '/football-academy/volleyball', labelKey: 'volleyball.hero.title' },
+  { path: '/football-academy/table-tennis', labelKey: 'tableTennis.hero.title' },
+  { path: '/football-academy/german-classes', labelKey: 'germanClasses.hero.title' },
 ];
 
 const Navbar = () => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [programsOpen, setProgramsOpen] = useState(false);
@@ -68,7 +71,7 @@ const Navbar = () => {
                   }`
                 }
               >
-                {link.label}
+                {t(link.labelKey)}
               </NavLink>
             ))}
 
@@ -83,7 +86,7 @@ const Navbar = () => {
                 aria-expanded={programsOpen}
                 className="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-primary transition duration-200"
               >
-                Programs
+                {t('nav.programs')}
                 <HiChevronDown className={`transition-transform duration-200 ${programsOpen ? 'rotate-180' : ''}`} />
               </button>
 
@@ -108,7 +111,7 @@ const Navbar = () => {
                             }`
                           }
                         >
-                          {link.label}
+                          {t(link.labelKey)}
                         </NavLink>
                       ))}
                     </div>
@@ -129,9 +132,12 @@ const Navbar = () => {
                   }`
                 }
               >
-                {link.label}
+                {t(link.labelKey)}
               </NavLink>
             ))}
+
+            {/* Language Switcher on the right */}
+            <LanguageSwitcher />
           </div>
 
           <button
@@ -165,7 +171,7 @@ const Navbar = () => {
                     }`
                   }
                 >
-                  {link.label}
+                  {t(link.labelKey)}
                 </NavLink>
               ))}
 
@@ -175,7 +181,7 @@ const Navbar = () => {
                 className="w-full flex items-center justify-between rounded-2xl px-4 py-3 text-sm font-medium text-gray-700 bg-gray-50 hover:bg-gray-100 transition duration-200"
                 aria-expanded={mobileProgramsOpen}
               >
-                Programs
+                {t('nav.programs')}
                 <HiChevronDown className={`transition-transform duration-200 ${mobileProgramsOpen ? 'rotate-180' : ''}`} />
               </button>
 
@@ -200,13 +206,18 @@ const Navbar = () => {
                             }`
                           }
                         >
-                          {link.label}
+                          {t(link.labelKey)}
                         </NavLink>
                       ))}
                     </div>
                   </motion.div>
                 )}
               </AnimatePresence>
+
+              {/* Mobile Language Switcher */}
+              <div className="mt-4 pt-4 border-t border-gray-200">
+                <LanguageSwitcher />
+              </div>
             </div>
           </motion.div>
         )}

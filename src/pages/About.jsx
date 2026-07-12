@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { FaMedal, FaRocket, FaTrophy, FaUsers, FaGlobeAfrica, FaStar, FaHandshake, FaShieldAlt, FaLightbulb, FaHeart } from 'react-icons/fa';
 import Seo from '../components/common/Seo';
 import SectionTitle from '../components/common/SectionTitle';
@@ -110,6 +111,7 @@ const fadeInUp = {
 };
 
 const About = () => {
+  const { t } = useTranslation();
   const [staffMembers, setStaffMembers] = useState([]);
   const [heroCollageImages, setHeroCollageImages] = useState([]);
 
@@ -206,27 +208,27 @@ const About = () => {
               className="max-w-2xl"
             >
               <span className="mb-6 inline-block rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent">
-                About Esperance FC
+                {t('about.hero.badge')}
               </span>
               <h1 className="mb-6 text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">
-                Building Champions Through Character
-                <span className="block text-accent">and Community Impact</span>
+                {t('about.hero.title')}
+                <span className="block text-accent">{t('about.hero.titleHighlight')}</span>
               </h1>
               <p className="max-w-xl text-lg leading-relaxed text-gray-300 sm:text-xl">
-                Esperance FC Academy blends elite coaching, academic support, and life skills training so young athletes thrive on and off the field.
+                {t('about.hero.description')}
               </p>
               <div className="mt-10 flex flex-wrap gap-4">
                 <Link
                   to="/contact"
                   className="inline-flex items-center justify-center rounded-full bg-accent px-8 py-3 text-sm font-semibold text-primary shadow-lg shadow-accent/20 transition-all duration-300 hover:-translate-y-1"
                 >
-                  Contact Us
+                  {t('buttons.contactUs')}
                 </Link>
                 <Link
                   to="/football-academy/football"
                   className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-8 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-white/20"
                 >
-                  Explore Programs
+                  {t('buttons.explorePrograms')}
                 </Link>
               </div>
             </motion.div>

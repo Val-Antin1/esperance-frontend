@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import Seo from '../components/common/Seo';
 import SectionTitle from '../components/common/SectionTitle';
 import SearchBar from '../components/common/SearchBar';
@@ -9,6 +10,7 @@ import api from '../services/api';
 const ITEMS_PER_PAGE = 4;
 
 const News = () => {
+  const { t } = useTranslation();
   const [newsData, setNewsData] = useState([]);
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
@@ -56,8 +58,8 @@ const News = () => {
         <div className="absolute top-10 left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl" />
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="relative z-10 text-center px-4">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">News & Events</h1>
-          <p className="text-xl text-gray-200 max-w-2xl mx-auto">Stay up to date with the latest at Esperance FC</p>
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">{t('nav.news')}</h1>
+          <p className="text-xl text-gray-200 max-w-2xl mx-auto">{t('contact.hero.subtitle')}</p>
         </motion.div>
       </div>
 

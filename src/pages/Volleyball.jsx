@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Seo from '../components/common/Seo';
 import SectionTitle from '../components/common/SectionTitle';
 import StudentCard from '../components/cards/StudentCard';
@@ -8,6 +9,7 @@ import api from '../services/api';
 import { students } from '../data/sampleData';
 
 const Volleyball = () => {
+  const { t } = useTranslation();
   const [galleryImages, setGalleryImages] = useState([]);
 
   useEffect(() => {
@@ -45,19 +47,19 @@ const Volleyball = () => {
           className="relative z-20 max-w-4xl px-4 text-center sm:px-6"
         >
           <span className="mb-5 inline-block rounded-full border border-accent/50 bg-black/40 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.3em] text-accent backdrop-blur-sm">
-            Comprehensive Volleyball
+            {t('volleyball.hero.badge')}
           </span>
           <h1 className="mb-4 text-4xl font-bold text-white sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-lg">
-            Volleyball
+            {t('volleyball.hero.title')}
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-gray-100 sm:text-xl md:text-2xl drop-shadow-md">
-            Comprehensive volleyball training program building complete athletes through skill and teamwork.
+            {t('volleyball.hero.subtitle')}
           </p>
         </motion.div>
       </div>
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle title="Program Overview" subtitle="Building complete volleyball players" />
+          <SectionTitle title={t('volleyball.overview.title')} subtitle={t('volleyball.overview.subtitle')} />
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="max-w-4xl mx-auto text-center">
             <p className="text-gray-600 text-lg leading-relaxed">Our Volleyball program focuses on developing fundamental skills, game intelligence, and teamwork. From beginner to advanced levels, we provide structured training that helps each player reach their potential.</p>
           </motion.div>
