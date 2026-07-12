@@ -67,7 +67,7 @@ const News = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Search */}
           <div className="mb-8">
-            <SearchBar value={searchQuery} onChange={setSearchQuery} placeholder="Search news..." />
+            <SearchBar value={searchQuery} onChange={setSearchQuery} placeholder={t('news.searchPlaceholder')} />
           </div>
 
           {/* Categories */}
@@ -82,7 +82,7 @@ const News = () => {
                     : 'bg-white text-gray-700 hover:bg-primary/10 border border-gray-200'
                 }`}
               >
-                {category}
+                {category === 'All' ? t('common.all') : category}
               </button>
             ))}
           </div>
@@ -122,7 +122,7 @@ const News = () => {
 
           {filteredArticles.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-gray-500 text-lg">No articles found matching your criteria.</p>
+              <p className="text-gray-500 text-lg">{t('news.noResults')}</p>
             </div>
           )}
         </div>

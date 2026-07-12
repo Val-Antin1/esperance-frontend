@@ -72,9 +72,7 @@ const Football = () => {
             className="max-w-4xl mx-auto text-center"
           >
             <p className="text-gray-600 text-lg leading-relaxed">
-              Our Football Academy offers comprehensive training programs designed to develop skilled, intelligent, 
-              and confident football players. With age-appropriate curriculum, qualified coaches, and modern facilities, 
-              we provide the ideal environment for young athletes to grow and excel in football.
+              {t('football.overview.description')}
             </p>
           </motion.div>
         </div>
@@ -117,7 +115,7 @@ const Football = () => {
       {/* Students */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle title="Our Football Students" subtitle="Meet some of our talented athletes" />
+          <SectionTitle title={t('football.students.title')} subtitle={t('football.students.subtitle')} />
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {students.football.map((student, index) => (
               <StudentCard key={student.id} student={student} index={index} />
@@ -129,7 +127,7 @@ const Football = () => {
       {/* Gallery */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle title="Football Gallery" subtitle="Moments from our football program" />
+          <SectionTitle title={t('football.gallery.title')} subtitle={t('football.gallery.subtitle')} />
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {footballGallery.map((image, index) => (
               <GalleryCard key={image.id} image={image} index={index} />

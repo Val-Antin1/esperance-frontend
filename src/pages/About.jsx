@@ -22,83 +22,65 @@ const shuffleArray = (items) => {
 const milestones = [
   {
     year: '2011',
-    title: 'Foundation of Excellence',
-    description: 'Esperance FC Academy was founded with a bold vision: to create a world-class sports institution in Africa. Starting with just 30 students and a single football program, the academy laid its cornerstone on the principles of discipline, integrity, and sporting excellence.',
+    key: 'about.timeline.foundation',
     icon: FaStar,
-    stats: '30 Students · 1 Sport · 3 Coaches',
   },
   {
     year: '2014',
-    title: 'Multi-Sport Expansion',
-    description: 'Recognizing the demand for diverse athletic development, the academy expanded beyond football. Basketball, volleyball, and table tennis programs were launched, attracting talented athletes from across the region and establishing Esperance FC as a comprehensive sports academy.',
+    key: 'about.timeline.expansion',
     icon: FaRocket,
-    stats: '150+ Students · 4 Sports · 12 Coaches',
   },
   {
     year: '2017',
-    title: 'Regional Recognition',
-    description: 'Esperance FC athletes began making their mark on the regional stage, earning medals in national competitions and inter-academy tournaments. The academy\'s reputation for producing well-rounded, competitive athletes led to partnerships with schools and sports organizations.',
+    key: 'about.timeline.recognition',
     icon: FaTrophy,
-    stats: '400+ Students · 15+ Competition Medals',
   },
   {
     year: '2020',
-    title: 'Women\'s Football & German Classes',
-    description: 'Breaking new ground, the academy launched its Women\'s Football program to promote gender equality in sports. Simultaneously, German Language Classes were introduced, combining athletic training with academic enrichment to prepare students for international opportunities.',
+    key: 'about.timeline.womenAndGerman',
     icon: FaUsers,
-    stats: '600+ Students · 6 Programs · 25+ Staff',
   },
   {
     year: '2023',
-    title: 'International Partnerships',
-    description: 'The academy forged international partnerships with European sports institutions, creating exchange programs and scouting opportunities for talented athletes. Esperance FC graduates began securing scholarships and professional contracts abroad, fulfilling the academy\'s promise of global pathways.',
+    key: 'about.timeline.partnerships',
     icon: FaGlobeAfrica,
-    stats: '800+ Students · International Exchanges · Scholarships',
   },
   {
     year: '2026',
-    title: 'Leading African Sports Academy',
-    description: 'Today, Esperance FC Academy stands as a premier sports institution in Africa, serving over 1,000 students across six programs. With state-of-the-art facilities, world-class coaching staff, and a holistic approach to athlete development, the academy continues to shape the future of sports on the continent.',
+    key: 'about.timeline.leadingAcademy',
     icon: FaMedal,
-    stats: '1,000+ Students · 6 Programs · 40+ Coaches',
   },
 ];
 
 const coreValues = [
   {
     icon: FaMedal,
-    title: 'Excellence',
-    description: 'We pursue the highest standards in every aspect of our academy — from coaching methodology to facility quality. Our relentless commitment to excellence drives continuous improvement and pushes every athlete to reach their full potential.',
+    key: 'about.values.excellence',
     color: '#D4AF37',
   },
   {
     icon: FaShieldAlt,
-    title: 'Discipline',
-    description: 'Discipline is the foundation of all achievement. We instill in our athletes the self-control, focus, and work ethic required to excel in sports and life. Structure, consistency, and accountability are non-negotiable pillars of our program.',
+    key: 'about.values.discipline',
     color: '#111111',
   },
   {
     icon: FaUsers,
-    title: 'Teamwork',
-    description: 'We believe that collective effort produces extraordinary results. Our academy fosters a culture where collaboration, mutual support, and shared goals drive success. Every individual contributes to something greater than themselves.',
+    key: 'about.values.teamwork',
     color: '#D4AF37',
   },
   {
     icon: FaLightbulb,
-    title: 'Leadership',
-    description: 'We develop leaders who inspire others through action and character. Our athletes learn to take initiative, make decisions under pressure, and lead by example — skills that serve them long after their sporting careers.',
+    key: 'about.values.leadership',
     color: '#111111',
   },
   {
     icon: FaHandshake,
-    title: 'Integrity',
-    description: 'Honesty, transparency, and moral courage guide everything we do. We build character through ethical conduct, teaching our athletes that true success is measured not just by victories, but by the respect they earn from others.',
+    key: 'about.values.integrity',
     color: '#D4AF37',
   },
   {
     icon: FaHeart,
-    title: 'Respect',
-    description: 'We foster an environment of mutual respect — for teammates, opponents, coaches, and the game itself. Our academy celebrates diversity, promotes inclusion, and teaches athletes to treat everyone with dignity.',
+    key: 'about.values.respect',
     color: '#111111',
   },
 ];
@@ -245,21 +227,21 @@ const About = () => {
                 <div className="grid gap-4 p-6 sm:p-8">
                   <div className="grid grid-cols-2 gap-4">
                     <div className="rounded-3xl border border-white/10 bg-white/10 p-5 backdrop-blur-sm">
-                      <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">Established</span>
+                      <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">{t('about.hero.established')}</span>
                       <p className="mt-4 text-3xl font-bold text-white">2011</p>
                     </div>
                     <div className="rounded-3xl border border-white/10 bg-white/10 p-5 backdrop-blur-sm">
-                      <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">Programs</span>
+                      <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">{t('about.hero.programs')}</span>
                       <p className="mt-4 text-3xl font-bold text-white">6+</p>
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="rounded-3xl border border-white/10 bg-white/10 p-5 backdrop-blur-sm">
-                      <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">Students</span>
+                      <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">{t('about.hero.students')}</span>
                       <p className="mt-4 text-3xl font-bold text-white">1,000+</p>
                     </div>
                     <div className="rounded-3xl border border-white/10 bg-white/10 p-5 backdrop-blur-sm">
-                      <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">Awards</span>
+                      <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">{t('about.hero.awards')}</span>
                       <p className="mt-4 text-3xl font-bold text-white">Regional</p>
                     </div>
                   </div>
@@ -330,13 +312,13 @@ const About = () => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeInUp} className="text-center mb-20">
-            <span className="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">Our Story</span>
+            <span className="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">{t('about.journey.eyebrow')}</span>
             <h2 className="text-4xl sm:text-5xl font-bold text-primary mb-6">
-              Our Journey
+              {t('about.journey.title')}
             </h2>
             <div className="w-20 h-0.5 bg-accent mx-auto" />
             <p className="text-gray-500 text-lg mt-6 max-w-2xl mx-auto">
-              A decade and a half of growth, milestones, and unwavering dedication to sporting excellence
+              {t('about.journey.description')}
             </p>
           </motion.div>
 
@@ -379,17 +361,17 @@ const About = () => {
                       </span>
 
                       <h3 className="text-xl md:text-2xl font-bold text-primary mb-3">
-                        {milestone.title}
+                        {t(`${milestone.key}.title`)}
                       </h3>
 
                       <p className="text-gray-600 leading-relaxed text-sm md:text-base mb-4">
-                        {milestone.description}
+                        {t(`${milestone.key}.description`)}
                       </p>
 
                       {/* Stats Badge */}
                       <div className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium ${index === milestones.length - 1 ? 'bg-accent/10 text-accent' : 'bg-primary/5 text-primary/70'}`}>
                         <FaTrophy className="text-xs" />
-                        {milestone.stats}
+                        {t(`${milestone.key}.stats`)}
                       </div>
                     </motion.div>
 
@@ -421,11 +403,9 @@ const About = () => {
               <div className="w-14 h-14 bg-accent/20 rounded-xl flex items-center justify-center mb-6">
                 <FaRocket className="text-2xl text-accent" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Our Mission</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">{t('about.mission.title')}</h3>
               <p className="text-gray-300 leading-relaxed">
-                To nurture and develop young athletes by providing exceptional sports training, fostering character growth, 
-                and creating opportunities for success both on and off the field. We are committed to building not just 
-                skilled athletes, but well-rounded individuals who contribute positively to society.
+                {t('about.mission.description')}
               </p>
             </motion.div>
             <motion.div
@@ -438,11 +418,9 @@ const About = () => {
               <div className="w-14 h-14 bg-accent/20 rounded-xl flex items-center justify-center mb-6">
                 <FaGlobeAfrica className="text-2xl text-accent" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Our Vision</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">{t('about.vision.title')}</h3>
               <p className="text-gray-300 leading-relaxed">
-                To be the leading sports academy in Africa, recognized for producing champions who excel in sports, 
-                academics, and life. We envision a future where every young athlete has access to world-class training 
-                and the opportunity to reach their full potential.
+                {t('about.vision.description')}
               </p>
             </motion.div>
           </div>
@@ -453,13 +431,13 @@ const About = () => {
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">Our Foundation</span>
+            <span className="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">{t('about.values.foundation')}</span>
             <h2 className="text-4xl sm:text-5xl font-bold text-primary mb-6">
-              Our Values
+              {t('about.values.title')}
             </h2>
             <div className="w-20 h-0.5 bg-accent mx-auto" />
             <p className="text-gray-500 text-lg mt-6 max-w-2xl mx-auto">
-              Six core principles that define our culture and guide every decision we make.
+              {t('about.values.subtitle')}
             </p>
           </motion.div>
 
@@ -502,10 +480,10 @@ const About = () => {
 
                   {/* Content */}
                   <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-primary transition-colors">
-                    {value.title}
+                    {t(`${value.key}`)}
                   </h3>
                   <p className="text-gray-600 leading-relaxed text-sm">
-                    {value.description}
+                    {t(`${value.key}Desc`)}
                   </p>
 
                   {/* Bottom accent line */}

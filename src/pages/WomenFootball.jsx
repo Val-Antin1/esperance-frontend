@@ -61,12 +61,10 @@ const WomenFootball = () => {
 
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle title="Program Overview" subtitle="Building champions on and off the field" />
+          <SectionTitle title={t('womenFootball.overview.title')} subtitle={t('womenFootball.overview.subtitle')} />
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="max-w-4xl mx-auto text-center">
             <p className="text-gray-600 text-lg leading-relaxed">
-              Our Women's Football program is dedicated to providing young women with exceptional football training in a supportive 
-              and empowering environment. We focus on technical excellence, tactical understanding, and personal development, 
-              preparing our athletes for success at every level.
+              {t('womenFootball.overview.description')}
             </p>
           </motion.div>
         </div>
@@ -74,7 +72,7 @@ const WomenFootball = () => {
 
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle title="Our Athletes" subtitle="Remarkable young women in our program" />
+          <SectionTitle title={t('womenFootball.students.title')} subtitle={t('womenFootball.students.subtitle')} />
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {students.womenFootball.map((student, index) => (
               <StudentCard key={student.id} student={student} index={index} />
@@ -85,7 +83,7 @@ const WomenFootball = () => {
 
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle title="Gallery" subtitle="Highlights from women's football" />
+          <SectionTitle title={t('womenFootball.gallery.title')} subtitle={t('womenFootball.gallery.subtitle')} />
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {gallery.map((image, index) => (
               <GalleryCard key={image.id} image={image} index={index} />

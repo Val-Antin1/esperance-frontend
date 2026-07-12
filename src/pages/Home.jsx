@@ -202,11 +202,11 @@ const Home = () => {
       {/* News Preview */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle title="Latest News" subtitle="Stay updated with the latest from Esperance FC" />
+          <SectionTitle title={t('home.news.title')} subtitle={t('home.news.subtitle')} />
           {loadingNews ? (
             <div className="flex flex-col items-center justify-center py-12 text-gray-500">
               <FaSpinner className="text-3xl animate-spin text-accent mb-3" />
-              <p>Loading latest news...</p>
+              <p>{t('home.news.loading')}</p>
             </div>
           ) : newsData.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -215,14 +215,14 @@ const Home = () => {
               ))}
             </div>
           ) : (
-            <div className="text-center py-12 text-gray-500">No news updates are available at the moment.</div>
+            <div className="text-center py-12 text-gray-500">{t('home.news.empty')}</div>
           )}
           <div className="text-center mt-8">
             <Link
               to="/news"
               className="inline-flex items-center px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-light transition-colors"
             >
-              View All News
+              {t('home.news.viewAll')}
             </Link>
           </div>
         </div>
@@ -231,7 +231,7 @@ const Home = () => {
       {/* Testimonials */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle title="What People Say" subtitle="Testimonials from our community" />
+          <SectionTitle title={t('home.testimonials.title')} subtitle={t('home.testimonials.subtitle')} />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <TestimonialCard key={testimonial.id} testimonial={testimonial} index={index} />
@@ -243,7 +243,7 @@ const Home = () => {
       {/* Contact Preview */}
       <section className="py-20 bg-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle title="Get In Touch" subtitle="We'd love to hear from you" light />
+          <SectionTitle title={t('home.contactPreview.title')} subtitle={t('home.contactPreview.subtitle')} light />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -255,7 +255,7 @@ const Home = () => {
               <div className="w-14 h-14 rounded-lg bg-gray-100 flex items-center justify-center mx-auto mb-4">
                 <FaPhone className="text-xl text-gray-700" />
               </div>
-              <h3 className="text-gray-900 font-semibold mb-2">Phone</h3>
+              <h3 className="text-gray-900 font-semibold mb-2">{t('home.contactPreview.phone')}</h3>
               <a href={`tel:${contactInfo.phone}`} className="text-gray-600">{contactInfo.phone}</a>
             </motion.div>
             <motion.div
@@ -268,7 +268,7 @@ const Home = () => {
               <div className="w-14 h-14 rounded-lg bg-gray-100 flex items-center justify-center mx-auto mb-4">
                 <FaEnvelope className="text-xl text-gray-700" />
               </div>
-              <h3 className="text-gray-900 font-semibold mb-2">Email</h3>
+              <h3 className="text-gray-900 font-semibold mb-2">{t('home.contactPreview.email')}</h3>
               <a href={`mailto:${contactInfo.email}`} className="text-gray-600">{contactInfo.email}</a>
             </motion.div>
             <motion.div
@@ -281,7 +281,7 @@ const Home = () => {
               <div className="w-14 h-14 rounded-lg bg-gray-100 flex items-center justify-center mx-auto mb-4">
                 <FaMapMarkerAlt className="text-xl text-gray-700" />
               </div>
-              <h3 className="text-gray-900 font-semibold mb-2">Address</h3>
+              <h3 className="text-gray-900 font-semibold mb-2">{t('home.contactPreview.address')}</h3>
               <p className="text-gray-600">{contactInfo.address}</p>
             </motion.div>
           </div>

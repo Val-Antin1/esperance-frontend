@@ -4,6 +4,8 @@ export const activities = [
     title: 'Football Academy',
     icon: 'football',
     description: 'Professional football training for boys aged 6-20 with structured age-group programs and competitive matches.',
+    titleKey: 'home.programs.items.football.title',
+    descriptionKey: 'home.programs.items.football.description',
     link: '/football-academy/football',
     color: 'bg-green-50',
   },
@@ -12,6 +14,8 @@ export const activities = [
     title: "Women's Football",
     icon: 'football',
     description: 'Empowering young women through football with dedicated coaching, training facilities, and competitive opportunities.',
+    titleKey: 'home.programs.items.womensFootball.title',
+    descriptionKey: 'home.programs.items.womensFootball.description',
     link: '/football-academy/womens-football',
     color: 'bg-purple-50',
   },
@@ -20,6 +24,8 @@ export const activities = [
     title: 'Basketball',
     icon: 'basketball',
     description: 'High-performance basketball program focusing on skill development, teamwork, and competitive play.',
+    titleKey: 'home.programs.items.basketball.title',
+    descriptionKey: 'home.programs.items.basketball.description',
     link: '/football-academy/basketball',
     color: 'bg-orange-50',
   },
@@ -28,6 +34,8 @@ export const activities = [
     title: 'Volleyball',
     icon: 'volleyball',
     description: 'Comprehensive volleyball training with experienced coaches and opportunities to compete at various levels.',
+    titleKey: 'home.programs.items.volleyball.title',
+    descriptionKey: 'home.programs.items.volleyball.description',
     link: '/football-academy/volleyball',
     color: 'bg-blue-50',
   },
@@ -36,6 +44,8 @@ export const activities = [
     title: 'Table Tennis',
     icon: 'table-tennis',
     description: 'Precision and strategy meet in our table tennis program, suitable for beginners to advanced players.',
+    titleKey: 'home.programs.items.tableTennis.title',
+    descriptionKey: 'home.programs.items.tableTennis.description',
     link: '/football-academy/table-tennis',
     color: 'bg-red-50',
   },
@@ -44,16 +54,18 @@ export const activities = [
     title: 'German Classes',
     icon: 'language',
     description: 'Learn German language from beginner to advanced levels with qualified instructors and modern teaching methods.',
+    titleKey: 'home.programs.items.germanClasses.title',
+    descriptionKey: 'home.programs.items.germanClasses.description',
     link: '/football-academy/german-classes',
     color: 'bg-yellow-50',
   },
 ];
 
 export const stats = [
-  { label: 'Students', value: 500, suffix: '+' },
-  { label: 'Coaches', value: 2, suffix: '' },
-  { label: 'Sports', value: 6, suffix: '' },
-  { label: 'Years of Experience', value: 15, suffix: '+' },
+  { labelKey: 'home.stats.items.students', value: 500, suffix: '+' },
+  { labelKey: 'home.stats.items.coaches', value: 2, suffix: '' },
+  { labelKey: 'home.stats.items.sports', value: 6, suffix: '' },
+  { labelKey: 'home.stats.items.years', value: 15, suffix: '+' },
 ];
 
 export const testimonials = [
@@ -62,6 +74,8 @@ export const testimonials = [
     name: 'jules.',
     role: 'Parent of U15 Player',
     content: 'Esperance FC has transformed my son\'s life. The discipline, training quality, and values they instill are remarkable.',
+    roleKey: 'home.testimonials.items.jules.role',
+    contentKey: 'home.testimonials.items.jules.content',
     rating: 5,
   },
   {
@@ -69,6 +83,8 @@ export const testimonials = [
     name: 'Beker.',
     role: 'Basketball Athlete',
     content: 'The coaching staff truly cares about each athlete\'s development. I\'ve improved more here than anywhere else.',
+    roleKey: 'home.testimonials.items.beker.role',
+    contentKey: 'home.testimonials.items.beker.content',
     rating: 5,
   },
   {
@@ -76,6 +92,8 @@ export const testimonials = [
     name: 'Lennard.',
     role: 'German Class Student',
     content: 'The German language program is excellent. Small class sizes and passionate teachers make learning enjoyable.',
+    roleKey: 'home.testimonials.items.lennard.role',
+    contentKey: 'home.testimonials.items.lennard.content',
     rating: 5,
   },
 ];
@@ -144,27 +162,39 @@ export const ageGroups = [
     title: 'U6 - U10',
     age: 'Ages 6-10',
     description: 'Introduction to football fundamentals through fun activities. Focus on basic motor skills, coordination, and love for the game.',
+    titleKey: 'football.ageGroups.groups.u6u10.title',
+    ageKey: 'football.ageGroups.groups.u6u10.age',
+    descriptionKey: 'football.ageGroups.groups.u6u10.description',
     highlights: ['Basic ball control', 'Fun drills & games', 'Teamwork basics', 'Weekly sessions'],
+    highlightKeys: ['football.ageGroups.groups.u6u10.highlights.0', 'football.ageGroups.groups.u6u10.highlights.1', 'football.ageGroups.groups.u6u10.highlights.2', 'football.ageGroups.groups.u6u10.highlights.3'],
   },
   {
     title: 'U11 - U15',
     age: 'Ages 11-15',
     description: 'Advanced skill development with increased tactical awareness. Players begin position-specific training.',
+    titleKey: 'football.ageGroups.groups.u11u15.title',
+    ageKey: 'football.ageGroups.groups.u11u15.age',
+    descriptionKey: 'football.ageGroups.groups.u11u15.description',
     highlights: ['Technical skills', 'Tactical awareness', 'Position training', 'Competitive matches'],
+    highlightKeys: ['football.ageGroups.groups.u11u15.highlights.0', 'football.ageGroups.groups.u11u15.highlights.1', 'football.ageGroups.groups.u11u15.highlights.2', 'football.ageGroups.groups.u11u15.highlights.3'],
   },
   {
     title: 'U16 - U20',
     age: 'Ages 16-20',
     description: 'Elite level preparation for professional football. Advanced tactics, strength conditioning, and match preparation.',
+    titleKey: 'football.ageGroups.groups.u16u20.title',
+    ageKey: 'football.ageGroups.groups.u16u20.age',
+    descriptionKey: 'football.ageGroups.groups.u16u20.description',
     highlights: ['Elite training', 'Strength & conditioning', 'Match analysis', 'Scouting opportunities'],
+    highlightKeys: ['football.ageGroups.groups.u16u20.highlights.0', 'football.ageGroups.groups.u16u20.highlights.1', 'football.ageGroups.groups.u16u20.highlights.2', 'football.ageGroups.groups.u16u20.highlights.3'],
   },
 ];
 
 export const germanLevels = [
-  { level: 'A1 - Beginner', description: 'No prior knowledge needed. Learn basic greetings, introductions, and simple conversations.' },
-  { level: 'A2 - Elementary', description: 'Expand vocabulary and learn to communicate in everyday situations with simple phrases.' },
-  { level: 'B1 - Intermediate', description: 'Independent language use. Discuss familiar topics and handle most travel situations.' },
-  { level: 'B2 - Upper Intermediate', description: 'Fluently communicate with native speakers. Understand complex texts and express opinions.' },
+  { level: 'A1 - Beginner', description: 'No prior knowledge needed. Learn basic greetings, introductions, and simple conversations.', levelKey: 'germanClasses.levels.a1.level', descriptionKey: 'germanClasses.levels.a1.description' },
+  { level: 'A2 - Elementary', description: 'Expand vocabulary and learn to communicate in everyday situations with simple phrases.', levelKey: 'germanClasses.levels.a2.level', descriptionKey: 'germanClasses.levels.a2.description' },
+  { level: 'B1 - Intermediate', description: 'Independent language use. Discuss familiar topics and handle most travel situations.', levelKey: 'germanClasses.levels.b1.level', descriptionKey: 'germanClasses.levels.b1.description' },
+  { level: 'B2 - Upper Intermediate', description: 'Fluently communicate with native speakers. Understand complex texts and express opinions.', levelKey: 'germanClasses.levels.b2.level', descriptionKey: 'germanClasses.levels.b2.description' },
 ];
 
 export const contactInfo = {

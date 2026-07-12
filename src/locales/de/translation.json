@@ -12,17 +12,115 @@
       "title": "Premier Sportakademie",
       "subtitle": "Champions für das Leben"
     },
+    "heroCarousel": {
+      "slides": {
+        "football": {
+          "title": "Fußballakademie",
+          "subtitle": "Entwickeln Sie Ihre Fähigkeiten mit professioneller Betreuung und erstklassigen Trainingsanlagen",
+          "cta": "Dem Fußballprogramm beitreten",
+          "secondaryCta": "Mehr erfahren"
+        },
+        "basketball": {
+          "title": "Basketball-Exzellenz",
+          "subtitle": "Heben Sie Ihr Spiel mit erstklassigen Trainingsprogrammen und wettbewerbsorientierten Turnieren",
+          "cta": "Dem Basketballprogramm beitreten",
+          "secondaryCta": "Programme ansehen"
+        },
+        "volleyball": {
+          "title": "Volleyball-Akademie",
+          "subtitle": "Entfalten Sie Ihr Potenzial – professionelles Volleyballtraining für alle Leistungsstufen",
+          "cta": "Dem Volleyballprogramm beitreten",
+          "secondaryCta": "Programme ansehen"
+        },
+        "tableTennis": {
+          "title": "Tischtennis",
+          "subtitle": "Meistern Sie die Kunst von Geschwindigkeit und Präzision mit fachkundiger Betreuung",
+          "cta": "Tischtennis beitreten",
+          "secondaryCta": "Programme ansehen"
+        },
+        "german": {
+          "title": "Deutschkurse",
+          "subtitle": "Lernen Sie Deutsch mit Muttersprachlern und immersiven Programmen",
+          "cta": "Deutschkurse beitreten",
+          "secondaryCta": "Mehr erfahren"
+        }
+      }
+    },
     "stats": {
       "title": "Esperance FC nach den Zahlen",
-      "subtitle": "Unsere Auswirkungen in der Gemeinde"
+      "subtitle": "Unsere Auswirkungen in der Gemeinde",
+      "items": {
+        "students": "Schüler",
+        "coaches": "Trainer",
+        "sports": "Sportarten",
+        "years": "Jahre Erfahrung"
+      }
     },
     "programs": {
       "title": "Unsere Programme",
-      "subtitle": "Entdecken Sie unsere umfassenden Sportprogramme und akademischen Programme"
+      "subtitle": "Entdecken Sie unsere umfassenden Sportprogramme und akademischen Programme",
+      "items": {
+        "football": {
+          "title": "Fußballakademie",
+          "description": "Professionelles Fußballtraining für Jungen im Alter von 6-20 Jahren mit strukturierten Altersgruppenprogrammen und Wettkämpfen."
+        },
+        "womensFootball": {
+          "title": "Frauenfußball",
+          "description": "Stärkung junger Frauen durch Fußball mit spezieller Ausbildung, Trainingsanlagen und wettbewerbsfähigen Möglichkeiten."
+        },
+        "basketball": {
+          "title": "Basketball",
+          "description": "Hochleistungs-Basketballprogramm mit Schwerpunkt auf Skillentwicklung, Teamarbeit und Wettbewerb."
+        },
+        "volleyball": {
+          "title": "Volleyball",
+          "description": "Umfassendes Volleyballtraining mit erfahrenen Trainern und Möglichkeiten, auf verschiedenen Ebenen zu konkurrieren."
+        },
+        "tableTennis": {
+          "title": "Tischtennis",
+          "description": "Präzision und Strategie treffen in unserem Tischtennisprogramm aufeinander, geeignet für Anfänger bis Fortgeschrittene."
+        },
+        "germanClasses": {
+          "title": "Deutschkurse",
+          "description": "Lernen Sie Deutsch von Anfänger bis Fortgeschrittene mit qualifizierten Lehrkräften und modernen Lehrmethoden."
+        }
+      }
     },
     "gallery": {
       "title": "Unsere Galerie",
       "subtitle": "Momente aus der Esperance FC Akademie"
+    },
+    "news": {
+      "title": "Neueste Nachrichten",
+      "subtitle": "Bleiben Sie über die neuesten Entwicklungen von Esperance FC informiert",
+      "loading": "Neueste Nachrichten werden geladen...",
+      "empty": "Im Moment sind keine Neuigkeiten verfügbar.",
+      "viewAll": "Alle Neuigkeiten anzeigen"
+    },
+    "testimonials": {
+      "title": "Was die Leute sagen",
+      "subtitle": "Testimonials aus unserer Gemeinschaft",
+      "items": {
+        "jules": {
+          "role": "Elternteil eines U15-Spielers",
+          "content": "Esperance FC hat das Leben meines Sohnes verändert. Die Disziplin, die Trainingsqualität und die Werte, die sie vermitteln, sind bemerkenswert."
+        },
+        "beker": {
+          "role": "Basketball-Athlet",
+          "content": "Das Trainerteam kümmert sich wirklich um die Entwicklung jedes Athleten. Ich habe mich hier mehr verbessert als irgendwo sonst."
+        },
+        "lennard": {
+          "role": "Schüler des Deutschkurses",
+          "content": "Das Deutschprogramm ist hervorragend. Kleine Klassen und leidenschaftliche Lehrer machen das Lernen angenehm."
+        }
+      }
+    },
+    "contactPreview": {
+      "title": "Kontaktieren Sie uns",
+      "subtitle": "Wir würden uns freuen, von Ihnen zu hören",
+      "phone": "Telefon",
+      "email": "E-Mail",
+      "address": "Adresse"
     }
   },
   "about": {
@@ -52,6 +150,43 @@
       "future": "Zukunftsfokus",
       "futureDesc": "Heute verbinden wir Elitetraining mit Charakterentwicklung und bereiten junge Athleten auf Erfolg in Sport, Bildung und Leben vor."
     },
+    "journey": {
+      "eyebrow": "Unsere Geschichte",
+      "title": "Unsere Reise",
+      "description": "Ein Jahrzehnt und ein halbes Wachstum, Meilensteine und unerschütterliche Hingabe an sportliche Exzellenz"
+    },
+    "timeline": {
+      "foundation": {
+        "title": "Grundlage der Exzellenz",
+        "description": "Die Esperance FC Akademie wurde mit einer kühnen Vision gegründet: eine Weltklasse-Sportinstitution in Afrika zu schaffen. Mit nur 30 Schülern und einem einzigen Fußballprogramm legte die Akademie den Grundstein auf den Prinzipien von Disziplin, Integrität und sportlicher Exzellenz.",
+        "stats": "30 Schüler · 1 Sport · 3 Trainer"
+      },
+      "expansion": {
+        "title": "Mehrsport-Erweiterung",
+        "description": "In Anerkennung der Nachfrage nach vielfältiger sportlicher Entwicklung expandierte die Akademie über Fußball hinaus. Basketball-, Volleyball- und Tischtennisprogramme wurden gestartet und zogen talentierte Athleten aus der ganzen Region an und etablierten Esperance FC als umfassende Sportakademie.",
+        "stats": "150+ Schüler · 4 Sportarten · 12 Trainer"
+      },
+      "recognition": {
+        "title": "Regionale Anerkennung",
+        "description": "Esperance-FC-Athleten begannen, sich auf regionaler Ebene einen Namen zu machen und Medaillen bei nationalen Wettbewerben und Akademie-Turnieren zu gewinnen. Der Ruf der Akademie, gut ausgebildete und kompetitive Athleten hervorzubringen, führte zu Partnerschaften mit Schulen und Sportorganisationen.",
+        "stats": "400+ Schüler · 15+ Wettkampfmedaillen"
+      },
+      "womenAndGerman": {
+        "title": "Frauenfußball & Deutschkurse",
+        "description": "Mit einem großen Schritt startete die Akademie ihr Frauenfußballprogramm, um Gleichberechtigung im Sport zu fördern. Gleichzeitig wurden Deutschkurse eingeführt, die sportliches Training mit akademischer Bereicherung verbinden, um Schüler auf internationale Möglichkeiten vorzubereiten.",
+        "stats": "600+ Schüler · 6 Programme · 25+ Mitarbeiter"
+      },
+      "partnerships": {
+        "title": "Internationale Partnerschaften",
+        "description": "Die Akademie knüpfte internationale Partnerschaften mit europäischen Sportinstitutionen und schuf Austauschprogramme und Scouting-Möglichkeiten für talentierte Athleten. Esperance-FC-Absolventen erhielten Stipendien und professionelle Verträge im Ausland.",
+        "stats": "800+ Schüler · Internationale Austausche · Stipendien"
+      },
+      "leadingAcademy": {
+        "title": "Führende afrikanische Sportakademie",
+        "description": "Heute steht die Esperance FC Akademie als führende Sportinstitution Afrikas da und betreut über 1.000 Schüler in sechs Programmen. Mit modernsten Einrichtungen, erstklassigen Trainern und einem ganzheitlichen Ansatz zur Athletenentwicklung prägt die Akademie weiterhin die Zukunft des Sports auf dem Kontinent.",
+        "stats": "1.000+ Schüler · 6 Programme · 40+ Trainer"
+      }
+    },
     "mission": {
       "title": "Unsere Mission",
       "description": "Junge Athleten zu pflegen und zu entwickeln, indem wir außergewöhnliches Sporttraining, Charakterwachstum und Chancen für Erfolg bieten. Wir sind verpflichtet, nicht nur geschickte Athleten, sondern auch vielseitige Personen zu entwickeln, die positiv zur Gesellschaft beitragen."
@@ -63,6 +198,7 @@
     "values": {
       "title": "Unsere Werte",
       "subtitle": "Sechs Kernprinzipien, die unsere Kultur definieren und jede Entscheidung leiten.",
+      "foundation": "Unsere Grundlage",
       "excellence": "Exzellenz",
       "excellenceDesc": "Wir streben die höchsten Standards in jedem Aspekt unserer Akademie an – von Trainingsmethoden bis Einrichtungsqualität. Unser unerschütterliches Engagement für Exzellenz treibt kontinuierliche Verbesserungen voran.",
       "discipline": "Disziplin",
@@ -87,7 +223,26 @@
       "subtitle": "Erfassung des Geistes von Esperance FC"
     },
     "noImages": "Keine Bilder in dieser Kategorie gefunden.",
-    "loading": "Galerie wird geladen..."
+    "loading": "Galerie wird geladen...",
+    "categories": {
+      "all": "Alle",
+      "football": "Fußball",
+      "womensFootball": "Frauenfußball",
+      "basketball": "Basketball",
+      "volleyball": "Volleyball",
+      "tableTennis": "Tischtennis"
+    }
+  },
+  "footballAcademy": {
+    "hero": {
+      "title": "Fußballakademie",
+      "subtitle": "Erkunden Sie das komplette Programm der Esperance FC Akademie mit Fußball, Frauenfußball, Basketball, Volleyball, Tischtennis und Deutschkursen."
+    },
+    "section": {
+      "title": "Unsere Programme",
+      "subtitle": "Entdecken Sie alle Sport- und Bildungsprogramme, die wir anbieten."
+    },
+    "cardDescription": "Erfahren Sie mehr über unser {{program}}-Programm und wie wir junge Athleten in dieser Disziplin ausbilden."
   },
   "football": {
     "hero": {
@@ -212,12 +367,60 @@
       "b4": "Deutsches Sprach- und Kulturimmersion",
       "b5": "Vorbereitung auf Goethe-Institut Prüfungen",
       "b6": "Zertifikat nach Abschluss"
+    },
+    "why": {
+      "title": "Warum Deutsch lernen?",
+      "description": "Deutsch ist eine der meistgesprochenen Sprachen Europas und eine wichtige Sprache für Wirtschaft, Wissenschaft und Kultur. Das Lernen von Deutsch eröffnet Türen zu Bildung und beruflichen Chancen in Deutschland und darüber hinaus."
+    },
+    "levels": {
+      "title": "Kursstufen",
+      "subtitle": "Von Anfängern bis hin zu fortgeschrittenen Kenntnissen",
+      "a1": {
+        "level": "A1 – Anfänger",
+        "description": "Keine Vorkenntnisse erforderlich. Lernen Sie grundlegende Begrüßungen, Vorstellungen und einfache Gespräche."
+      },
+      "a2": {
+        "level": "A2 – Elementar",
+        "description": "Erweitern Sie Ihren Wortschatz und lernen Sie, sich in Alltagssituationen mit einfachen Sätzen zu verständigen."
+      },
+      "b1": {
+        "level": "B1 – Mittelstufe",
+        "description": "Unabhängige Sprachverwendung. Diskutieren Sie vertraute Themen und bewältigen Sie die meisten Reise-Situationen."
+      },
+      "b2": {
+        "level": "B2 – Oberstufe",
+        "description": "Flüssig mit Muttersprachlern kommunizieren. Komplexe Texte verstehen und Meinungen ausdrücken."
+      }
+    },
+    "gallery": {
+      "title": "Galerie",
+      "subtitle": "Deutschlernen in Aktion"
     }
   },
   "contact": {
     "hero": {
       "title": "Kontaktieren Sie uns",
-      "subtitle": "Wir freuen uns, von Ihnen zu hören"
+      "subtitle": "Wir freuen uns, von Ihnen zu hören",
+      "description": "Wir sind Ihnen bei jedem Schritt gerne behilflich.",
+      "body": "Bei Esperance FC glauben wir, dass großartige Chancen mit sinnvollen Gesprächen beginnen. Ob Sie ein potenzieller Spieler, ein Elternteil, ein Unterstützer, ein Sponsor oder ein Gemeinschaftspartner sind – wir würden uns freuen, von Ihnen zu hören. Kontaktieren Sie uns noch heute, und unser Team wird sich schnell bei Ihnen melden."
+    },
+    "sections": {
+      "infoTitle": "Kontaktinformationen",
+      "infoSubtitle": "Wir sind Ihnen gerne behilflich. Wählen Sie Ihre bevorzugte Art, mit uns in Kontakt zu treten.",
+      "followTitle": "Folgen Sie unserer Reise",
+      "followSubtitle": "Bleiben Sie über soziale Medien mit uns in Kontakt und erhalten Sie aktuelle Updates und Hintergründe.",
+      "visitTitle": "Besuchen Sie unseren Campus",
+      "visitSubtitle": "Kommen Sie vorbei und sehen Sie sich unsere Einrichtungen in Person an. Wir befinden uns in GS Kimisagara.",
+      "mapTitle": "Anfahrt GS Kimisagara",
+      "locationTitle": "GS Kimisagara",
+      "locationSubtitle": "Kimisagara, Kigali, Ruanda",
+      "locationDescription": "Unsere Akademie befindet sich in der Nähe von GS Kimisagara in Kigali. Verwenden Sie die Karte, um direkt zum Campus zu navigieren.",
+      "addressLabel": "Adresse",
+      "phoneLabel": "Telefon",
+      "emailLabel": "E-Mail",
+      "hoursLabel": "Öffnungszeiten",
+      "hoursValue": "Mo – Sa: 6:00 – 19:00 Uhr",
+      "getDirections": "Echte Anfahrt erhalten"
     },
     "form": {
       "name": "Vollständiger Name",
@@ -230,7 +433,12 @@
       "success": "Nachricht erfolgreich gesendet!",
       "error": "Fehler beim Senden der Nachricht. Bitte versuchen Sie es erneut.",
       "required": "Dieses Feld ist erforderlich",
-      "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein"
+      "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+      "yourName": "Ihr Name",
+      "yourEmail": "Ihre E-Mail",
+      "yourMessage": "Ihre Nachricht",
+      "sendMessage": "Nachricht senden",
+      "successDemo": "Nachricht gesendet! (Dies ist eine Demo – Backend nicht angeschlossen)"
     }
   },
   "admin": {
@@ -273,7 +481,9 @@
     "error": "Ein Fehler ist aufgetreten",
     "success": "Erfolg",
     "noData": "Keine Daten verfügbar",
-    "language": "Deutsch"
+    "language": "Deutsch",
+    "age": "Alter",
+    "all": "Alle"
   },
   "footer": {
     "tagline": "Premium Sporttraining für Elite-Talent",

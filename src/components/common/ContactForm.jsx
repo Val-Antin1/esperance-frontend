@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { HiMail, HiUser, HiChat } from 'react-icons/hi';
 
 const ContactForm = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -16,8 +18,7 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Form submission logic - placeholder
-    alert('Message sent! (This is a demo - backend not connected)');
+    alert(t('contact.form.successDemo'));
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
@@ -38,7 +39,7 @@ const ContactForm = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            placeholder="Your Name"
+            placeholder={t('contact.form.yourName')}
             required
             className="w-full pl-12 pr-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
           />
@@ -50,7 +51,7 @@ const ContactForm = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            placeholder="Your Email"
+            placeholder={t('contact.form.yourEmail')}
             required
             className="w-full pl-12 pr-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
           />
@@ -63,7 +64,7 @@ const ContactForm = () => {
           name="subject"
           value={formData.subject}
           onChange={handleChange}
-          placeholder="Subject"
+          placeholder={t('contact.form.subject')}
           required
           className="w-full pl-12 pr-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
         />
@@ -72,7 +73,7 @@ const ContactForm = () => {
         name="message"
         value={formData.message}
         onChange={handleChange}
-        placeholder="Your Message"
+        placeholder={t('contact.form.yourMessage')}
         rows={5}
         required
         className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent resize-none"
@@ -83,7 +84,7 @@ const ContactForm = () => {
         type="submit"
         className="w-full px-8 py-4 bg-primary text-white font-semibold rounded-xl hover:bg-primary-light transition-colors shadow-lg"
       >
-        Send Message
+        {t('contact.form.sendMessage')}
       </motion.button>
     </motion.form>
   );

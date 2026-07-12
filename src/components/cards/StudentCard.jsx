@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { FaUserGraduate } from 'react-icons/fa';
 
 const StudentCard = ({ student, index = 0 }) => {
+  const { t } = useTranslation();
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
@@ -16,7 +18,7 @@ const StudentCard = ({ student, index = 0 }) => {
       </div>
       <h3 className="text-lg font-bold text-primary">{student.name}</h3>
       <p className="text-accent font-medium text-sm mt-1">{student.position}</p>
-      <p className="text-gray-500 text-sm mt-2">Age: {student.age}</p>
+      <p className="text-gray-500 text-sm mt-2">{t('common.age')}: {student.age}</p>
     </motion.div>
   );
 };

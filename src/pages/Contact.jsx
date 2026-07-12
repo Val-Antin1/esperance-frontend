@@ -28,7 +28,7 @@ const Contact = () => {
     },
     {
       icon: FaMapMarkerAlt,
-      label: t('common.noData'),
+      label: t('contact.sections.addressLabel'),
       value: contactInfo.address,
       bg: 'bg-gray-100',
       shadow: 'shadow-slate-200/50',
@@ -36,8 +36,8 @@ const Contact = () => {
     },
     {
       icon: FaClock,
-      label: t('common.loading'),
-      value: 'Mon - Sat: 6:00 AM - 7:00 PM',
+      label: t('contact.sections.hoursLabel'),
+      value: t('contact.sections.hoursValue'),
       bg: 'bg-gray-100',
       shadow: 'shadow-slate-200/50',
       delay: 0.3,
@@ -72,13 +72,13 @@ const Contact = () => {
         >
           <div className="w-full max-w-4xl px-6 py-8 sm:px-10 sm:py-10">
             <h1 className="mb-4 text-4xl font-bold text-white drop-shadow-lg md:text-6xl">
-              Get in Touch
+              {t('contact.hero.title')}
             </h1>
             <p className="mb-6 text-lg font-semibold text-[#f7d98b] drop-shadow-md md:text-xl">
-              We're here to help you every step of the way.
+              {t('contact.hero.description')}
             </p>
             <p className="mx-auto max-w-3xl text-base leading-8 text-gray-100/95 drop-shadow-md sm:text-lg">
-              At Esperance FC, we believe great opportunities begin with meaningful conversations. Whether you're a prospective player, parent, supporter, sponsor, or community partner, we'd be delighted to hear from you. Contact us today, and our team will respond promptly.
+              {t('contact.hero.body')}
             </p>
           </div>
         </motion.div>
@@ -96,8 +96,8 @@ const Contact = () => {
             className="text-center mb-16"
           >
             <SectionTitle
-              title="Contact Information"
-              subtitle="We're here to help. Choose your preferred way to connect with us."
+              title={t('contact.sections.infoTitle')}
+              subtitle={t('contact.sections.infoSubtitle')}
             />
           </motion.div>
 
@@ -139,8 +139,8 @@ const Contact = () => {
             className="relative max-w-2xl mx-auto text-center"
           >
             <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-10 border border-gray-100 shadow-[0_10px_40px_rgba(15,23,42,0.04)]">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Follow Our Journey</h3>
-              <p className="text-gray-500 mb-8">Stay connected with us on social media for the latest updates and behind-the-scenes content.</p>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">{t('contact.sections.followTitle')}</h3>
+              <p className="text-gray-500 mb-8">{t('contact.sections.followSubtitle')}</p>
               <div className="flex items-center justify-center gap-4">
                 {socialLinks.map((social, index) => (
                   <motion.a
@@ -177,7 +177,7 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <SectionTitle title="Visit Our Campus" subtitle="Come see our facilities in person. We're located at GS Kimisagara." />
+            <SectionTitle title={t('contact.sections.visitTitle')} subtitle={t('contact.sections.visitSubtitle')} />
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_0.6fr] gap-8">
@@ -212,32 +212,32 @@ const Contact = () => {
                     <FaMapMarkerAlt />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-primary">GS Kimisagara</h3>
-                    <p className="text-gray-500 text-sm">Kimisagara, Kigali, Rwanda</p>
+                    <h3 className="text-xl font-semibold text-primary">{t('contact.sections.locationTitle')}</h3>
+                    <p className="text-gray-500 text-sm">{t('contact.sections.locationSubtitle')}</p>
                   </div>
                 </div>
                 <p className="text-gray-600 leading-relaxed mb-6">
-                  Our academy is located near GS Kimisagara in Kigali. Use the map to get real-time directions directly to the campus.
+                  {t('contact.sections.locationDescription')}
                 </p>
                 <div className="space-y-4 p-5 bg-gray-50 rounded-2xl">
                   <div className="flex items-center gap-3">
                     <FaMapMarkerAlt className="text-accent flex-shrink-0" />
                     <div>
-                      <span className="block text-xs font-medium text-gray-400 uppercase tracking-wider">Address</span>
+                      <span className="block text-xs font-medium text-gray-400 uppercase tracking-wider">{t('contact.sections.addressLabel')}</span>
                       <span className="text-sm text-gray-700">{contactInfo.address}</span>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
                     <FaPhone className="text-accent flex-shrink-0" />
                     <div>
-                      <span className="block text-xs font-medium text-gray-400 uppercase tracking-wider">Phone</span>
+                      <span className="block text-xs font-medium text-gray-400 uppercase tracking-wider">{t('contact.sections.phoneLabel')}</span>
                       <a href={`tel:${contactInfo.phone}`} className="text-sm text-accent hover:underline">{contactInfo.phone}</a>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
                     <FaEnvelope className="text-accent flex-shrink-0" />
                     <div>
-                      <span className="block text-xs font-medium text-gray-400 uppercase tracking-wider">Email</span>
+                      <span className="block text-xs font-medium text-gray-400 uppercase tracking-wider">{t('contact.sections.emailLabel')}</span>
                       <a href={`mailto:${contactInfo.email}`} className="text-sm text-accent hover:underline">{contactInfo.email}</a>
                     </div>
                   </div>
@@ -251,7 +251,7 @@ const Contact = () => {
                 className="inline-flex items-center justify-center px-6 py-4 mt-6 w-full rounded-2xl bg-gradient-to-r from-primary to-primary-light text-white font-semibold shadow-lg hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-0.5"
               >
                 <FaMapMarkerAlt className="mr-2" />
-                Get real directions
+                {t('contact.sections.getDirections')}
               </a>
             </motion.div>
           </div>

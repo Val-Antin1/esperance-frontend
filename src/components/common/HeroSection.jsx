@@ -1,54 +1,55 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
-const slides = [
+const getSlides = (t) => [
   {
-    title: 'Football Academy',
-    subtitle: 'Develop your skills with professional coaching and world-class training facilities',
-    ctaText: 'Join Football Program',
+    title: t('home.heroCarousel.slides.football.title'),
+    subtitle: t('home.heroCarousel.slides.football.subtitle'),
+    ctaText: t('home.heroCarousel.slides.football.cta'),
     ctaLink: '/football-academy/football',
-    secondaryCtaText: 'Learn More',
+    secondaryCtaText: t('home.heroCarousel.slides.football.secondaryCta'),
     secondaryCtaLink: '/about',
     image: '/football.jpeg',
     accent: '#D4AF37',
   },
   {
-    title: 'Basketball Excellence',
-    subtitle: 'Elevate your game with elite training programs and competitive tournaments',
-    ctaText: 'Join Basketball Program',
+    title: t('home.heroCarousel.slides.basketball.title'),
+    subtitle: t('home.heroCarousel.slides.basketball.subtitle'),
+    ctaText: t('home.heroCarousel.slides.basketball.cta'),
     ctaLink: '/football-academy/basketball',
-    secondaryCtaText: 'View Programs',
+    secondaryCtaText: t('home.heroCarousel.slides.basketball.secondaryCta'),
     secondaryCtaLink: '/about',
     image: '/basketball.jpeg',
     accent: '#D4AF37',
   },
   {
-    title: 'Volleyball Academy',
-    subtitle: 'Spike your potential — professional volleyball training for all skill levels',
-    ctaText: 'Join Volleyball Program',
+    title: t('home.heroCarousel.slides.volleyball.title'),
+    subtitle: t('home.heroCarousel.slides.volleyball.subtitle'),
+    ctaText: t('home.heroCarousel.slides.volleyball.cta'),
     ctaLink: '/football-academy/volleyball',
-    secondaryCtaText: 'View Programs',
+    secondaryCtaText: t('home.heroCarousel.slides.volleyball.secondaryCta'),
     secondaryCtaLink: '/about',
     image: '/volleyball.jpeg',
     accent: '#D4AF37',
   },
   {
-    title: 'Table Tennis',
-    subtitle: 'Master the art of speed and precision with expert coaching',
-    ctaText: 'Join Table Tennis',
+    title: t('home.heroCarousel.slides.tableTennis.title'),
+    subtitle: t('home.heroCarousel.slides.tableTennis.subtitle'),
+    ctaText: t('home.heroCarousel.slides.tableTennis.cta'),
     ctaLink: '/football-academy/table-tennis',
-    secondaryCtaText: 'View Programs',
+    secondaryCtaText: t('home.heroCarousel.slides.tableTennis.secondaryCta'),
     secondaryCtaLink: '/about',
     image: '/tennis.jfif',
     accent: '#D4AF37',
   },
   {
-    title: 'German Language Classes',
-    subtitle: 'Learn German with native-speaking instructors and immersive programs',
-    ctaText: 'Join German Classes',
+    title: t('home.heroCarousel.slides.german.title'),
+    subtitle: t('home.heroCarousel.slides.german.subtitle'),
+    ctaText: t('home.heroCarousel.slides.german.cta'),
     ctaLink: '/football-academy/german-classes',
-    secondaryCtaText: 'Learn More',
+    secondaryCtaText: t('home.heroCarousel.slides.german.secondaryCta'),
     secondaryCtaLink: '/about',
     image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1920&q=80',
     accent: '#D4AF37',
@@ -133,6 +134,8 @@ const Arrow = ({ direction, onClick }) => (
 );
 
 const HeroSection = () => {
+  const { t } = useTranslation();
+  const slides = getSlides(t);
   const [current, setCurrent] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 

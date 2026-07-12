@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { FaQuoteLeft, FaStar } from 'react-icons/fa';
 
 const TestimonialCard = ({ testimonial, index = 0 }) => {
+  const { t } = useTranslation();
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -11,7 +13,7 @@ const TestimonialCard = ({ testimonial, index = 0 }) => {
       className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 relative"
     >
       <FaQuoteLeft className="text-3xl text-accent/30 mb-4" />
-      <p className="text-gray-600 leading-relaxed mb-6 italic">"{testimonial.content}"</p>
+      <p className="text-gray-600 leading-relaxed mb-6 italic">"{t(testimonial.contentKey || testimonial.content)}"</p>
       <div className="flex items-center space-x-1 mb-4">
         {[...Array(5)].map((_, i) => (
           <FaStar key={i} className={i < testimonial.rating ? 'text-accent' : 'text-gray-200'} />
@@ -23,7 +25,7 @@ const TestimonialCard = ({ testimonial, index = 0 }) => {
         </div>
         <div>
           <h4 className="font-bold text-primary">{testimonial.name}</h4>
-          <p className="text-sm text-gray-500">{testimonial.role}</p>
+          <p className="text-sm text-gray-500">{t(testimonial.roleKey || testimonial.role)}</p>
         </div>
       </div>
     </motion.div>

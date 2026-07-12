@@ -6,7 +6,6 @@ import SectionTitle from '../components/common/SectionTitle';
 import GalleryCard from '../components/cards/GalleryCard';
 import api from '../services/api';
 
-const sportCategories = ['All', 'Football', "Women's Football", 'Basketball', 'Volleyball', 'Table Tennis'];
 
 const heroCollageImagesBase = Array.from({ length: 40 }, (_, i) => `/gallery/${i + 1}.jpeg`);
 
@@ -39,6 +38,14 @@ const getMasonryClass = (index) => {
 
 const Gallery = () => {
   const { t } = useTranslation();
+  const sportCategories = [
+    { value: 'All', label: t('gallery.categories.all') },
+    { value: 'Football', label: t('gallery.categories.football') },
+    { value: "Women's Football", label: t('gallery.categories.womensFootball') },
+    { value: 'Basketball', label: t('gallery.categories.basketball') },
+    { value: 'Volleyball', label: t('gallery.categories.volleyball') },
+    { value: 'Table Tennis', label: t('gallery.categories.tableTennis') },
+  ];
   const [activeCategory, setActiveCategory] = useState('All');
   const [galleryImages, setGalleryImages] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -131,28 +138,28 @@ const Gallery = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="relative z-10 text-center px-4 max-w-3xl">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 drop-shadow-[0_4px_20px_rgba(0,0,0,0.45)]">Gallery</h1>
-          <p className="text-lg sm:text-xl text-gray-200 max-w-2xl mx-auto drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]">Explore moments from Esperance FC Academy</p>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 drop-shadow-[0_4px_20px_rgba(0,0,0,0.45)]">{t('gallery.hero.title')}</h1>
+          <p className="text-lg sm:text-xl text-gray-200 max-w-2xl mx-auto drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]">{t('gallery.hero.subtitle')}</p>
         </motion.div>
       </div>
 
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle title="Our Gallery" subtitle="Capturing the spirit of Esperance FC" />
+          <SectionTitle title={t('gallery.section.title')} subtitle={t('gallery.section.subtitle')} />
           
           {/* Category Filters */}
           <div className="flex flex-wrap justify-center gap-3 mb-12">
             {sportCategories.map((category) => (
               <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
+                key={category.value}
+                onClick={() => setActiveCategory(category.value)}
                 className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  activeCategory === category
+                  activeCategory === category.value
                     ? 'bg-primary text-white shadow-md border-b-2 border-accent'
                     : 'text-gray-600 hover:text-primary'
                 }`}
               >
-                {category}
+                {category.label}
               </button>
             ))}
           </div>

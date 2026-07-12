@@ -61,13 +61,13 @@ const Volleyball = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle title={t('volleyball.overview.title')} subtitle={t('volleyball.overview.subtitle')} />
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="max-w-4xl mx-auto text-center">
-            <p className="text-gray-600 text-lg leading-relaxed">Our Volleyball program focuses on developing fundamental skills, game intelligence, and teamwork. From beginner to advanced levels, we provide structured training that helps each player reach their potential.</p>
+            <p className="text-gray-600 text-lg leading-relaxed">{t('volleyball.overview.description')}</p>
           </motion.div>
         </div>
       </section>
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle title="Our Athletes" subtitle="Dedicated volleyball players" />
+          <SectionTitle title={t('volleyball.students.title')} subtitle={t('volleyball.students.subtitle')} />
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {students.volleyball.map((student, index) => (<StudentCard key={student.id} student={student} index={index} />))}
           </div>
@@ -75,7 +75,7 @@ const Volleyball = () => {
       </section>
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle title="Gallery" subtitle="Volleyball in action" />
+          <SectionTitle title={t('volleyball.gallery.title')} subtitle={t('volleyball.gallery.subtitle')} />
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {gallery.map((image, index) => (<GalleryCard key={image.id} image={image} index={index} />))}
           </div>
