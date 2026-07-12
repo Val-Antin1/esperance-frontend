@@ -55,21 +55,21 @@ const Contact = () => {
     <div>
       <Seo path="/contact" />
       {/* Hero Section */}
-      <div className="relative min-h-[50vh] sm:min-h-[56vh] lg:min-h-[60vh] flex items-center justify-center overflow-hidden bg-[#f5efe6]">
-        <div className="absolute inset-0 flex items-center justify-center">
+      <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#f5efe6]">
+        <div className="absolute inset-0">
           <img
             src="/contact.png"
             alt="Contact Esperance FC"
-            className="h-full w-full object-contain object-center opacity-95"
+            className="h-full w-full object-cover object-center opacity-95"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/25" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(212,175,55,0.18),_transparent_35%)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(212,175,55,0.2),_transparent_35%)]" />
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative z-10 w-full max-w-3xl px-4 py-16"
+          className="relative z-10 w-full max-w-3xl px-4 py-16 sm:px-6 lg:px-8"
         >
           <div className="rounded-[2rem] border border-white/15 bg-black/20 px-6 py-8 shadow-2xl shadow-black/20 backdrop-blur-sm sm:px-10 sm:py-10">
             <motion.div
