@@ -70,12 +70,15 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
           className="relative z-10 flex w-full max-w-3xl items-center justify-center px-4 py-16 text-center sm:px-6 lg:px-8"
         >
-          <div className="w-full">
+          <div className="w-full max-w-4xl rounded-[2rem] border border-white/10 bg-white/10 px-6 py-8 shadow-2xl shadow-black/20 backdrop-blur-sm sm:px-10 sm:py-10">
             <h1 className="mb-4 text-4xl font-bold text-white drop-shadow-lg md:text-6xl">
               Get in Touch
             </h1>
-            <p className="mx-auto max-w-2xl text-lg text-gray-200 drop-shadow-md md:text-xl">
-              We'd love to hear from you
+            <p className="mb-6 text-lg font-semibold text-[#f7d98b] drop-shadow-md md:text-xl">
+              We're here to help you every step of the way.
+            </p>
+            <p className="mx-auto max-w-3xl text-base leading-8 text-gray-100/95 drop-shadow-md sm:text-lg">
+              At Esperance FC, we believe great opportunities begin with meaningful conversations. Whether you're a prospective player, parent, supporter, sponsor, or community partner, we'd be delighted to hear from you. Contact us today, and our team will respond promptly.
             </p>
           </div>
         </motion.div>
