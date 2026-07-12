@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Seo from '../components/common/Seo';
 import SectionTitle from '../components/common/SectionTitle';
 import { contactInfo } from '../data/sampleData';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaInstagram, FaYoutube, FaWhatsapp, FaClock, FaGlobeAfrica } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaInstagram, FaYoutube, FaWhatsapp, FaClock } from 'react-icons/fa';
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -63,25 +63,20 @@ const Contact = () => {
             className="h-full w-full object-cover object-center opacity-95"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(212,175,55,0.2),_transparent_35%)]" />
+        <div className="absolute inset-0 bg-black/45" />
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative z-10 w-full max-w-3xl px-4 py-16 sm:px-6 lg:px-8"
+          className="relative z-10 flex w-full max-w-3xl items-center justify-center px-4 py-16 text-center sm:px-6 lg:px-8"
         >
-          <div className="rounded-[2rem] border border-white/15 bg-black/20 px-6 py-8 shadow-2xl shadow-black/20 backdrop-blur-sm sm:px-10 sm:py-10">
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-3xl bg-white/10 backdrop-blur-sm"
-            >
-              <FaGlobeAfrica className="text-4xl text-white" />
-            </motion.div>
-            <h1 className="mb-4 text-4xl font-bold text-white drop-shadow-lg md:text-6xl">{t('contact.hero.title')}</h1>
-            <p className="mx-auto max-w-2xl text-lg text-gray-200 drop-shadow-md md:text-xl">{t('contact.hero.subtitle')}</p>
+          <div className="w-full">
+            <h1 className="mb-4 text-4xl font-bold text-white drop-shadow-lg md:text-6xl">
+              Get in Touch
+            </h1>
+            <p className="mx-auto max-w-2xl text-lg text-gray-200 drop-shadow-md md:text-xl">
+              We'd love to hear from you
+            </p>
           </div>
         </motion.div>
       </div>
