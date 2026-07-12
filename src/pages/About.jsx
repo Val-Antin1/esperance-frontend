@@ -156,7 +156,7 @@ const About = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, ease: 'easeInOut' }}
-            className="absolute inset-[-6%] rounded-[2rem] border border-white/10 shadow-[0_25px_90px_rgba(0,0,0,0.35)] sm:inset-[-8%]"
+            className="absolute inset-[-6%] rounded-[2rem] border border-white/10 sm:inset-[-8%]"
             style={{ transform: 'rotate(-4deg) scale(1.06)' }}
           >
             <div className="grid h-full w-full grid-cols-3 gap-2 p-2 sm:grid-cols-4 sm:p-3 md:grid-cols-6 md:p-4">
@@ -190,9 +190,8 @@ const About = () => {
           </motion.div>
         </div>
 
-        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-black/70" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(212,175,55,0.16),_transparent_28%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(255,255,255,0.06),_transparent_30%)]" />
+        <div className="absolute inset-0 bg-black/10" />
+
         <div className="absolute top-8 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-accent/10 blur-3xl" />
         <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-accent/5 blur-3xl" />
 
