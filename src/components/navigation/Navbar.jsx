@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { HiMenu, HiX, HiChevronDown } from 'react-icons/hi';
-import { FaFutbol } from 'react-icons/fa';
+import { HiChevronDown, HiMenu, HiPhone, HiX } from 'react-icons/hi';
+import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 import LanguageSwitcher from '../common/LanguageSwitcher';
+import { contactInfo } from '../../data/sampleData';
 
 const navLinks = [
   { path: '/', labelKey: 'nav.home' },
@@ -30,6 +31,7 @@ const Navbar = () => {
   const [programsOpen, setProgramsOpen] = useState(false);
   const [mobileProgramsOpen, setMobileProgramsOpen] = useState(false);
   const location = useLocation();
+  const phoneNumber = contactInfo?.phone || '+250 XXX XXX XXX';
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -43,18 +45,33 @@ const Navbar = () => {
   }, [location]);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white shadow-xl py-2'
-          : 'bg-white/95 backdrop-blur-sm py-4'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-4">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'shadow-xl' : ''}`}>
+      <div className="border-b border-gray-100 bg-[#111111] text-white">
+        <div className="mx-auto flex min-h-[38px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.2em] text-gray-300 sm:text-[11px]">
+            <span className="hidden sm:inline">Reach out to us</span>
+            <span className="sm:hidden">Contact</span>
+            <div className="flex items-center gap-2">
+              <a href={contactInfo.social.facebook || '#'} target="_blank" rel="noreferrer" className="transition-colors hover:text-[#d4af37]" aria-label="Facebook">
+                <FaFacebookF size={14} />
+              </a>
+              <a href={contactInfo.social.instagram || '#'} target="_blank" rel="noreferrer" className="transition-colors hover:text-[#d4af37]" aria-label="Instagram">
+                <FaInstagram size={14} />
+              </a>
+            </div>
+          </div>
+
+          <div className="ml-auto flex items-center">
+            <LanguageSwitcher compact />
+          </div>
+        </div>
+      </div>
+
+      <div className={`border-b border-gray-100 bg-white/95 backdrop-blur-sm ${scrolled ? 'shadow-xl' : ''}`}>
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
           <Link to="/" className="flex items-center gap-4 flex-shrink-0">
-            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/90 flex items-center justify-center rounded-2xl overflow-hidden">
-              <img src="/logo.PNG" alt="Esperance FC Academy" className="h-14 sm:h-16 w-auto object-contain" />
+            <div className="flex h-16 w-16 items-center justify-center overflow-hidden rounded-2xl bg-white/90 sm:h-20 sm:w-20">
+              <img src="/logo.PNG" alt="Esperance FC Academy" className="h-14 w-auto object-contain sm:h-16" />
             </div>
           </Link>
 
@@ -139,13 +156,38 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="hidden lg:flex items-center flex-shrink-0 pl-8 xl:pl-10">
-            <LanguageSwitcher />
+          <div className="hidden sm:flex items-center flex-shrink-0 pl-4 lg:pl-8 xl:pl-10">
+            <a href={`tel:${phoneNumber}`} className="flex items-center gap-3 rounded-full border border-gray-200 bg-gray-50 px-3 py-2 text-left transition-colors hover:bg-gray-100">
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-white">
+                <HiPhone size={16} />
+              </div>
+              <div className="leading-tight">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-500">Call Us Now</p>
+                <p className="text-sm font-semibold text-gray-900">{phoneNumber}</p>
+              </div>
+            </a>
+          </div>
+
+          <div className="flex items-center gap-2 sm:hidden">
+            <a
+              href={`tel:${phoneNumber}`}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-gray-50 text-primary transition-colors hover:bg-gray-100"
+              aria-label={`Call ${phoneNumber}`}
+            >
+              <HiPhone size={18} />
+            </a>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 rounded-lg text-primary hover:bg-gray-100 transition-colors"
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            >
+              {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
+            </button>
           </div>
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-lg text-primary hover:bg-gray-100 transition-colors"
+            className="hidden p-2 rounded-lg text-primary hover:bg-gray-100 transition-colors sm:hidden"
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
           >
             {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
@@ -162,6 +204,14 @@ const Navbar = () => {
             className="lg:hidden bg-white border-t border-gray-200 shadow-lg overflow-hidden"
           >
             <div className="px-4 py-4 space-y-2">
+              <a
+                href={`tel:${phoneNumber}`}
+                className="flex items-center justify-between rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100"
+              >
+                <span>Call Us Now</span>
+                <HiPhone className="text-primary" size={16} />
+              </a>
+
               {navLinks.map((link) => (
                 <NavLink
                   key={link.path}
@@ -219,7 +269,7 @@ const Navbar = () => {
 
               {/* Mobile Language Switcher */}
               <div className="mt-4 pt-4 border-t border-gray-200">
-                <LanguageSwitcher />
+                <LanguageSwitcher compact />
               </div>
             </div>
           </motion.div>

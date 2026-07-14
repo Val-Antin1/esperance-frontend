@@ -1,17 +1,39 @@
 import { motion } from 'framer-motion';
 import { FaImage } from 'react-icons/fa';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { normalizeImageUrl } from '../../utils/imageUrl';
 
 const GalleryCard = ({ image, index = 0 }) => {
   const mediaSrc = normalizeImageUrl(image.imageUrl || image.src);
   const isVideo = image.type === 'video' || /\.(mp4|webm|mov)$/i.test(mediaSrc || '');
   const videoRef = useRef(null);
+  const [retryCount, setRetryCount] = useState(0);
+  const [videoError, setVideoError] = useState(false);
 
   useEffect(() => {
     if (!isVideo || !videoRef.current) return undefined;
 
     const video = videoRef.current;
+    setVideoError(false);
+
+    const tryPlay = () => {
+      video.play().catch(() => {});
+    };
+
+    const handleError = () => {
+      if (retryCount < 2) {
+        setTimeout(() => {
+          setRetryCount((prev) => prev + 1);
+          setVideoError(true);
+          if (video.currentSrc) {
+            video.load();
+            tryPlay();
+          }
+        }, 800);
+      }
+    };
+
+    video.addEventListener('error', handleError);
 
     // Handle Intersection Observer for play/pause
     if (typeof IntersectionObserver === 'undefined') return undefined;
@@ -33,9 +55,10 @@ const GalleryCard = ({ image, index = 0 }) => {
     observer.observe(video);
 
     return () => {
+      video.removeEventListener('error', handleError);
       observer.disconnect();
     };
-  }, [isVideo]);
+  }, [isVideo, retryCount]);
 
   return (
     <motion.div
@@ -52,6 +75,7 @@ const GalleryCard = ({ image, index = 0 }) => {
           mediaSrc ? (
             <video
               ref={videoRef}
+              key={`${mediaSrc}-${retryCount}`}
               src={mediaSrc}
               autoPlay
               muted
@@ -59,6 +83,7 @@ const GalleryCard = ({ image, index = 0 }) => {
               loop
               preload="auto"
               className="w-full h-full object-cover"
+              onError={() => setVideoError(true)}
             />
           ) : (
             <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">

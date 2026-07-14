@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiChevronDown } from 'react-icons/hi';
-import { FaGlobe, FaCheck, FaLanguage } from 'react-icons/fa';
+import { FaCheck, FaGlobe, FaLanguage } from 'react-icons/fa';
 
-const LanguageSwitcher = () => {
+const LanguageSwitcher = ({ compact = false }) => {
   const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -32,12 +32,12 @@ const LanguageSwitcher = () => {
         type="button"
         aria-haspopup="menu"
         aria-expanded={isOpen}
-        className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gray-50 hover:bg-gray-100 text-gray-700 font-medium text-sm transition-all duration-200 border border-gray-200 hover:border-gray-300 shadow-sm hover:shadow-md"
+        className={`flex items-center gap-2 rounded-xl border border-gray-200 bg-gray-50 text-gray-700 font-medium transition-all duration-200 hover:bg-gray-100 hover:border-gray-300 hover:shadow-md ${compact ? 'px-2.5 py-1.5 text-xs shadow-sm' : 'px-4 py-2.5 text-sm shadow-sm'}`}
       >
-        <FaGlobe className="text-base text-primary" />
+        <FaGlobe className={`text-primary ${compact ? 'h-3.5 w-3.5' : 'h-4 w-4'}`} />
         <span>{currentLanguage.label}</span>
         <HiChevronDown
-          className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+          className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''} ${compact ? 'h-3.5 w-3.5' : 'h-4 w-4'}`}
         />
       </motion.button>
 
@@ -63,10 +63,10 @@ const LanguageSwitcher = () => {
                       : 'text-gray-700 hover:bg-gray-50 hover:text-primary'
                   }`}
                 >
-                  {language.icon && <language.icon className="text-base text-primary" />}
+                  {language.icon && <language.icon className="h-4 w-4 text-primary" />}
                   <span>{language.label}</span>
                   {currentLanguage.code === language.code && (
-                    <FaCheck className="ml-auto text-xs text-primary" />
+                    <FaCheck className="ml-auto h-3.5 w-3.5 text-primary" />
                   )}
                 </motion.button>
               ))}
