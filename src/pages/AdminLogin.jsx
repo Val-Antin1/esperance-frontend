@@ -33,14 +33,12 @@ const AdminLogin = () => {
    * - Gracefully handles browsers without speechSynthesis support
    * - Returns a promise that resolves when speech finishes
    */
-  const playWelcomeVoice = () => {
-    // Check if browser supports Web Speech API
+  const playWelcomeVoice = (email = '') => {
     if (!window.speechSynthesis) {
       console.log('Speech Synthesis not supported in this browser');
       return Promise.resolve();
     }
 
-    // Prevent voice from playing multiple times on re-renders
     if (voicePlayedRef.current) {
       return Promise.resolve();
     }
@@ -48,42 +46,46 @@ const AdminLogin = () => {
     voicePlayedRef.current = true;
 
     return new Promise((resolve) => {
-      // Wait 500ms after successful login before playing welcome voice
       setTimeout(() => {
         try {
-          // Cancel any ongoing speech to start fresh
           window.speechSynthesis.cancel();
 
-          // Create speech utterance with welcome message
-          const utterance = new SpeechSynthesisUtterance('Welcome domy.');
+          const normalizedEmail = (email || '').trim().toLowerCase();
+          const greeting = normalizedEmail === 'valentinlyon205@gmail.com'
+            ? 'Welcome Valentin.'
+            : normalizedEmail === 'domyserry@yahoo.fr'
+              ? 'Welcome Domy.'
+              : 'Welcome.';
 
-          // Set natural voice properties for professional sound
-          utterance.rate = 1;
-          utterance.pitch = 1;
+          const utterance = new SpeechSynthesisUtterance(greeting);
+          utterance.lang = 'en-US';
+          utterance.rate = 0.95;
+          utterance.pitch = 1.15;
           utterance.volume = 1;
 
-          // Try to select a natural English voice from available voices
           const voices = window.speechSynthesis.getVoices();
-          const englishVoice = voices.find(voice => 
-            voice.lang.startsWith('en-') && voice.name.includes('Google')
-          ) || voices.find(voice => voice.lang.startsWith('en-')) || voices[0];
+          const preferredVoice = voices.find((voice) => {
+            const name = voice.name.toLowerCase();
+            return voice.lang.toLowerCase().startsWith('en') && (
+              name.includes('david') ||
+              name.includes('mark') ||
+              name.includes('james') ||
+              name.includes('male') ||
+              name.includes('microsoft') ||
+              name.includes('google us english')
+            );
+          }) || voices.find((voice) => voice.lang.toLowerCase().startsWith('en')) || voices[0];
 
-          if (englishVoice) {
-            utterance.voice = englishVoice;
+          if (preferredVoice) {
+            utterance.voice = preferredVoice;
           }
 
-          // Resolve promise when speech finishes
-          utterance.onend = () => {
-            resolve();
-          };
-
-          // Handle speech errors gracefully without breaking login flow
+          utterance.onend = () => resolve();
           utterance.onerror = (error) => {
             console.log('Speech synthesis error:', error.error);
             resolve();
           };
 
-          // Speak the welcome message
           window.speechSynthesis.speak(utterance);
         } catch (error) {
           console.log('Error initializing speech synthesis:', error);
@@ -111,9 +113,8 @@ const AdminLogin = () => {
           localStorage.setItem('rememberEmail', credentials.email);
         }
 
-        // Play professional welcome voice after successful login
-        // Voice will play and then redirect to dashboard
-        await playWelcomeVoice();
+        // Play a personalized, more masculine welcome voice after successful login
+        await playWelcomeVoice(credentials.email);
         navigate('/admin/dashboard', { replace: true });
       } else {
         setError(data.message || 'Login failed');

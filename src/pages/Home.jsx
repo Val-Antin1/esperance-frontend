@@ -241,45 +241,45 @@ const Home = () => {
       </section>
 
       {/* Contact Preview */}
-      <section className="py-20 bg-primary">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle title={t('home.contactPreview.title')} subtitle={t('home.contactPreview.subtitle')} light />
+          <SectionTitle title={t('home.contactPreview.title')} subtitle={t('home.contactPreview.subtitle')} />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-center p-6 bg-white rounded-xl border border-gray-100"
+              className="text-center p-6 bg-gray-50 rounded-xl border border-gray-100 shadow-sm"
             >
-              <div className="w-14 h-14 rounded-lg bg-gray-100 flex items-center justify-center mx-auto mb-4">
-                <FaPhone className="text-xl text-gray-700" />
+              <div className="w-14 h-14 rounded-lg bg-white flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <FaPhone className="text-xl text-primary" />
               </div>
               <h3 className="text-gray-900 font-semibold mb-2">{t('home.contactPreview.phone')}</h3>
-              <a href={`tel:${contactInfo.phone}`} className="text-gray-600">{contactInfo.phone}</a>
+              <a href={`tel:${contactInfo.phone}`} className="text-gray-600 hover:text-accent transition-colors">{contactInfo.phone}</a>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-center p-6 bg-white rounded-xl border border-gray-100"
+              className="text-center p-6 bg-gray-50 rounded-xl border border-gray-100 shadow-sm"
             >
-              <div className="w-14 h-14 rounded-lg bg-gray-100 flex items-center justify-center mx-auto mb-4">
-                <FaEnvelope className="text-xl text-gray-700" />
+              <div className="w-14 h-14 rounded-lg bg-white flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <FaEnvelope className="text-xl text-primary" />
               </div>
               <h3 className="text-gray-900 font-semibold mb-2">{t('home.contactPreview.email')}</h3>
-              <a href={`mailto:${contactInfo.email}`} className="text-gray-600">{contactInfo.email}</a>
+              <a href={`mailto:${contactInfo.email}`} className="text-gray-600 hover:text-accent transition-colors">{contactInfo.email}</a>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-center p-6 bg-white rounded-xl border border-gray-100"
+              className="text-center p-6 bg-gray-50 rounded-xl border border-gray-100 shadow-sm"
             >
-              <div className="w-14 h-14 rounded-lg bg-gray-100 flex items-center justify-center mx-auto mb-4">
-                <FaMapMarkerAlt className="text-xl text-gray-700" />
+              <div className="w-14 h-14 rounded-lg bg-white flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <FaMapMarkerAlt className="text-xl text-primary" />
               </div>
               <h3 className="text-gray-900 font-semibold mb-2">{t('home.contactPreview.address')}</h3>
               <p className="text-gray-600">{contactInfo.address}</p>
