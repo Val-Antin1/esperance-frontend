@@ -32,12 +32,12 @@ const LanguageSwitcher = ({ compact = false }) => {
         type="button"
         aria-haspopup="menu"
         aria-expanded={isOpen}
-        className={`flex items-center gap-2 rounded-xl border border-gray-200 bg-gray-50 text-gray-700 font-medium transition-all duration-200 hover:bg-gray-100 hover:border-gray-300 hover:shadow-md ${compact ? 'px-2.5 py-1.5 text-xs shadow-sm' : 'px-4 py-2.5 text-sm shadow-sm'}`}
+        className={`flex items-center gap-2 rounded-xl border border-gray-900 bg-gray-900 text-white font-medium transition-all duration-200 hover:bg-black hover:border-gray-950 hover:shadow-md ${compact ? 'px-2.5 py-1.5 text-xs shadow-sm' : 'px-4 py-2.5 text-sm shadow-sm'}`}
       >
-        <FaGlobe className={`text-primary ${compact ? 'h-3.5 w-3.5' : 'h-4 w-4'}`} />
+        <FaGlobe className={`text-white ${compact ? 'h-3.5 w-3.5' : 'h-4 w-4'}`} />
         <span>{currentLanguage.label}</span>
         <HiChevronDown
-          className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''} ${compact ? 'h-3.5 w-3.5' : 'h-4 w-4'}`}
+          className={`text-white transition-transform duration-300 ${isOpen ? 'rotate-180' : ''} ${compact ? 'h-3.5 w-3.5' : 'h-4 w-4'}`}
         />
       </motion.button>
 
