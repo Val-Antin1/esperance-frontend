@@ -1,50 +1,41 @@
 import { motion } from 'framer-motion';
 import { FaImage } from 'react-icons/fa';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { normalizeImageUrl } from '../../utils/imageUrl';
 
 const GalleryCard = ({ image, index = 0 }) => {
   const mediaSrc = normalizeImageUrl(image.imageUrl || image.src);
   const isVideo = image.type === 'video' || /\.(mp4|webm|mov)$/i.test(mediaSrc || '');
   const videoRef = useRef(null);
-  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
-  const [imgError, setImgError] = useState(false);
 
   useEffect(() => {
-    if (!isVideo || !videoRef.current || typeof IntersectionObserver === 'undefined') {
-      if (isVideo && mediaSrc) {
-        setShouldLoadVideo(true);
-      }
-      return undefined;
-    }
+    if (!isVideo || !videoRef.current) return undefined;
 
     const video = videoRef.current;
+
+    // Handle Intersection Observer for play/pause
+    if (typeof IntersectionObserver === 'undefined') return undefined;
+
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries;
         if (!entry) return;
 
-        if (entry.isIntersecting) {
-          setShouldLoadVideo(true);
-          if (entry.intersectionRatio >= 0.6) {
-            video.play().catch(() => {});
-          } else {
-            video.pause();
-          }
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
+          video.play().catch(() => {});
         } else {
           video.pause();
         }
       },
-      { rootMargin: '120px 0px 120px 0px', threshold: [0, 0.6] }
+      { rootMargin: '50px', threshold: 0.6 }
     );
 
     observer.observe(video);
 
     return () => {
       observer.disconnect();
-      video.pause();
     };
-  }, [isVideo, mediaSrc]);
+  }, [isVideo]);
 
   return (
     <motion.div
@@ -58,7 +49,7 @@ const GalleryCard = ({ image, index = 0 }) => {
     >
       <div className="w-full h-full bg-gray-100 flex items-center justify-center overflow-hidden">
         {isVideo ? (
-          shouldLoadVideo && mediaSrc ? (
+          mediaSrc ? (
             <video
               ref={videoRef}
               src={mediaSrc}
@@ -74,12 +65,12 @@ const GalleryCard = ({ image, index = 0 }) => {
               <FaImage className="text-4xl text-gray-400" />
             </div>
           )
-        ) : mediaSrc && !imgError ? (
+        ) : mediaSrc ? (
           <img
             src={mediaSrc}
             alt={image.title}
             className="w-full h-full object-cover"
-            onError={() => setImgError(true)}
+            onError={() => {}}
           />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
@@ -98,3 +89,4 @@ const GalleryCard = ({ image, index = 0 }) => {
 };
 
 export default GalleryCard;
+
