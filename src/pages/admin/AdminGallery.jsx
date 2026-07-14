@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaImages, FaPlus, FaEdit, FaTrash, FaSearch, FaSignOutAlt, FaBars, FaTimes, FaTachometerAlt, FaCog, FaUserTie, FaNewspaper, FaTimesCircle, FaCalendarAlt, FaFolder, FaExpand, FaEye, FaCheckSquare, FaSquare } from 'react-icons/fa';
+import { FaImages, FaPlus, FaEdit, FaTrash, FaSearch, FaSignOutAlt, FaBars, FaTimes, FaTachometerAlt, FaCog, FaUserTie, FaNewspaper, FaTimesCircle, FaCalendarAlt, FaFolder, FaExpand, FaEye, FaCheckSquare, FaSquare, FaSpinner } from 'react-icons/fa';
 import Seo from '../../components/common/Seo';
 import api from '../../services/api';
 import { normalizeImageUrl } from '../../utils/imageUrl';
@@ -34,6 +34,8 @@ const AdminGallery = () => {
   const [storageFull, setStorageFull] = useState(false);
   const [uploadError, setUploadError] = useState('');
   const [uploadSuccess, setUploadSuccess] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [pendingDeleteId, setPendingDeleteId] = useState(null);
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedItems, setSelectedItems] = useState([]);
   const [bulkDeleteConfirm, setBulkDeleteConfirm] = useState(false);
@@ -89,12 +91,15 @@ const AdminGallery = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSubmitting) return;
+
     setUploadError('');
     setUploadSuccess('');
+    setIsSubmitting(true);
     
-    // Validate file is selected
     if (!file) {
       setUploadError('Please select a media file to upload');
+      setIsSubmitting(false);
       return;
     }
     
@@ -122,7 +127,6 @@ const AdminGallery = () => {
       setPreview(null);
       fetchItems();
 
-      // Clear success message after 3 seconds
       setTimeout(() => setUploadSuccess(''), 3000);
     } catch (err) {
       const errorData = err.response?.data;
@@ -130,7 +134,6 @@ const AdminGallery = () => {
       
       if (errorData) {
         if (errorData.data && errorData.data.errors) {
-          // Validation errors
           const validationErrors = errorData.data.errors.map(e => e.msg).join(', ');
           errorMsg = validationErrors;
         } else if (errorData.message) {
@@ -139,6 +142,8 @@ const AdminGallery = () => {
       }
       
       setUploadError(errorMsg);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -152,8 +157,11 @@ const AdminGallery = () => {
   };
 
   const handleDelete = async (id) => {
+    if (pendingDeleteId) return;
+    setPendingDeleteId(id);
     try { await api.delete(`/gallery/${id}`); setDeleteConfirm(null); fetchItems(); }
     catch (e) { alert('Error deleting'); }
+    finally { setPendingDeleteId(null); }
   };
 
   const handleBulkDelete = async () => {
@@ -357,7 +365,16 @@ const AdminGallery = () => {
                       )}
                     </div>
                     <div className="flex gap-3 pt-2">
-                      <button type="submit" className="flex-1 px-6 py-2.5 bg-gray-900 text-white rounded-xl hover:bg-gray-800 transition-all duration-200 text-sm font-medium shadow-sm">{editing ? 'Update Media' : 'Upload Media'}</button>
+                      <button type="submit" disabled={isSubmitting} className="flex-1 px-6 py-2.5 bg-gray-900 text-white rounded-xl hover:bg-gray-800 transition-all duration-200 text-sm font-medium shadow-sm disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+                        {isSubmitting ? (
+                          <>
+                            <FaSpinner className="animate-spin" />
+                            <span>{editing ? 'Updating...' : 'Uploading...'}</span>
+                          </>
+                        ) : (
+                          editing ? 'Update Media' : 'Upload Media'
+                        )}
+                      </button>
                       <button type="button" onClick={() => { setShowForm(false); setEditing(null); setFile(null); setPreview(null); }} className="px-6 py-2.5 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-all duration-200 text-sm font-medium">Cancel</button>
                     </div>
                   </form>
@@ -379,7 +396,9 @@ const AdminGallery = () => {
                     <p className="text-sm text-gray-500 mb-6">This action cannot be undone. Are you sure you want to delete this image?</p>
                     <div className="flex gap-3">
                       <button onClick={() => setDeleteConfirm(null)} className="flex-1 px-4 py-2.5 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-all text-sm font-medium">Cancel</button>
-                      <button onClick={() => handleDelete(deleteConfirm)} className="flex-1 px-4 py-2.5 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-all text-sm font-medium">Delete</button>
+                      <button onClick={() => handleDelete(deleteConfirm)} disabled={pendingDeleteId === deleteConfirm} className="flex-1 px-4 py-2.5 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-all text-sm font-medium disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+                        {pendingDeleteId === deleteConfirm ? <><FaSpinner className="animate-spin" /> Deleting...</> : 'Delete'}
+                      </button>
                     </div>
                   </div>
                 </motion.div>
@@ -550,7 +569,7 @@ const AdminGallery = () => {
                         <button onClick={() => handleEdit(item)} className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-all">
                           <FaEdit className="text-xs" /> Edit
                         </button>
-                        <button onClick={() => setDeleteConfirm(item._id)} className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition-all">
+                        <button onClick={() => setDeleteConfirm(item._id)} disabled={pendingDeleteId === item._id} className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition-all disabled:opacity-60 disabled:cursor-not-allowed">
                           <FaTrash className="text-xs" /> Delete
                         </button>
                       </div>

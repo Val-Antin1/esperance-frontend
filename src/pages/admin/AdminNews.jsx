@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaNewspaper, FaPlus, FaEdit, FaTrash, FaSearch, FaSignOutAlt, FaBars, FaTimes, FaTachometerAlt, FaCog, FaUserTie, FaImages, FaCheck, FaTimesCircle, FaCalendarAlt, FaTag, FaEye } from 'react-icons/fa';
+import { FaNewspaper, FaPlus, FaEdit, FaTrash, FaSearch, FaSignOutAlt, FaBars, FaTimes, FaTachometerAlt, FaCog, FaUserTie, FaImages, FaCheck, FaTimesCircle, FaCalendarAlt, FaTag, FaEye, FaSpinner } from 'react-icons/fa';
 import Seo from '../../components/common/Seo';
 import api from '../../services/api';
 import { normalizeImageUrl } from '../../utils/imageUrl';
@@ -26,6 +26,9 @@ const AdminNews = () => {
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [deleteConfirm, setDeleteConfirm] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [pendingDeleteId, setPendingDeleteId] = useState(null);
+  const [publishingId, setPublishingId] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem('adminToken');
@@ -49,6 +52,9 @@ const AdminNews = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
     try {
       const formData = new FormData();
       formData.append('title', form.title);
@@ -68,6 +74,8 @@ const AdminNews = () => {
       fetchNews();
     } catch (err) {
       alert(err.response?.data?.message || 'Error saving');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -80,11 +88,19 @@ const AdminNews = () => {
   };
 
   const handleDelete = async (id) => {
+    if (pendingDeleteId) return;
+    setPendingDeleteId(id);
     try { await api.delete(`/news/${id}`); setDeleteConfirm(null); fetchNews(); }
     catch (e) { alert('Error deleting'); }
+    finally { setPendingDeleteId(null); }
   };
 
-  const handlePublish = async (id) => { try { await api.patch(`/news/${id}/publish`); fetchNews(); } catch (e) { alert('Error publishing'); } };
+  const handlePublish = async (id) => {
+    if (publishingId) return;
+    setPublishingId(id);
+    try { await api.patch(`/news/${id}/publish`); fetchNews(); } catch (e) { alert('Error publishing'); }
+    finally { setPublishingId(null); }
+  };
 
   const logout = () => { localStorage.removeItem('adminToken'); localStorage.removeItem('adminUser'); navigate('/admin', { replace: true }); };
 
@@ -190,7 +206,16 @@ const AdminNews = () => {
                       )}
                     </div>
                     <div className="flex gap-3 pt-2">
-                      <button type="submit" className="flex-1 px-6 py-2.5 bg-gray-900 text-white rounded-xl hover:bg-gray-800 transition-all duration-200 text-sm font-medium shadow-sm">{editing ? 'Update Article' : 'Create Article'}</button>
+                      <button type="submit" disabled={isSubmitting} className="flex-1 px-6 py-2.5 bg-gray-900 text-white rounded-xl hover:bg-gray-800 transition-all duration-200 text-sm font-medium shadow-sm disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+                        {isSubmitting ? (
+                          <>
+                            <FaSpinner className="animate-spin" />
+                            <span>{editing ? 'Updating...' : 'Creating...'}</span>
+                          </>
+                        ) : (
+                          editing ? 'Update Article' : 'Create Article'
+                        )}
+                      </button>
                       <button type="button" onClick={() => { setShowForm(false); setEditing(null); setImageFile(null); setImagePreview(null); }} className="px-6 py-2.5 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-all duration-200 text-sm font-medium">Cancel</button>
                     </div>
                   </form>
@@ -212,7 +237,9 @@ const AdminNews = () => {
                     <p className="text-sm text-gray-500 mb-6">This action cannot be undone. Are you sure you want to delete this article?</p>
                     <div className="flex gap-3">
                       <button onClick={() => setDeleteConfirm(null)} className="flex-1 px-4 py-2.5 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-all text-sm font-medium">Cancel</button>
-                      <button onClick={() => handleDelete(deleteConfirm)} className="flex-1 px-4 py-2.5 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-all text-sm font-medium">Delete</button>
+                      <button onClick={() => handleDelete(deleteConfirm)} disabled={pendingDeleteId === deleteConfirm} className="flex-1 px-4 py-2.5 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-all text-sm font-medium disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+                        {pendingDeleteId === deleteConfirm ? <><FaSpinner className="animate-spin" /> Deleting...</> : 'Delete'}
+                      </button>
                     </div>
                   </div>
                 </motion.div>
@@ -276,14 +303,14 @@ const AdminNews = () => {
                       <p className="text-sm text-gray-400 line-clamp-2 leading-relaxed">{item.excerpt || item.content?.substring(0, 100)}</p>
                       <div className="flex items-center gap-2 mt-4 pt-4 border-t border-gray-50">
                         {!item.published && (
-                          <button onClick={() => handlePublish(item._id)} className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-emerald-600 hover:text-emerald-800 hover:bg-emerald-50 rounded-lg transition-all">
-                            <FaCheck className="text-xs" /> Publish
+                          <button onClick={() => handlePublish(item._id)} disabled={publishingId === item._id} className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-emerald-600 hover:text-emerald-800 hover:bg-emerald-50 rounded-lg transition-all disabled:opacity-60 disabled:cursor-not-allowed">
+                            {publishingId === item._id ? <><FaSpinner className="animate-spin" /> Publishing...</> : <><FaCheck className="text-xs" /> Publish</>}
                           </button>
                         )}
                         <button onClick={() => handleEdit(item)} className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-all">
                           <FaEdit className="text-xs" /> Edit
                         </button>
-                        <button onClick={() => setDeleteConfirm(item._id)} className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition-all">
+                        <button onClick={() => setDeleteConfirm(item._id)} disabled={pendingDeleteId === item._id} className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition-all disabled:opacity-60 disabled:cursor-not-allowed">
                           <FaTrash className="text-xs" /> Delete
                         </button>
                       </div>
