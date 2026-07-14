@@ -57,7 +57,7 @@ const GalleryCard = ({ image, index = 0 }) => {
               muted
               playsInline
               loop
-              preload="metadata"
+              preload="auto"
               className="w-full h-full object-cover"
             />
           ) : (
