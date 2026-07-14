@@ -62,6 +62,7 @@ const GalleryCard = ({ image, index = 0 }) => {
             <video
               ref={videoRef}
               src={mediaSrc}
+              autoPlay
               muted
               playsInline
               loop
