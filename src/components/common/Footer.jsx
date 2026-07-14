@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { FaFacebook, FaInstagram, FaYoutube, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaYoutube, FaWhatsapp, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import { contactInfo } from '../../data/sampleData';
 
 const quickLinks = [
@@ -117,15 +117,15 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start space-x-2">
-                <span className="text-accent mt-1">📍</span>
+                <FaMapMarkerAlt className="text-accent mt-1" />
                 <span className="text-gray-600">{contactInfo.address}</span>
               </li>
               <li className="flex items-center space-x-2">
-                <span className="text-accent">📞</span>
+                <FaPhoneAlt className="text-accent" />
                 <a href={`tel:${contactInfo.phone}`} className="text-gray-600 hover:text-accent transition-colors">{contactInfo.phone}</a>
               </li>
               <li className="flex items-center space-x-2">
-                <span className="text-accent">✉️</span>
+                <FaEnvelope className="text-accent" />
                 <a href={`mailto:${contactInfo.email}`} className="text-gray-600 hover:text-accent transition-colors">{contactInfo.email}</a>
               </li>
             </ul>

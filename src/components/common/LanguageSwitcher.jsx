@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiChevronDown } from 'react-icons/hi';
-import { FaGlobe } from 'react-icons/fa';
+import { FaGlobe, FaCheck, FaLanguage } from 'react-icons/fa';
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
@@ -10,8 +10,8 @@ const LanguageSwitcher = () => {
 
   // Language configuration
   const languages = [
-    { code: 'en', label: 'English', flag: '🇬🇧' },
-    { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
+    { code: 'en', label: 'English', icon: FaLanguage },
+    { code: 'de', label: 'Deutsch', icon: FaGlobe },
   ];
 
   const currentLanguage = languages.find((lang) => lang.code === i18n.language) || languages[0];
@@ -63,10 +63,10 @@ const LanguageSwitcher = () => {
                       : 'text-gray-700 hover:bg-gray-50 hover:text-primary'
                   }`}
                 >
-                  <span className="text-lg">{language.flag}</span>
+                  {language.icon && <language.icon className="text-base text-primary" />}
                   <span>{language.label}</span>
                   {currentLanguage.code === language.code && (
-                    <span className="ml-auto text-xs font-bold text-primary">✓</span>
+                    <FaCheck className="ml-auto text-xs text-primary" />
                   )}
                 </motion.button>
               ))}
