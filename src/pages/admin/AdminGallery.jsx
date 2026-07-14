@@ -59,14 +59,32 @@ const AdminGallery = () => {
     catch (e) { console.error(e); } finally { setLoading(false); }
   };
 
+  const isVideoMedia = (item) => item?.type === 'video' || /\.(mp4|webm|mov)$/i.test(item?.imageUrl || '');
+  const getPreviewState = (mediaUrl, mediaType = 'image') => {
+    if (!mediaUrl) return null;
+    return { url: normalizeImageUrl(mediaUrl), type: mediaType === 'video' ? 'video' : 'image' };
+  };
+
   useEffect(() => {
     if (!file) {
-      setPreview(editing?.imageUrl || null);
-      return;
+      if (editing) {
+        setPreview(getPreviewState(editing.imageUrl, editing.type));
+      } else {
+        setPreview(null);
+      }
+      return undefined;
     }
+
+    if (file.type?.startsWith('video/')) {
+      const objectUrl = URL.createObjectURL(file);
+      setPreview({ url: objectUrl, type: 'video' });
+      return () => URL.revokeObjectURL(objectUrl);
+    }
+
     const reader = new FileReader();
-    reader.onloadend = () => setPreview(reader.result);
+    reader.onloadend = () => setPreview({ url: reader.result, type: 'image' });
     reader.readAsDataURL(file);
+    return undefined;
   }, [file, editing]);
 
   const handleSubmit = async (e) => {
@@ -76,7 +94,7 @@ const AdminGallery = () => {
     
     // Validate file is selected
     if (!file) {
-      setUploadError('Please select an image file to upload');
+      setUploadError('Please select a media file to upload');
       return;
     }
     
@@ -91,10 +109,10 @@ const AdminGallery = () => {
 
       if (editing) {
         await api.put(`/gallery/${editing._id}`, formData);
-        setUploadSuccess('Image updated successfully!');
+        setUploadSuccess('Media updated successfully!');
       } else {
         await api.post('/gallery', formData);
-        setUploadSuccess('Image uploaded successfully!');
+        setUploadSuccess('Media uploaded successfully!');
       }
 
       setShowForm(false);
@@ -128,7 +146,7 @@ const AdminGallery = () => {
     setEditing(item);
     setForm({ title: item.title, category: item.category, description: item.description || '' });
     setFile(null);
-    setPreview(item.imageUrl || null);
+    setPreview(getPreviewState(item.imageUrl, item.type));
     setShowForm(true);
     setUploadError('');
   };
@@ -292,7 +310,7 @@ const AdminGallery = () => {
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/30 backdrop-blur-sm" onClick={() => { setShowForm(false); setEditing(null); setFile(null); setPreview(null); }}>
                 <motion.div initial={{ opacity: 0, scale: 0.95, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.95, y: 20 }} className="bg-white rounded-2xl shadow-xl w-full max-w-lg max-h-[90vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
                   <div className="p-6 border-b border-gray-100 flex items-center justify-between">
-                    <h3 className="text-lg font-semibold text-gray-900">{editing ? 'Edit Image' : 'Add Gallery Image'}</h3>
+                    <h3 className="text-lg font-semibold text-gray-900">{editing ? 'Edit Media' : 'Add Gallery Media'}</h3>
                     <button onClick={() => { setShowForm(false); setEditing(null); setFile(null); setPreview(null); }} className="text-gray-400 hover:text-gray-600 transition-colors"><FaTimesCircle className="text-xl" /></button>
                   </div>
                   <form onSubmit={handleSubmit} className="p-6 space-y-5">
@@ -321,21 +339,25 @@ const AdminGallery = () => {
                       <textarea value={form.description} onChange={e => setForm({...form, description: e.target.value})} rows={3} placeholder="Brief description..." className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-300 text-sm resize-none" />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1.5">Image *</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-1.5">Media *</label>
                       <div className="border-2 border-dashed border-gray-200 rounded-xl p-6 text-center hover:border-gray-400 transition-colors cursor-pointer" onClick={() => document.getElementById('gallery-image-input')?.click()}>
                         <FaImages className="text-2xl text-gray-300 mx-auto mb-2" />
                         <p className="text-sm text-gray-500">Click to upload or drag and drop</p>
-                        <p className="text-xs text-gray-400 mt-1">PNG, JPG, WebP up to 10MB</p>
-                        <input id="gallery-image-input" type="file" accept="image/*" onChange={e => setFile(e.target.files?.[0] || null)} className="hidden" />
+                        <p className="text-xs text-gray-400 mt-1">Images and videos up to 50MB</p>
+                        <input id="gallery-image-input" type="file" accept="image/*,video/*" onChange={e => setFile(e.target.files?.[0] || null)} className="hidden" />
                       </div>
                       {preview && (
                         <div className="mt-3 rounded-xl overflow-hidden border border-gray-200">
-                          <img src={preview} alt="Preview" className="w-full h-52 object-cover" />
+                          {preview.type === 'video' ? (
+                            <video src={preview.url} muted playsInline loop autoPlay className="w-full h-52 object-cover" />
+                          ) : (
+                            <img src={preview.url} alt="Preview" className="w-full h-52 object-cover" />
+                          )}
                         </div>
                       )}
                     </div>
                     <div className="flex gap-3 pt-2">
-                      <button type="submit" className="flex-1 px-6 py-2.5 bg-gray-900 text-white rounded-xl hover:bg-gray-800 transition-all duration-200 text-sm font-medium shadow-sm">{editing ? 'Update Image' : 'Upload Image'}</button>
+                      <button type="submit" className="flex-1 px-6 py-2.5 bg-gray-900 text-white rounded-xl hover:bg-gray-800 transition-all duration-200 text-sm font-medium shadow-sm">{editing ? 'Update Media' : 'Upload Media'}</button>
                       <button type="button" onClick={() => { setShowForm(false); setEditing(null); setFile(null); setPreview(null); }} className="px-6 py-2.5 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-all duration-200 text-sm font-medium">Cancel</button>
                     </div>
                   </form>
@@ -394,7 +416,11 @@ const AdminGallery = () => {
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md" onClick={() => setSelectedImage(null)}>
                 <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} className="relative max-w-4xl w-full max-h-[90vh]" onClick={e => e.stopPropagation()}>
                   <button onClick={() => setSelectedImage(null)} className="absolute -top-3 -right-3 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-600 hover:text-gray-900 z-10 transition-colors"><FaTimes /></button>
-                  <img src={normalizeImageUrl(selectedImage.imageUrl)} alt={selectedImage.title} className="w-full max-h-[80vh] object-contain rounded-2xl shadow-2xl" />
+                  {isVideoMedia(selectedImage) ? (
+                    <video src={normalizeImageUrl(selectedImage.imageUrl)} muted playsInline loop autoPlay className="w-full max-h-[80vh] object-contain rounded-2xl shadow-2xl bg-black" />
+                  ) : (
+                    <img src={normalizeImageUrl(selectedImage.imageUrl)} alt={selectedImage.title} className="w-full max-h-[80vh] object-contain rounded-2xl shadow-2xl" />
+                  )}
                   <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent rounded-b-2xl">
                     <h3 className="text-white font-semibold">{selectedImage.title}</h3>
                     <p className="text-white/70 text-sm">{selectedImage.category}{selectedImage.description ? ` — ${selectedImage.description}` : ''}</p>
@@ -461,6 +487,7 @@ const AdminGallery = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
               {filtered.map((item, index) => {
                 const imageSrc = normalizeImageUrl(item.imageUrl);
+                const isVideoItem = isVideoMedia(item);
                 return (
                   <motion.div
                     key={item._id}
@@ -487,7 +514,11 @@ const AdminGallery = () => {
                         </button>
                       </div>
                       {imageSrc ? (
-                        <img src={imageSrc} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                        isVideoItem ? (
+                          <video src={imageSrc} muted playsInline loop preload="metadata" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                        ) : (
+                          <img src={imageSrc} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                        )
                       ) : (
                         <div className="h-full flex items-center justify-center text-gray-300">
                           <FaImages className="text-5xl" />
