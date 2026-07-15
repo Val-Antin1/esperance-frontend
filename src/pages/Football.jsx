@@ -6,12 +6,14 @@ import SectionTitle from '../components/common/SectionTitle';
 import StudentCard from '../components/cards/StudentCard';
 import GalleryCard from '../components/cards/GalleryCard';
 import api from '../services/api';
-import { ageGroups, students } from '../data/sampleData';
+import { ageGroups } from '../data/sampleData';
 import { FaCheckCircle } from 'react-icons/fa';
 
 const Football = () => {
   const { t } = useTranslation();
   const [galleryImages, setGalleryImages] = useState([]);
+  const [students, setStudents] = useState([]);
+  const [loadingStudents, setLoadingStudents] = useState(true);
 
   useEffect(() => {
     const fetchGallery = async () => {
@@ -23,6 +25,20 @@ const Football = () => {
       }
     };
     fetchGallery();
+  }, []);
+
+  useEffect(() => {
+    const fetchStudents = async () => {
+      try {
+        const { data } = await api.get('/students?limit=100');
+        if (data.success) setStudents(data.data.students);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoadingStudents(false);
+      }
+    };
+    fetchStudents();
   }, []);
 
   const footballGallery = galleryImages.filter(img => img.category === 'Football');
@@ -117,10 +133,19 @@ const Football = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle title={t('football.students.title')} subtitle={t('football.students.subtitle')} />
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            {students.football.map((student, index) => (
-              <StudentCard key={student.id} student={student} index={index} />
-            ))}
+            {loadingStudents ? (
+              Array.from({ length: 4 }).map((_, index) => (
+                <div key={index} className="h-64 rounded-xl bg-gray-100 animate-pulse" />
+              ))
+            ) : (
+              students.filter(student => student.sport === 'Football').map((student, index) => (
+                <StudentCard key={student._id} student={student} index={index} />
+              ))
+            )}
           </div>
+          {!loadingStudents && students.filter(student => student.sport === 'Football').length === 0 && (
+            <p className="mt-6 text-center text-gray-500">No football players are available yet.</p>
+          )}
         </div>
       </section>
 

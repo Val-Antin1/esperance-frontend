@@ -14,6 +14,7 @@ import News from '../pages/News';
 import Contact from '../pages/Contact';
 import AdminLogin from '../pages/AdminLogin';
 import AdminDashboard from '../pages/admin/AdminDashboard';
+import AdminStudents from '../pages/admin/AdminStudents';
 import AdminStaff from '../pages/admin/AdminStaff';
 import AdminGallery from '../pages/admin/AdminGallery';
 import AdminNews from '../pages/admin/AdminNews';
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <AdminLogin /> },
       { path: 'dashboard', element: <AdminDashboard /> },
+      { path: 'students', element: <AdminStudents /> },
       { path: 'staff', element: <AdminStaff /> },
       { path: 'gallery', element: <AdminGallery /> },
       { path: 'news', element: <AdminNews /> },

@@ -6,11 +6,12 @@ import SectionTitle from '../components/common/SectionTitle';
 import StudentCard from '../components/cards/StudentCard';
 import GalleryCard from '../components/cards/GalleryCard';
 import api from '../services/api';
-import { students } from '../data/sampleData';
 
 const Basketball = () => {
   const { t } = useTranslation();
   const [galleryImages, setGalleryImages] = useState([]);
+  const [students, setStudents] = useState([]);
+  const [loadingStudents, setLoadingStudents] = useState(true);
 
   useEffect(() => {
     const fetchGallery = async () => {
@@ -22,6 +23,20 @@ const Basketball = () => {
       }
     };
     fetchGallery();
+  }, []);
+
+  useEffect(() => {
+    const fetchStudents = async () => {
+      try {
+        const { data } = await api.get('/students?limit=100');
+        if (data.success) setStudents(data.data.students);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoadingStudents(false);
+      }
+    };
+    fetchStudents();
   }, []);
 
   const gallery = galleryImages.filter(img => img.category === 'Basketball');
@@ -69,8 +84,19 @@ const Basketball = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle title={t('basketball.students.title')} subtitle={t('basketball.students.subtitle')} />
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            {students.basketball.map((student, index) => (<StudentCard key={student.id} student={student} index={index} />))}
+            {loadingStudents ? (
+              Array.from({ length: 4 }).map((_, index) => (
+                <div key={index} className="h-64 rounded-xl bg-gray-100 animate-pulse" />
+              ))
+            ) : (
+              students.filter(student => student.sport === 'Basketball').map((student, index) => (
+                <StudentCard key={student._id} student={student} index={index} />
+              ))
+            )}
           </div>
+          {!loadingStudents && students.filter(student => student.sport === 'Basketball').length === 0 && (
+            <p className="mt-6 text-center text-gray-500">No basketball players are available yet.</p>
+          )}
         </div>
       </section>
       <section className="py-20 bg-white">

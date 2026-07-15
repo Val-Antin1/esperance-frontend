@@ -8,6 +8,7 @@ import { normalizeImageUrl } from '../../utils/imageUrl';
 
 const navItems = [
   { label: 'Dashboard', path: '/admin/dashboard', icon: FaTachometerAlt },
+  { label: 'Students', path: '/admin/students', icon: FaUserGraduate },
   { label: 'Staff', path: '/admin/staff', icon: FaUserTie },
   { label: 'Gallery', path: '/admin/gallery', icon: FaImages },
   { label: 'News', path: '/admin/news', icon: FaNewspaper },

@@ -4,6 +4,8 @@ import { FaUserGraduate } from 'react-icons/fa';
 
 const StudentCard = ({ student, index = 0 }) => {
   const { t } = useTranslation();
+  const hasPhoto = Boolean(student.profilePhoto);
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
@@ -13,8 +15,16 @@ const StudentCard = ({ student, index = 0 }) => {
       whileHover={{ y: -5 }}
       className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 p-6 text-center border border-gray-100"
     >
-      <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-        <FaUserGraduate className="text-3xl text-primary" />
+      <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 overflow-hidden">
+        {hasPhoto ? (
+          <img
+            src={student.profilePhoto}
+            alt={student.name}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <FaUserGraduate className="text-3xl text-primary" />
+        )}
       </div>
       <h3 className="text-lg font-bold text-primary">{student.name}</h3>
       <p className="text-accent font-medium text-sm mt-1">{student.position}</p>
