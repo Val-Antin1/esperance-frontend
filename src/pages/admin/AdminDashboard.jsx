@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaUserTie, FaImages, FaNewspaper, FaSignOutAlt, FaBars, FaTimes, FaTachometerAlt, FaCog, FaEye, FaClock, FaArrowUp } from 'react-icons/fa';
+import { FaUserTie, FaImages, FaNewspaper, FaSignOutAlt, FaBars, FaTimes, FaTachometerAlt, FaCog, FaEye, FaClock, FaArrowUp, FaUserGraduate } from 'react-icons/fa';
 import Seo from '../../components/common/Seo';
 import api from '../../services/api';
 
