@@ -86,11 +86,17 @@ const AdminStudents = () => {
     setIsSubmitting(true);
     try {
       const formData = new FormData();
-      formData.append('name', form.name);
-      formData.append('position', form.position);
-      formData.append('age', form.age);
-      formData.append('gender', form.gender);
-      formData.append('sport', form.sport);
+      const appendIfValue = (key, value) => {
+        if (value !== undefined && value !== null && value !== '') {
+          formData.append(key, value);
+        }
+      };
+
+      appendIfValue('name', form.name);
+      appendIfValue('position', form.position);
+      appendIfValue('age', form.age);
+      appendIfValue('gender', form.gender);
+      appendIfValue('sport', form.sport);
       if (photoFile) formData.append('profilePhoto', photoFile);
 
       if (editing) {
@@ -104,7 +110,13 @@ const AdminStudents = () => {
       fetchStudents();
     } catch (err) {
       console.error('Error saving student:', err);
-      alert(err.response?.data?.message || 'Failed to save student');
+      const apiMessage = err.response?.data?.message;
+      const validationErrors = err.response?.data?.data?.errors;
+      if (validationErrors && Array.isArray(validationErrors)) {
+        alert(validationErrors.map((item) => item.msg).join('\n')); 
+      } else {
+        alert(apiMessage || 'Failed to save student');
+      }
     } finally {
       setIsSubmitting(false);
     }
