@@ -140,7 +140,7 @@ const Home = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-12">
             {stats.map((stat, index) => (
               <motion.div
-                key={stat.label}
+                key={stat.labelKey || stat.label}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -148,7 +148,7 @@ const Home = () => {
                 className="text-center"
               >
                 <Counter end={stat.value} suffix={stat.suffix} />
-                <p className="text-gray-300 mt-2 font-medium">{stat.label}</p>
+                <p className="text-gray-300 mt-2 font-medium">{t(stat.labelKey || stat.label)}</p>
               </motion.div>
             ))}
           </div>
