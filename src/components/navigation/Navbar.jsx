@@ -72,8 +72,8 @@ const Navbar = () => {
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-8 px-4 sm:px-6 lg:px-8 py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-4 flex-shrink-0">
-            <div className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-lg bg-gray-100">
-              <img src="/logo.PNG" alt="Esperance FC Academy" className="h-12 w-auto object-contain" />
+            <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-lg bg-gray-100">
+              <img src="/logo.PNG" alt="Esperance FC Academy" className="h-16 w-auto object-contain" />
             </div>
           </Link>
 

@@ -82,7 +82,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className="pt-32">
       <Seo path="/" />
       {/* Hero Carousel */}
       <HeroCarousel />
