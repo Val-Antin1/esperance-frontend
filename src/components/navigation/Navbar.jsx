@@ -131,13 +131,13 @@ const Navbar = () => {
           <div className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.25em] text-gray-300 sm:text-[11px]">
             <span className="hidden sm:inline">Reach out to us</span>
             <a href={contactInfo.social.facebook || '#'} target="_blank" rel="noreferrer" className="transition-colors hover:text-accent" aria-label="Facebook">
-              <Facebook size={14} />
+              <FaFacebookF size={14} />
             </a>
             <a href={contactInfo.social.instagram || '#'} target="_blank" rel="noreferrer" className="transition-colors hover:text-accent" aria-label="Instagram">
-              <Instagram size={14} />
+              <FaInstagram size={14} />
             </a>
             <a href={contactInfo.social.youtube || '#'} target="_blank" rel="noreferrer" className="transition-colors hover:text-accent" aria-label="YouTube">
-              <Youtube size={14} />
+              <FaYoutube size={14} />
             </a>
           </div>
 
@@ -319,13 +319,13 @@ const Navbar = () => {
 
           <div className="flex items-center justify-center gap-3">
             <a href={contactInfo.social.facebook || '#'} target="_blank" rel="noreferrer" className="rounded-full p-3 text-gray-700 transition-colors hover:bg-gray-100 hover:text-accent" aria-label="Facebook">
-              <Facebook size={18} />
+              <FaFacebookF size={18} />
             </a>
             <a href={contactInfo.social.instagram || '#'} target="_blank" rel="noreferrer" className="rounded-full p-3 text-gray-700 transition-colors hover:bg-gray-100 hover:text-accent" aria-label="Instagram">
-              <Instagram size={18} />
+              <FaInstagram size={18} />
             </a>
             <a href={contactInfo.social.youtube || '#'} target="_blank" rel="noreferrer" className="rounded-full p-3 text-gray-700 transition-colors hover:bg-gray-100 hover:text-accent" aria-label="YouTube">
-              <Youtube size={18} />
+              <FaYoutube size={18} />
             </a>
           </div>
         </div>
