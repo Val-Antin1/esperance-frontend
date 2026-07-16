@@ -24,7 +24,7 @@ const sportLinks = [
 const Footer = () => {
   const { t } = useTranslation();
   return (
-    <footer className="bg-white">
+    <footer className="bg-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
@@ -39,25 +39,25 @@ const Footer = () => {
                 <img src="/logo.PNG" alt="Esperance FC Academy" className="h-20 w-auto object-contain" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-gray-800">Esperance FC Academy</h3>
-                <p className="text-gray-500 text-sm">{t('footer.tagline')}</p>
+                <h3 className="text-xl font-bold text-white">Esperance FC Academy</h3>
+                <p className="text-gray-300 text-sm">{t('footer.tagline')}</p>
               </div>
             </div>
-            <p className="text-gray-600 text-sm leading-relaxed">
+            <p className="text-gray-300 text-sm leading-relaxed">
               {t('footer.description')}
             </p>
             {/* Social Icons */}
             <div className="flex space-x-3 mt-6">
-              <a href={contactInfo.social.facebook} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-100 text-gray-600 hover:bg-accent hover:text-white rounded-full flex items-center justify-center transition-colors">
+              <a href={contactInfo.social.facebook} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 text-gray-200 hover:bg-accent hover:text-white rounded-full flex items-center justify-center transition-colors">
                 <FaFacebook className="text-lg" />
               </a>
-              <a href={contactInfo.social.instagram} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-100 text-gray-600 hover:bg-accent hover:text-white rounded-full flex items-center justify-center transition-colors">
+              <a href={contactInfo.social.instagram} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 text-gray-200 hover:bg-accent hover:text-white rounded-full flex items-center justify-center transition-colors">
                 <FaInstagram className="text-lg" />
               </a>
-              <a href={contactInfo.social.youtube} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-100 text-gray-600 hover:bg-accent hover:text-white rounded-full flex items-center justify-center transition-colors">
+              <a href={contactInfo.social.youtube} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 text-gray-200 hover:bg-accent hover:text-white rounded-full flex items-center justify-center transition-colors">
                 <FaYoutube className="text-lg" />
               </a>
-              <a href={contactInfo.social.whatsapp} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-100 text-gray-600 hover:bg-accent hover:text-white rounded-full flex items-center justify-center transition-colors">
+              <a href={contactInfo.social.whatsapp} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 text-gray-200 hover:bg-accent hover:text-white rounded-full flex items-center justify-center transition-colors">
                 <FaWhatsapp className="text-lg" />
               </a>
             </div>
@@ -70,13 +70,13 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h4 className="text-lg font-semibold text-gray-800 mb-6 relative after:absolute after:-bottom-2 after:left-0 after:w-10 after:h-0.5 after:bg-accent">
+            <h4 className="text-lg font-semibold text-white mb-6 relative after:absolute after:-bottom-2 after:left-0 after:w-10 after:h-0.5 after:bg-accent">
               {t('footer.quickLinks')}
             </h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.path}>
-                  <Link to={link.path} className="text-gray-600 hover:text-accent transition-colors text-sm">
+                  <Link to={link.path} className="text-gray-300 hover:text-accent transition-colors text-sm">
                     {t(link.labelKey)}
                   </Link>
                 </li>
@@ -91,13 +91,13 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h4 className="text-lg font-semibold text-gray-800 mb-6 relative after:absolute after:-bottom-2 after:left-0 after:w-10 after:h-0.5 after:bg-accent">
+            <h4 className="text-lg font-semibold text-white mb-6 relative after:absolute after:-bottom-2 after:left-0 after:w-10 after:h-0.5 after:bg-accent">
               {t('footer.sports')}
             </h4>
             <ul className="space-y-3">
               {sportLinks.map((link) => (
                 <li key={link.path}>
-                  <Link to={link.path} className="text-gray-600 hover:text-accent transition-colors text-sm">
+                  <Link to={link.path} className="text-gray-300 hover:text-accent transition-colors text-sm">
                     {link.label}
                   </Link>
                 </li>
@@ -112,21 +112,21 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <h4 className="text-lg font-semibold text-gray-800 mb-6 relative after:absolute after:-bottom-2 after:left-0 after:w-10 after:h-0.5 after:bg-accent">
+            <h4 className="text-lg font-semibold text-white mb-6 relative after:absolute after:-bottom-2 after:left-0 after:w-10 after:h-0.5 after:bg-accent">
               {t('contact.form.name')}
             </h4>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start space-x-2">
                 <FaMapMarkerAlt className="text-accent mt-1" />
-                <span className="text-gray-600">{contactInfo.address}</span>
+                <span className="text-gray-300">{contactInfo.address}</span>
               </li>
               <li className="flex items-center space-x-2">
                 <FaPhoneAlt className="text-accent" />
-                <a href={`tel:${contactInfo.phone}`} className="text-gray-600 hover:text-accent transition-colors">{contactInfo.phone}</a>
+                <a href={`tel:${contactInfo.phone}`} className="text-gray-300 hover:text-accent transition-colors">{contactInfo.phone}</a>
               </li>
               <li className="flex items-center space-x-2">
                 <FaEnvelope className="text-accent" />
-                <a href={`mailto:${contactInfo.email}`} className="text-gray-600 hover:text-accent transition-colors">{contactInfo.email}</a>
+                <a href={`mailto:${contactInfo.email}`} className="text-gray-300 hover:text-accent transition-colors">{contactInfo.email}</a>
               </li>
             </ul>
           </motion.div>
@@ -134,12 +134,12 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-200">
+      <div className="border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-400 text-sm">
             &copy; {new Date().getFullYear()} Esperance FC Academy. {t('footer.allRightsReserved')}
           </p>
-          <div className="flex space-x-4 text-sm text-gray-500 items-center">
+          <div className="flex space-x-4 text-sm text-gray-400 items-center">
             <Link to="/admin" className="hover:text-accent transition-colors">{t('admin.login.title')}</Link>
             <span>{t('footer.privacy')}</span>
             <span>{t('footer.terms')}</span>
