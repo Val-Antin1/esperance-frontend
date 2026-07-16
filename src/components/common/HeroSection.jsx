@@ -213,7 +213,7 @@ const HeroSection = () => {
       />
 
       {/* Content */}
-      <div className="relative h-full flex items-center justify-center">
+      <div className="relative h-full flex items-center justify-center lg:justify-start lg:pt-24 xl:pt-28">
         <AnimatePresence mode="wait">
           <SlideContent key={current} slide={slides[current]} isActive />
         </AnimatePresence>
