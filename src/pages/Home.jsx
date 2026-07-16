@@ -250,39 +250,45 @@ const Home = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-center p-6 bg-gray-50 rounded-xl border border-gray-100 shadow-sm"
+              className="group relative text-center p-6 bg-gray-50 rounded-xl border border-gray-100 shadow-sm hover:shadow-[0_20px_60px_rgba(17,17,17,0.06)] transition-all duration-500"
             >
-              <div className="w-14 h-14 rounded-lg bg-white flex items-center justify-center mx-auto mb-4 shadow-sm">
+              <div className="absolute top-0 left-6 right-6 h-1 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left bg-primary" />
+              <div className="w-14 h-14 rounded-lg bg-white flex items-center justify-center mx-auto mb-4 shadow-sm transition-all duration-500 group-hover:scale-110">
                 <FaPhone className="text-xl text-primary" />
               </div>
               <h3 className="text-gray-900 font-semibold mb-2">{t('home.contactPreview.phone')}</h3>
               <a href={`tel:${contactInfo.phone}`} className="text-gray-600 hover:text-accent transition-colors">{contactInfo.phone}</a>
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 rounded-b-2xl scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left bg-primary/30" />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-center p-6 bg-gray-50 rounded-xl border border-gray-100 shadow-sm"
+              className="group relative text-center p-6 bg-gray-50 rounded-xl border border-gray-100 shadow-sm hover:shadow-[0_20px_60px_rgba(17,17,17,0.06)] transition-all duration-500"
             >
-              <div className="w-14 h-14 rounded-lg bg-white flex items-center justify-center mx-auto mb-4 shadow-sm">
+              <div className="absolute top-0 left-6 right-6 h-1 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left bg-primary" />
+              <div className="w-14 h-14 rounded-lg bg-white flex items-center justify-center mx-auto mb-4 shadow-sm transition-all duration-500 group-hover:scale-110">
                 <FaEnvelope className="text-xl text-primary" />
               </div>
               <h3 className="text-gray-900 font-semibold mb-2">{t('home.contactPreview.email')}</h3>
               <a href={`mailto:${contactInfo.email}`} className="text-gray-600 hover:text-accent transition-colors">{contactInfo.email}</a>
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 rounded-b-2xl scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left bg-primary/30" />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-center p-6 bg-gray-50 rounded-xl border border-gray-100 shadow-sm"
+              className="group relative text-center p-6 bg-gray-50 rounded-xl border border-gray-100 shadow-sm hover:shadow-[0_20px_60px_rgba(17,17,17,0.06)] transition-all duration-500"
             >
-              <div className="w-14 h-14 rounded-lg bg-white flex items-center justify-center mx-auto mb-4 shadow-sm">
+              <div className="absolute top-0 left-6 right-6 h-1 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left bg-primary" />
+              <div className="w-14 h-14 rounded-lg bg-white flex items-center justify-center mx-auto mb-4 shadow-sm transition-all duration-500 group-hover:scale-110">
                 <FaMapMarkerAlt className="text-xl text-primary" />
               </div>
               <h3 className="text-gray-900 font-semibold mb-2">{t('home.contactPreview.address')}</h3>
               <p className="text-gray-600">{contactInfo.address}</p>
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 rounded-b-2xl scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left bg-primary/30" />
             </motion.div>
           </div>
         </div>
