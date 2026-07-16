@@ -206,10 +206,15 @@ const Navbar = () => {
             <div className="px-4 py-4 space-y-2">
               <a
                 href={`tel:${phoneNumber}`}
-                className="flex items-center justify-between rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100"
+                className="flex items-center gap-3 rounded-full border border-gray-200 bg-gray-50 px-3 py-2 text-left transition-colors hover:bg-gray-100"
               >
-                <span>Call Us Now</span>
-                <HiPhone className="text-primary" size={16} />
+                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-white">
+                  <HiPhone size={16} />
+                </div>
+                <div className="leading-tight">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-500">Call Us Now</p>
+                  <p className="text-sm font-semibold text-gray-900">{phoneNumber}</p>
+                </div>
               </a>
 
               {navLinks.map((link) => (
