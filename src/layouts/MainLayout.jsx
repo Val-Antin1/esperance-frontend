@@ -30,7 +30,7 @@ const MainLayout = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <main className="pt-32 sm:pt-36 lg:pt-40">
+      <main className="pt-36 sm:pt-40 lg:pt-44">
         <Outlet />
       </main>
       <Footer />
