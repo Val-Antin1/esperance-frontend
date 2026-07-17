@@ -10,7 +10,7 @@ const generateVisitorId = () => {
 };
 
 // Get or create visitor ID
-const getVisitorId = () => {
+export const getVisitorId = () => {
   let visitorId = localStorage.getItem(VISITOR_ID_KEY);
   if (!visitorId) {
     visitorId = generateVisitorId();
