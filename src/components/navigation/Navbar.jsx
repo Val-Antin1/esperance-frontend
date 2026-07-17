@@ -122,7 +122,7 @@ const Navbar = () => {
                           to={link.path}
                           className={({ isActive }) =>
                             `block rounded-lg px-4 py-2 text-sm font-medium transition duration-200 ${
-                              isActive ? 'bg-yellow-500 text-white' : 'text-gray-700 hover:bg-gray-100'
+                              isActive ? 'bg-black text-white' : 'text-gray-700 hover:bg-gray-100'
                             }`
                           }
                         >
