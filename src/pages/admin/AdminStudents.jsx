@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaUserGraduate, FaPlus, FaEdit, FaTrash, FaSearch, FaSignOutAlt, FaBars, FaTimes, FaTachometerAlt, FaCog, FaImages, FaNewspaper, FaTimesCircle, FaSpinner, FaEye } from 'react-icons/fa';
 import Seo from '../../components/common/Seo';
@@ -7,6 +7,7 @@ import api from '../../services/api';
 
 const navItems = [
   { label: 'Dashboard', path: '/admin/dashboard', icon: FaTachometerAlt },
+  { label: 'Analytics', path: '/admin/analytics', icon: FaEye },
   { label: 'Students', path: '/admin/students', icon: FaUserGraduate },
   { label: 'Staff', path: '/admin/staff', icon: FaCog },
   { label: 'Gallery', path: '/admin/gallery', icon: FaImages },
@@ -17,6 +18,7 @@ const sports = ['Football', "Women's Football", 'Basketball', 'Volleyball', 'Tab
 
 const AdminStudents = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [user, setUser] = useState(null);
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -197,7 +199,11 @@ const AdminStudents = () => {
               key={item.path}
               to={item.path}
               onClick={() => setSidebarOpen(false)}
-              className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${item.path === '/admin/students' ? 'bg-gray-100 text-gray-900' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100'}`}
+              className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${
+                location.pathname === item.path
+                  ? 'bg-yellow-50 text-yellow-700'
+                  : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100'
+              }`}
             >
               <item.icon className="text-lg" />
               <span className="text-sm font-medium">{item.label}</span>

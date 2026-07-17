@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaNewspaper, FaPlus, FaEdit, FaTrash, FaSearch, FaSignOutAlt, FaBars, FaTimes, FaTachometerAlt, FaCog, FaUserTie, FaImages, FaCheck, FaTimesCircle, FaCalendarAlt, FaTag, FaEye, FaSpinner, FaUserGraduate } from 'react-icons/fa';
 import Seo from '../../components/common/Seo';
@@ -8,6 +8,7 @@ import { normalizeImageUrl } from '../../utils/imageUrl';
 
 const navItems = [
   { label: 'Dashboard', path: '/admin/dashboard', icon: FaTachometerAlt },
+  { label: 'Analytics', path: '/admin/analytics', icon: FaEye },
   { label: 'Students', path: '/admin/students', icon: FaUserGraduate },
   { label: 'Staff', path: '/admin/staff', icon: FaUserTie },
   { label: 'Gallery', path: '/admin/gallery', icon: FaImages },
@@ -16,6 +17,7 @@ const navItems = [
 
 const AdminNews = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [user, setUser] = useState(null);
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -140,7 +142,7 @@ const AdminNews = () => {
             </div>
           </div>}
         </div>
-        <nav className="p-4 space-y-1 flex-1 overflow-y-auto">{navItems.map(item => (<Link key={item.path} to={item.path} onClick={() => setSidebarOpen(false)} className="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-500 hover:text-gray-900 hover:bg-gray-100 transition-all duration-200 group"><item.icon className="text-lg transition-transform group-hover:scale-110" /><span className="text-sm font-medium">{item.label}</span></Link>))}</nav>
+        <nav className="p-4 space-y-1 flex-1 overflow-y-auto">{navItems.map(item => (<Link key={item.path} to={item.path} onClick={() => setSidebarOpen(false)} className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${location.pathname === item.path ? 'bg-yellow-50 text-yellow-700' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100'}`}><item.icon className="text-lg transition-transform group-hover:scale-110" /><span className="text-sm font-medium">{item.label}</span></Link>))}</nav>
         <div className="p-4 border-t border-gray-100 bg-white/50 flex-shrink-0"><button onClick={logout} className="flex items-center gap-3 px-4 py-3 w-full rounded-xl text-red-500 hover:text-red-700 hover:bg-red-50 transition-all duration-200 group"><FaSignOutAlt className="transition-transform group-hover:scale-110" /><span className="text-sm font-medium">Sign Out</span></button></div>
       </aside>
       <div className="flex-1 min-w-0 lg:ml-64">

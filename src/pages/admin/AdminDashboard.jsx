@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaUserTie, FaImages, FaNewspaper, FaSignOutAlt, FaBars, FaTimes, FaTachometerAlt, FaCog, FaEye, FaClock, FaArrowUp, FaUserGraduate } from 'react-icons/fa';
 import Seo from '../../components/common/Seo';
@@ -7,6 +7,7 @@ import api from '../../services/api';
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [user, setUser] = useState(null);
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -121,7 +122,11 @@ const AdminDashboard = () => {
               key={item.path}
               to={item.path}
               onClick={() => setSidebarOpen(false)}
-              className="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-500 hover:text-gray-900 hover:bg-gray-100 transition-all duration-200 group"
+              className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${
+                location.pathname === item.path
+                  ? 'bg-yellow-50 text-yellow-700'
+                  : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100'
+              }`}
             >
               <item.icon className="text-lg transition-transform group-hover:scale-110" />
               <span className="text-sm font-medium">{item.label}</span>
