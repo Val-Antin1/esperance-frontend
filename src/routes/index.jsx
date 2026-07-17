@@ -18,6 +18,7 @@ import AdminStudents from '../pages/admin/AdminStudents';
 import AdminStaff from '../pages/admin/AdminStaff';
 import AdminGallery from '../pages/admin/AdminGallery';
 import AdminNews from '../pages/admin/AdminNews';
+import Analytics from '../pages/admin/Analytics';
 import NotFound from '../pages/NotFound';
 
 const router = createBrowserRouter([
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <AdminLogin /> },
       { path: 'dashboard', element: <AdminDashboard /> },
+      { path: 'analytics', element: <Analytics /> },
       { path: 'students', element: <AdminStudents /> },
       { path: 'staff', element: <AdminStaff /> },
       { path: 'gallery', element: <AdminGallery /> },

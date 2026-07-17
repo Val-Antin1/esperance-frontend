@@ -4,12 +4,15 @@ import Navbar from '../components/navigation/Navbar';
 import Footer from '../components/common/Footer';
 import WhatsAppButton from '../components/common/WhatsAppButton';
 import api from '../services/api';
+import { recordVisit, resetSession } from '../services/analyticsTracker';
 
 const MainLayout = () => {
   const location = useLocation();
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    // Record visit on page change
+    recordVisit(location.pathname);
   }, [location.pathname]);
 
   useEffect(() => {
